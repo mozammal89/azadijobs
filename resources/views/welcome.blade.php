@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel Ajadi Jobs
                 </div>
 
                 <div class="links">
