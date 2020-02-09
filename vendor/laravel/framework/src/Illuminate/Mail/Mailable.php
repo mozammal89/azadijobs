@@ -2,19 +2,19 @@
 
 namespace Illuminate\Mail;
 
-use Illuminate\Container\Container;
-use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
-use Illuminate\Contracts\Mail\Mailable as MailableContract;
-use Illuminate\Contracts\Mail\Mailer as MailerContract;
-use Illuminate\Contracts\Queue\Factory as Queue;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Collection;
-use Illuminate\Support\HtmlString;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\ForwardsCalls;
-use Illuminate\Support\Traits\Localizable;
 use ReflectionClass;
 use ReflectionProperty;
+use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
+use Illuminate\Support\HtmlString;
+use Illuminate\Container\Container;
+use Illuminate\Support\Traits\Localizable;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Traits\ForwardsCalls;
+use Illuminate\Contracts\Queue\Factory as Queue;
+use Illuminate\Contracts\Mail\Mailer as MailerContract;
+use Illuminate\Contracts\Mail\Mailable as MailableContract;
+use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 
 class Mailable implements MailableContract, Renderable
 {
@@ -202,7 +202,7 @@ class Mailable implements MailableContract, Renderable
     /**
      * Render the mailable into a view.
      *
-     * @return string
+     * @return \Illuminate\View\View
      *
      * @throws \ReflectionException
      */
@@ -724,7 +724,7 @@ class Mailable implements MailableContract, Renderable
      * Set the view data for the message.
      *
      * @param  string|array  $key
-     * @param  mixed  $value
+     * @param  mixed   $value
      * @return $this
      */
     public function with($key, $value = null)
@@ -747,10 +747,7 @@ class Mailable implements MailableContract, Renderable
      */
     public function attach($file, array $options = [])
     {
-        $this->attachments = collect($this->attachments)
-                    ->push(compact('file', 'options'))
-                    ->unique('file')
-                    ->all();
+        $this->attachments[] = compact('file', 'options');
 
         return $this;
     }
@@ -779,14 +776,12 @@ class Mailable implements MailableContract, Renderable
      */
     public function attachFromStorageDisk($disk, $path, $name = null, array $options = [])
     {
-        $this->diskAttachments = collect($this->diskAttachments)->push([
+        $this->diskAttachments[] = [
             'disk' => $disk,
             'path' => $path,
             'name' => $name ?? basename($path),
             'options' => $options,
-        ])->unique(function ($file) {
-            return $file['disk'].$file['path'];
-        })->all();
+        ];
 
         return $this;
     }
@@ -801,10 +796,7 @@ class Mailable implements MailableContract, Renderable
      */
     public function attachData($data, $name, array $options = [])
     {
-        $this->rawAttachments = collect($this->rawAttachments)
-                ->push(compact('data', 'name', 'options'))
-                ->unique('data')
-                ->all();
+        $this->rawAttachments[] = compact('data', 'name', 'options');
 
         return $this;
     }
@@ -837,7 +829,7 @@ class Mailable implements MailableContract, Renderable
      * Dynamically bind parameters to the message.
      *
      * @param  string  $method
-     * @param  array  $parameters
+     * @param  array   $parameters
      * @return $this
      *
      * @throws \BadMethodCallException

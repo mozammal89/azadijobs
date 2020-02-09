@@ -5,20 +5,18 @@ namespace Illuminate\Redis\Connections;
 use Closure;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Redis\Events\CommandExecuted;
-use Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder;
 use Illuminate\Redis\Limiters\DurationLimiterBuilder;
-use Illuminate\Support\Traits\Macroable;
+use Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder;
 
+/**
+ * @mixin \Predis\Client
+ */
 abstract class Connection
 {
-    use Macroable {
-        __call as macroCall;
-    }
-
     /**
-     * The Redis client.
+     * The Predis client.
      *
-     * @var \Redis
+     * @var \Predis\Client
      */
     protected $client;
 
@@ -106,7 +104,7 @@ abstract class Connection
      * Run a command against the Redis database.
      *
      * @param  string  $method
-     * @param  array  $parameters
+     * @param  array   $parameters
      * @return mixed
      */
     public function command($method, array $parameters = [])
@@ -213,10 +211,6 @@ abstract class Connection
      */
     public function __call($method, $parameters)
     {
-        if (static::hasMacro($method)) {
-            return $this->macroCall($method, $parameters);
-        }
-
         return $this->command($method, $parameters);
     }
 }

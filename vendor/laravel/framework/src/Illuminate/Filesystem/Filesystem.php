@@ -4,9 +4,9 @@ namespace Illuminate\Filesystem;
 
 use ErrorException;
 use FilesystemIterator;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Support\Traits\Macroable;
 use Symfony\Component\Finder\Finder;
+use Illuminate\Support\Traits\Macroable;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class Filesystem
 {
@@ -21,17 +21,6 @@ class Filesystem
     public function exists($path)
     {
         return file_exists($path);
-    }
-
-    /**
-     * Determine if a file or directory is missing.
-     *
-     * @param  string  $path
-     * @return bool
-     */
-    public function missing($path)
-    {
-        return ! $this->exists($path);
     }
 
     /**
@@ -404,7 +393,7 @@ class Filesystem
      * Find path names matching a given pattern.
      *
      * @param  string  $pattern
-     * @param  int  $flags
+     * @param  int     $flags
      * @return array
      */
     public function glob($pattern, $flags = 0)
@@ -463,9 +452,9 @@ class Filesystem
      * Create a directory.
      *
      * @param  string  $path
-     * @param  int  $mode
-     * @param  bool  $recursive
-     * @param  bool  $force
+     * @param  int     $mode
+     * @param  bool    $recursive
+     * @param  bool    $force
      * @return bool
      */
     public function makeDirectory($path, $mode = 0755, $recursive = false, $force = false)
@@ -552,7 +541,7 @@ class Filesystem
      * The directory itself may be optionally preserved.
      *
      * @param  string  $directory
-     * @param  bool  $preserve
+     * @param  bool    $preserve
      * @return bool
      */
     public function deleteDirectory($directory, $preserve = false)

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /*
  * This file is part of PHPUnit.
  *
@@ -14,7 +14,7 @@ use PHPUnit\Framework\ExpectationFailedException;
 /**
  * Logical OR.
  */
-final class LogicalOr extends Constraint
+class LogicalOr extends Constraint
 {
     /**
      * @var Constraint[]
@@ -58,10 +58,14 @@ final class LogicalOr extends Constraint
      * a boolean value instead: true in case of success, false in case of a
      * failure.
      *
+     * @param mixed  $other        value or object to evaluate
+     * @param string $description  Additional information about the test
+     * @param bool   $returnResult Whether to return a result or throw an exception
+     *
      * @throws ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
-    public function evaluate($other, string $description = '', bool $returnResult = false)
+    public function evaluate($other, $description = '', $returnResult = false)
     {
         $success = false;
 

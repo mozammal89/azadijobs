@@ -2,13 +2,13 @@
 
 namespace Illuminate\Database\Schema;
 
-use BadMethodCallException;
 use Closure;
-use Illuminate\Database\Connection;
-use Illuminate\Database\Schema\Grammars\Grammar;
-use Illuminate\Database\SQLiteConnection;
+use BadMethodCallException;
 use Illuminate\Support\Fluent;
+use Illuminate\Database\Connection;
 use Illuminate\Support\Traits\Macroable;
+use Illuminate\Database\SQLiteConnection;
+use Illuminate\Database\Schema\Grammars\Grammar;
 
 class Blueprint
 {
@@ -202,7 +202,6 @@ class Blueprint
                 // index method can be called without a name and it will generate one.
                 if ($column->{$index} === true) {
                     $this->{$index}($column->name);
-                    $column->{$index} = false;
 
                     continue 2;
                 }
@@ -212,7 +211,6 @@ class Blueprint
                 // the index since the developer specified the explicit name for this.
                 elseif (isset($column->{$index})) {
                     $this->{$index}($column->name, $column->{$index});
-                    $column->{$index} = false;
 
                     continue 2;
                 }
@@ -791,9 +789,7 @@ class Blueprint
      */
     public function float($column, $total = 8, $places = 2)
     {
-        return $this->addColumn('float', $column, [
-            'total' => $total, 'places' => $places, 'unsigned' => false,
-        ]);
+        return $this->addColumn('float', $column, compact('total', 'places'));
     }
 
     /**
@@ -806,9 +802,7 @@ class Blueprint
      */
     public function double($column, $total = null, $places = null)
     {
-        return $this->addColumn('double', $column, [
-            'total' => $total, 'places' => $places, 'unsigned' => false,
-        ]);
+        return $this->addColumn('double', $column, compact('total', 'places'));
     }
 
     /**
@@ -821,9 +815,7 @@ class Blueprint
      */
     public function decimal($column, $total = 8, $places = 2)
     {
-        return $this->addColumn('decimal', $column, [
-            'total' => $total, 'places' => $places, 'unsigned' => false,
-        ]);
+        return $this->addColumn('decimal', $column, compact('total', 'places'));
     }
 
     /**

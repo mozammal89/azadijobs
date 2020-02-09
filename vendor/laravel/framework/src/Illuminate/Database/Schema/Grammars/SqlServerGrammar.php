@@ -2,8 +2,8 @@
 
 namespace Illuminate\Database\Schema\Grammars;
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Fluent;
+use Illuminate\Database\Schema\Blueprint;
 
 class SqlServerGrammar extends Grammar
 {
@@ -280,8 +280,8 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile a rename index command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
+     * @param  \Illuminate\Database\Schema\Blueprint $blueprint
+     * @param  \Illuminate\Support\Fluent $command
      * @return string
      */
     public function compileRenameIndex(Blueprint $blueprint, Fluent $command)
@@ -320,25 +320,10 @@ class SqlServerGrammar extends Grammar
     public function compileDropAllForeignKeys()
     {
         return "DECLARE @sql NVARCHAR(MAX) = N'';
-            SELECT @sql += 'ALTER TABLE '
-                + QUOTENAME(OBJECT_SCHEMA_NAME(parent_object_id)) + '.' + + QUOTENAME(OBJECT_NAME(parent_object_id))
+            SELECT @sql += 'ALTER TABLE ' + QUOTENAME(OBJECT_NAME(parent_object_id)) 
                 + ' DROP CONSTRAINT ' + QUOTENAME(name) + ';'
             FROM sys.foreign_keys;
-
-            EXEC sp_executesql @sql;";
-    }
-
-    /**
-     * Compile the command to drop all views.
-     *
-     * @return string
-     */
-    public function compileDropAllViews()
-    {
-        return "DECLARE @sql NVARCHAR(MAX) = N'';
-            SELECT @sql += 'DROP VIEW ' + QUOTENAME(OBJECT_SCHEMA_NAME(object_id)) + '.' + QUOTENAME(name) + ';'
-            FROM sys.views;
-
+            
             EXEC sp_executesql @sql;";
     }
 
@@ -604,7 +589,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Create the column definition for a timestamp (with time zone) type.
      *
-     * @link https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-ver15
+     * @link https://msdn.microsoft.com/en-us/library/bb630289(v=sql.120).aspx
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string

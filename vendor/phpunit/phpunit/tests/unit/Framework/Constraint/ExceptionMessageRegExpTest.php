@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /*
  * This file is part of PHPUnit.
  *
@@ -11,10 +11,7 @@ namespace PHPUnit\Framework\Constraint;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- * @small
- */
-final class ExceptionMessageRegExpTest extends TestCase
+class ExceptionMessageRegExpTest extends TestCase
 {
     public function testRegexMessage(): void
     {
@@ -46,10 +43,11 @@ final class ExceptionMessageRegExpTest extends TestCase
         throw new \Exception('Screaming preg_match');
     }
 
-    public function testRegExMessageCanBeExportedAsString(): void
+    public function testSimultaneousLiteralAndRegExpExceptionMessage(): void
     {
-        $exceptionMessageReExp = new ExceptionMessageRegularExpression('/^a poly[a-z]+ [a-zA-Z0-9_]+ me(s){2}age$/i');
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessageRegExp('/^A variadic \w+ message/');
 
-        $this->assertSame('exception message matches ', $exceptionMessageReExp->toString());
+        throw new \Exception('A variadic exception message');
     }
 }

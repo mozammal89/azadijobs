@@ -9,9 +9,6 @@
  */
 namespace PHPUnit\Util;
 
-/**
- * @internal This class is not covered by the backward compatibility promise for PHPUnit
- */
 final class XdebugFilterScriptGenerator
 {
     public function generate(array $filterData): string
@@ -19,7 +16,7 @@ final class XdebugFilterScriptGenerator
         $items = $this->getWhitelistItems($filterData);
 
         $files = \array_map(
-            static function ($item) {
+            function ($item) {
                 return \sprintf(
                     "        '%s'",
                     $item

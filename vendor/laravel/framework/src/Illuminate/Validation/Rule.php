@@ -2,14 +2,8 @@
 
 namespace Illuminate\Validation;
 
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Traits\Macroable;
-use Illuminate\Validation\Rules\Dimensions;
-use Illuminate\Validation\Rules\Exists;
-use Illuminate\Validation\Rules\In;
-use Illuminate\Validation\Rules\NotIn;
-use Illuminate\Validation\Rules\RequiredIf;
-use Illuminate\Validation\Rules\Unique;
+use Illuminate\Contracts\Support\Arrayable;
 
 class Rule
 {
@@ -23,7 +17,7 @@ class Rule
      */
     public static function dimensions(array $constraints = [])
     {
-        return new Dimensions($constraints);
+        return new Rules\Dimensions($constraints);
     }
 
     /**
@@ -35,7 +29,7 @@ class Rule
      */
     public static function exists($table, $column = 'NULL')
     {
-        return new Exists($table, $column);
+        return new Rules\Exists($table, $column);
     }
 
     /**
@@ -50,7 +44,7 @@ class Rule
             $values = $values->toArray();
         }
 
-        return new In(is_array($values) ? $values : func_get_args());
+        return new Rules\In(is_array($values) ? $values : func_get_args());
     }
 
     /**
@@ -65,7 +59,7 @@ class Rule
             $values = $values->toArray();
         }
 
-        return new NotIn(is_array($values) ? $values : func_get_args());
+        return new Rules\NotIn(is_array($values) ? $values : func_get_args());
     }
 
     /**
@@ -76,7 +70,7 @@ class Rule
      */
     public static function requiredIf($callback)
     {
-        return new RequiredIf($callback);
+        return new Rules\RequiredIf($callback);
     }
 
     /**
@@ -88,6 +82,6 @@ class Rule
      */
     public static function unique($table, $column = 'NULL')
     {
-        return new Unique($table, $column);
+        return new Rules\Unique($table, $column);
     }
 }

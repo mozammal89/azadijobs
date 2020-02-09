@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /*
  * This file is part of PHPUnit.
  *
@@ -11,11 +11,7 @@ namespace PHPUnit\Util;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- * @small
- * @covers \PHPUnit\Util\ConfigurationGenerator
- */
-final class ConfigurationGeneratorTest extends TestCase
+class ConfigurationGeneratorTest extends TestCase
 {
     public function testGeneratesConfigurationCorrectly(): void
     {
@@ -26,7 +22,6 @@ final class ConfigurationGeneratorTest extends TestCase
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/X.Y.Z/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         executionOrder="depends,defects"
          forceCoversAnnotation="true"
          beStrictAboutCoversAnnotation="true"
          beStrictAboutOutputDuringTests="true"

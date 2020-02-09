@@ -2,8 +2,8 @@
 
 namespace Illuminate\Database;
 
-use Illuminate\Database\Query\Expression;
 use Illuminate\Support\Traits\Macroable;
+use Illuminate\Database\Query\Expression;
 
 abstract class Grammar
 {
@@ -46,7 +46,7 @@ abstract class Grammar
      * Wrap a value in keyword identifiers.
      *
      * @param  \Illuminate\Database\Query\Expression|string  $value
-     * @param  bool  $prefixAlias
+     * @param  bool    $prefixAlias
      * @return string
      */
     public function wrap($value, $prefixAlias = false)
@@ -83,7 +83,9 @@ abstract class Grammar
             $segments[1] = $this->tablePrefix.$segments[1];
         }
 
-        return $this->wrap($segments[0]).' as '.$this->wrapValue($segments[1]);
+        return $this->wrap(
+            $segments[0]).' as '.$this->wrapValue($segments[1]
+        );
     }
 
     /**
@@ -119,7 +121,7 @@ abstract class Grammar
     /**
      * Convert an array of column names into a delimited string.
      *
-     * @param  array  $columns
+     * @param  array   $columns
      * @return string
      */
     public function columnize(array $columns)
@@ -130,7 +132,7 @@ abstract class Grammar
     /**
      * Create query parameter place-holders for an array.
      *
-     * @param  array  $values
+     * @param  array   $values
      * @return string
      */
     public function parameterize(array $values)
@@ -141,7 +143,7 @@ abstract class Grammar
     /**
      * Get the appropriate query parameter place-holder for a value.
      *
-     * @param  mixed  $value
+     * @param  mixed   $value
      * @return string
      */
     public function parameter($value)

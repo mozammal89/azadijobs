@@ -41,7 +41,9 @@ class GenericUser implements UserContract
      */
     public function getAuthIdentifier()
     {
-        return $this->attributes[$this->getAuthIdentifierName()];
+        $name = $this->getAuthIdentifierName();
+
+        return $this->attributes[$name];
     }
 
     /**

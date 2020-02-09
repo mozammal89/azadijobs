@@ -2,10 +2,10 @@
 
 namespace Illuminate\Broadcasting\Broadcasters;
 
-use Illuminate\Broadcasting\BroadcastException;
+use Pusher\Pusher;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Pusher\Pusher;
+use Illuminate\Broadcasting\BroadcastException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class PusherBroadcaster extends Broadcaster
@@ -102,8 +102,6 @@ class PusherBroadcaster extends Broadcaster
      * @param  string  $event
      * @param  array  $payload
      * @return void
-     *
-     * @throws \Illuminate\Broadcasting\BroadcastException
      */
     public function broadcast(array $channels, $event, array $payload = [])
     {

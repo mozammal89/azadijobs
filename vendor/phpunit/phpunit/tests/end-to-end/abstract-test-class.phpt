@@ -1,7 +1,7 @@
 --TEST--
-phpunit ../../_files/AbstractTest.php
+phpunit AbstractTest ../../_files/AbstractTest.php
 --FILE--
-<?php declare(strict_types=1);
+<?php
 $_SERVER['argv'][1] = '--no-configuration';
 $_SERVER['argv'][2] = 'AbstractTest';
 $_SERVER['argv'][3] = __DIR__ . '/../_files/AbstractTest.php';
@@ -10,8 +10,6 @@ require __DIR__ . '/../bootstrap.php';
 PHPUnit\TextUI\Command::main();
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
-
-Warning:       Invocation with class name is deprecated
 
 W                                                                   1 / 1 (100%)
 

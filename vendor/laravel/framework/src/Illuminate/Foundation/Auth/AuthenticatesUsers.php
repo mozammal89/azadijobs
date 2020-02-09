@@ -159,8 +159,6 @@ trait AuthenticatesUsers
 
         $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
-
         return $this->loggedOut($request) ?: redirect('/');
     }
 

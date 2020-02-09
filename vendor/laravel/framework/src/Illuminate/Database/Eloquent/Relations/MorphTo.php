@@ -3,9 +3,9 @@
 namespace Illuminate\Database\Eloquent\Relations;
 
 use BadMethodCallException;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 
 class MorphTo extends BelongsTo
 {
@@ -138,7 +138,9 @@ class MorphTo extends BelongsTo
      */
     protected function gatherKeysByType($type)
     {
-        return array_keys($this->dictionary[$type]);
+        return collect($this->dictionary[$type])->map(function ($models) {
+            return head($models)->{$this->foreignKey};
+        })->values()->unique()->all();
     }
 
     /**
@@ -157,7 +159,7 @@ class MorphTo extends BelongsTo
     /**
      * Match the eagerly loaded results to their parents.
      *
-     * @param  array  $models
+     * @param  array   $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @return array
@@ -297,7 +299,7 @@ class MorphTo extends BelongsTo
      * Handle dynamic method calls to the relationship.
      *
      * @param  string  $method
-     * @param  array  $parameters
+     * @param  array   $parameters
      * @return mixed
      */
     public function __call($method, $parameters)

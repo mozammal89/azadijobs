@@ -4,7 +4,6 @@ namespace Illuminate\View\Concerns;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\HtmlString;
-use InvalidArgumentException;
 
 trait ManagesComponents
 {
@@ -106,14 +105,14 @@ trait ManagesComponents
      */
     public function slot($name, $content = null)
     {
-        if (func_num_args() > 2) {
-            throw new InvalidArgumentException('You passed too many arguments to the ['.$name.'] slot.');
-        } elseif (func_num_args() === 2) {
+        if (func_num_args() === 2) {
             $this->slots[$this->currentComponent()][$name] = $content;
-        } elseif (ob_start()) {
-            $this->slots[$this->currentComponent()][$name] = '';
+        } else {
+            if (ob_start()) {
+                $this->slots[$this->currentComponent()][$name] = '';
 
-            $this->slotStack[$this->currentComponent()][] = $name;
+                $this->slotStack[$this->currentComponent()][] = $name;
+            }
         }
     }
 

@@ -2,18 +2,18 @@
 
 namespace Illuminate\Validation;
 
+use RuntimeException;
 use BadMethodCallException;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Support\Fluent;
+use Illuminate\Support\MessageBag;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Contracts\Validation\ImplicitRule;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Illuminate\Contracts\Validation\Validator as ValidatorContract;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Fluent;
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\Str;
-use RuntimeException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Validator implements ValidatorContract
 {
@@ -47,13 +47,6 @@ class Validator implements ValidatorContract
      * @var array
      */
     protected $failedRules = [];
-
-    /**
-     * Attributes that should be excluded from the validated data.
-     *
-     * @var array
-     */
-    protected $excludeAttributes = [];
 
     /**
      * The message bag instance.
@@ -182,15 +175,7 @@ class Validator implements ValidatorContract
         'RequiredWith', 'RequiredWithAll', 'RequiredWithout', 'RequiredWithoutAll',
         'RequiredIf', 'RequiredUnless', 'Confirmed', 'Same', 'Different', 'Unique',
         'Before', 'After', 'BeforeOrEqual', 'AfterOrEqual', 'Gt', 'Lt', 'Gte', 'Lte',
-        'ExcludeIf', 'ExcludeUnless',
     ];
-
-    /**
-     * The validation rules that can exclude an attribute.
-     *
-     * @var array
-     */
-    protected $excludeRules = ['ExcludeIf', 'ExcludeUnless'];
 
     /**
      * The size related validation rules.
@@ -245,7 +230,7 @@ class Validator implements ValidatorContract
 
             // If the data key contains a dot, we will replace it with another character
             // sequence so it doesn't interfere with dot processing when working with
-            // array based validation rules plus Arr::dot later in the validations.
+            // array based validation rules and array_dot later in the validations.
             if (Str::contains($key, '.')) {
                 $newData[str_replace('.', '->', $key)] = $value;
             } else {
@@ -288,20 +273,8 @@ class Validator implements ValidatorContract
         foreach ($this->rules as $attribute => $rules) {
             $attribute = str_replace('\.', '->', $attribute);
 
-            if ($this->shouldBeExcluded($attribute)) {
-                $this->removeAttribute($attribute);
-
-                continue;
-            }
-
             foreach ($rules as $rule) {
                 $this->validateAttribute($attribute, $rule);
-
-                if ($this->shouldBeExcluded($attribute)) {
-                    $this->removeAttribute($attribute);
-
-                    break;
-                }
 
                 if ($this->shouldStopValidating($attribute)) {
                     break;
@@ -313,7 +286,7 @@ class Validator implements ValidatorContract
         // fire them off. This gives the callbacks a chance to perform all kinds
         // of other validation that needs to get wrapped up in this operation.
         foreach ($this->after as $after) {
-            $after();
+            call_user_func($after);
         }
 
         return $this->messages->isEmpty();
@@ -327,36 +300,6 @@ class Validator implements ValidatorContract
     public function fails()
     {
         return ! $this->passes();
-    }
-
-    /**
-     * Determine if the attribute should be excluded.
-     *
-     * @param  string  $attribute
-     * @return bool
-     */
-    protected function shouldBeExcluded($attribute)
-    {
-        foreach ($this->excludeAttributes as $excludeAttribute) {
-            if ($attribute === $excludeAttribute ||
-                Str::startsWith($attribute, $excludeAttribute.'.')) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Remove the given attribute.
-     *
-     * @param  string  $attribute
-     *
-     * @return void
-     */
-    protected function removeAttribute($attribute)
-    {
-        unset($this->data[$attribute], $this->rules[$attribute]);
     }
 
     /**
@@ -532,10 +475,6 @@ class Validator implements ValidatorContract
      */
     protected function isValidatable($rule, $attribute, $value)
     {
-        if (in_array($rule, $this->excludeRules)) {
-            return true;
-        }
-
         return $this->presentOrRuleIsImplicit($rule, $attribute, $value) &&
                $this->passesOptionalCheck($attribute) &&
                $this->isNotNullIfMarkedAsNullable($rule, $attribute) &&
@@ -682,28 +621,11 @@ class Validator implements ValidatorContract
             $this->passes();
         }
 
-        if (in_array($rule, $this->excludeRules)) {
-            return $this->excludeAttribute($attribute);
-        }
-
         $this->messages->add($attribute, $this->makeReplacements(
             $this->getMessage($attribute, $rule), $attribute, $rule, $parameters
         ));
 
         $this->failedRules[$attribute][$rule] = $parameters;
-    }
-
-    /**
-     * Add the given attribute to the list of excluded attributes.
-     *
-     * @param  string  $attribute
-     * @return void
-     */
-    protected function excludeAttribute(string $attribute)
-    {
-        $this->excludeAttributes[] = $attribute;
-
-        $this->excludeAttributes = array_unique($this->excludeAttributes);
     }
 
     /**
@@ -733,19 +655,9 @@ class Validator implements ValidatorContract
             $this->passes();
         }
 
-        $invalid = array_intersect_key(
+        return array_intersect_key(
             $this->data, $this->attributesThatHaveMessages()
         );
-
-        $result = [];
-
-        $failed = Arr::only(Arr::dot($invalid), array_keys($this->failed()));
-
-        foreach ($failed as $key => $failure) {
-            Arr::set($result, $key, $failure);
-        }
-
-        return $result;
     }
 
     /**
@@ -948,7 +860,7 @@ class Validator implements ValidatorContract
     {
         $payload = new Fluent($this->getData());
 
-        if ($callback($payload)) {
+        if (call_user_func($callback, $payload)) {
             foreach ((array) $attribute as $key) {
                 $this->addRules([$key => $rules]);
             }
@@ -966,7 +878,7 @@ class Validator implements ValidatorContract
     public function addExtensions(array $extensions)
     {
         if ($extensions) {
-            $keys = array_map([Str::class, 'snake'], array_keys($extensions));
+            $keys = array_map('\Illuminate\Support\Str::snake', array_keys($extensions));
 
             $extensions = array_combine($keys, array_values($extensions));
         }
@@ -1053,7 +965,7 @@ class Validator implements ValidatorContract
     public function addReplacers(array $replacers)
     {
         if ($replacers) {
-            $keys = array_map([Str::class, 'snake'], array_keys($replacers));
+            $keys = array_map('\Illuminate\Support\Str::snake', array_keys($replacers));
 
             $replacers = array_combine($keys, array_values($replacers));
         }

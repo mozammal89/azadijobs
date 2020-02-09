@@ -2,10 +2,10 @@
 
 namespace Laravel\Tinker\Console;
 
+use Psy\Shell;
+use Psy\Configuration;
 use Illuminate\Console\Command;
 use Laravel\Tinker\ClassAliasAutoloader;
-use Psy\Configuration;
-use Psy\Shell;
 use Symfony\Component\Console\Input\InputArgument;
 
 class TinkerCommand extends Command
@@ -36,7 +36,7 @@ class TinkerCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return int
+     * @return void
      */
     public function handle()
     {
@@ -69,8 +69,6 @@ class TinkerCommand extends Command
         } finally {
             $loader->unregister();
         }
-
-        return 0;
     }
 
     /**

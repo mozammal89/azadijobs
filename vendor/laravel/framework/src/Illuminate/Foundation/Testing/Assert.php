@@ -3,10 +3,9 @@
 namespace Illuminate\Foundation\Testing;
 
 use ArrayAccess;
-use Illuminate\Foundation\Testing\Constraints\ArraySubset;
-use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Framework\InvalidArgumentException;
 use PHPUnit\Util\InvalidArgumentHelper;
+use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Constraint\ArraySubset;
 
 /**
  * @internal This class is not meant to be used or overwritten outside the framework itself.
@@ -16,32 +15,28 @@ abstract class Assert extends PHPUnit
     /**
      * Asserts that an array has a specified subset.
      *
-     * @param  \ArrayAccess|array  $subset
-     * @param  \ArrayAccess|array  $array
-     * @param  bool  $checkForIdentity
-     * @param  string  $msg
+     * This method was taken over from PHPUnit where it was deprecated. See link for more info.
+     *
+     * @param  array|\ArrayAccess  $subset
+     * @param  array|\ArrayAccess  $array
+     * @param  bool  $checkForObjectIdentity
+     * @param  string  $message
      * @return void
+     *
+     * @link https://github.com/sebastianbergmann/phpunit/issues/3494
      */
-    public static function assertArraySubset($subset, $array, bool $checkForIdentity = false, string $msg = ''): void
+    public static function assertArraySubset($subset, $array, bool $checkForObjectIdentity = false, string $message = ''): void
     {
         if (! (is_array($subset) || $subset instanceof ArrayAccess)) {
-            if (class_exists(InvalidArgumentException::class)) {
-                throw InvalidArgumentException::create(1, 'array or ArrayAccess');
-            } else {
-                throw InvalidArgumentHelper::factory(1, 'array or ArrayAccess');
-            }
+            throw InvalidArgumentHelper::factory(1, 'array or ArrayAccess');
         }
 
         if (! (is_array($array) || $array instanceof ArrayAccess)) {
-            if (class_exists(InvalidArgumentException::class)) {
-                throw InvalidArgumentException::create(2, 'array or ArrayAccess');
-            } else {
-                throw InvalidArgumentHelper::factory(2, 'array or ArrayAccess');
-            }
+            throw InvalidArgumentHelper::factory(2, 'array or ArrayAccess');
         }
 
-        $constraint = new ArraySubset($subset, $checkForIdentity);
+        $constraint = new ArraySubset($subset, $checkForObjectIdentity);
 
-        PHPUnit::assertThat($array, $constraint, $msg);
+        static::assertThat($array, $constraint, $message);
     }
 }

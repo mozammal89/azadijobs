@@ -35,7 +35,7 @@ class AuthenticateSession
      */
     public function handle($request, Closure $next)
     {
-        if (! $request->hasSession() || ! $request->user()) {
+        if (! $request->user() || ! $request->session()) {
             return $next($request);
         }
 
@@ -87,7 +87,7 @@ class AuthenticateSession
      */
     protected function logout($request)
     {
-        $this->auth->logoutCurrentDevice();
+        $this->auth->logout();
 
         $request->session()->flush();
 

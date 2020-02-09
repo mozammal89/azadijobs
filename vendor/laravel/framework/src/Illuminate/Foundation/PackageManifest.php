@@ -65,7 +65,9 @@ class PackageManifest
      */
     public function providers()
     {
-        return $this->config('providers');
+        return collect($this->getManifest())->flatMap(function ($configuration) {
+            return (array) ($configuration['providers'] ?? []);
+        })->filter()->all();
     }
 
     /**
@@ -75,19 +77,8 @@ class PackageManifest
      */
     public function aliases()
     {
-        return $this->config('aliases');
-    }
-
-    /**
-     * Get all of the values for all packages for the given configuration name.
-     *
-     * @param  string  $key
-     * @return array
-     */
-    public function config($key)
-    {
-        return collect($this->getManifest())->flatMap(function ($configuration) use ($key) {
-            return (array) ($configuration[$key] ?? []);
+        return collect($this->getManifest())->flatMap(function ($configuration) {
+            return (array) ($configuration['aliases'] ?? []);
         })->filter()->all();
     }
 

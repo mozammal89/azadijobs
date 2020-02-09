@@ -2,11 +2,11 @@
 
 namespace Illuminate\Http\Concerns;
 
-use Illuminate\Http\UploadedFile;
+use stdClass;
+use SplFileInfo;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use SplFileInfo;
-use stdClass;
+use Illuminate\Http\UploadedFile;
 
 trait InteractsWithInput
 {
@@ -151,19 +151,6 @@ trait InteractsWithInput
     }
 
     /**
-     * Determine if the request is missing a given input item key.
-     *
-     * @param  string|array  $key
-     * @return bool
-     */
-    public function missing($key)
-    {
-        $keys = is_array($key) ? $key : func_get_args();
-
-        return ! $this->has($keys);
-    }
-
-    /**
      * Determine if the given input key is an empty string for "has".
      *
      * @param  string  $key
@@ -213,8 +200,8 @@ trait InteractsWithInput
      * Retrieve an input item from the request.
      *
      * @param  string|null  $key
-     * @param  mixed  $default
-     * @return mixed
+     * @param  string|array|null  $default
+     * @return string|array|null
      */
     public function input($key = null, $default = null)
     {

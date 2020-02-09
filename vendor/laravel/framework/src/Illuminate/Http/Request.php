@@ -2,21 +2,16 @@
 
 namespace Illuminate\Http;
 
-use ArrayAccess;
 use Closure;
-use Illuminate\Contracts\Support\Arrayable;
+use ArrayAccess;
+use RuntimeException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
-use RuntimeException;
+use Illuminate\Contracts\Support\Arrayable;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-/**
- * @method array validate(array $rules, ...$params)
- * @method array validateWithBag(array $rules, ...$params)
- * @method string hasValidSignature(\Illuminate\Http\Request $request, bool $absolute = true)
- */
 class Request extends SymfonyRequest implements Arrayable, ArrayAccess
 {
     use Concerns\InteractsWithContentTypes,
@@ -345,7 +340,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      * Get the JSON payload for the request.
      *
      * @param  string|null  $key
-     * @param  mixed  $default
+     * @param  mixed   $default
      * @return \Symfony\Component\HttpFoundation\ParameterBag|mixed
      */
     public function json($key = null, $default = null)
@@ -526,8 +521,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      * Get the route handling the request.
      *
      * @param  string|null  $param
-     * @param  mixed  $default
-     * @return \Illuminate\Routing\Route|object|string|null
+     * @param  mixed   $default
+     * @return \Illuminate\Routing\Route|object|string
      */
     public function route($param = null, $default = null)
     {

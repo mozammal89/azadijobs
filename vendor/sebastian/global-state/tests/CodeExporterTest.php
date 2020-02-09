@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /*
  * This file is part of sebastian/global-state.
  *
@@ -7,6 +7,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+declare(strict_types=1);
+
 namespace SebastianBergmann\GlobalState;
 
 use PHPUnit\Framework\TestCase;
@@ -14,12 +17,12 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \SebastianBergmann\GlobalState\CodeExporter
  */
-final class CodeExporterTest extends TestCase
+class CodeExporterTest extends TestCase
 {
     /**
      * @runInSeparateProcess
      */
-    public function testCanExportGlobalVariablesToCode(): void
+    public function testCanExportGlobalVariablesToCode()
     {
         $GLOBALS = ['foo' => 'bar'];
 
@@ -28,7 +31,7 @@ final class CodeExporterTest extends TestCase
         $exporter = new CodeExporter;
 
         $this->assertEquals(
-            '$GLOBALS = [];' . \PHP_EOL . '$GLOBALS[\'foo\'] = \'bar\';' . \PHP_EOL,
+            '$GLOBALS = [];' . PHP_EOL . '$GLOBALS[\'foo\'] = \'bar\';' . PHP_EOL,
             $exporter->globalVariables($snapshot)
         );
     }

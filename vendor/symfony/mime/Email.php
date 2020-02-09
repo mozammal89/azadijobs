@@ -523,7 +523,7 @@ class Email extends Message
     /**
      * @return $this
      */
-    private function setHeaderBody(string $type, string $name, $body): object
+    private function setHeaderBody(string $type, string $name, $body)
     {
         $this->getHeaders()->setHeaderBody($type, $name, $body);
 
