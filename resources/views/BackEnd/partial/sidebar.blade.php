@@ -15,6 +15,8 @@
                                 <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Professor</span></a></li>                              
                             </ul>
                         </li>
+
+                        @if(Auth::user()->role_id==1)
                         <li>
                             <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Students</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -22,6 +24,8 @@
                                 <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Add Student</span></a></li>
                             </ul>
                         </li>
+
+                        @endif
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
