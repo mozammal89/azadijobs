@@ -34,4 +34,10 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'facebook' => [
+     'client_id' => '528427891128149',
+     'client_secret' => 'bf4aa499c2188de9c7eb791714a1bdc8',
+     'redirect' => 'https://azadijobs.test/callback/facebook',
+   ],
+
 ];

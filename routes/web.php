@@ -29,10 +29,7 @@ Route::get('/test',function(){
 
 
 /*Admin Route Start Here*/
-
-
 Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin' ,'middleware'=>['auth','admin'] ],function(){
-
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
@@ -58,11 +55,7 @@ Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 
 
-
-
-
 /*Job Seeker Route Start Here*/
-
 
 Route::group(['as'=>'seeker.','prefix'=>'seeker', 'namespace'=>'JobSeeker' ,'middleware'=>['auth','jobseeker'] ],function(){
 
@@ -72,8 +65,10 @@ Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 });
 
-
 /*Job Seeker Route End Here*/
 
 
-
+// Facebook Route Start Here
+Route::get('/auth/redirect/{provider}', 'AuthController@redirect');
+Route::get('/callback/{provider}', 'AuthController@callback');
+// Facebook Route Ends Here
