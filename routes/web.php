@@ -32,6 +32,12 @@ Route::get('/test',function(){
 Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin' ,'middleware'=>['auth','admin'] ],function(){
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
+Route::get('division','DivisionController@division')->name('division');
+Route::post('division/store','DivisionController@store')->name('division.store');
+Route::put('division/update/{id}','DivisionController@update')->name('division.update');
+Route::delete('division/delete/{id}','DivisionController@delete')->name('division.delete');
+ 
+ 
 
 
 });

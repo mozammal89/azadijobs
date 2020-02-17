@@ -46,6 +46,10 @@
     <link rel="stylesheet" href="{{asset('BackEnd/css/responsive.css')}}">
  
     <script src="{{asset('BackEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
+    @stack('css')
+
+
 </head>
 
 <body>
@@ -144,6 +148,9 @@
     <!-- tawk chat JS
         ============================================ -->
     <script src="{{asset('BackEnd/js/tawk-chat.js')}}"></script>
+
+    @stack('js')
+    
 </body>
 
 </html>

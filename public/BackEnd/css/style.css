@@ -860,6 +860,7 @@ ul.setting-panel-list li{
     box-shadow: none;
     border-radius: 30px;
     width: 200px;
+    margin-top: 15%;
 }
 .breadcome-heading .form-control:focus {
     border: 1px solid #006DF0;
