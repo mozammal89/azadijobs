@@ -36,6 +36,19 @@ Route::get('division','DivisionController@division')->name('division');
 Route::post('division/store','DivisionController@store')->name('division.store');
 Route::put('division/update/{id}','DivisionController@update')->name('division.update');
 Route::delete('division/delete/{id}','DivisionController@delete')->name('division.delete');
+
+Route::get('jobcategory','jobCategoryController@jobcategory')->name('jobcategory');
+Route::post('jobcategory/store','jobCategoryController@store')->name('jobcategory.store');
+Route::put('jobcategory/update/{id}','jobCategoryController@update')->name('jobcategory.update');
+Route::delete('jobcategory/delete/{id}','jobCategoryController@delete')->name('jobcategory.delete');
+
+Route::get('subcategory','subCategoryController@create')->name('subcategory');
+Route::post('subcategory','subCategoryController@store')->name('subcategory.store');
+Route::put('subcategory/update/{id}','subCategoryController@update')->name('subcategory.update');
+Route::delete('subcategory/delete/{id}','subCategoryController@delete')->name('subcategory.delete');
+
+
+
  
  
 

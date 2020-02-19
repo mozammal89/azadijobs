@@ -89,11 +89,15 @@
                             <h1>Division Table</h1>
                         </div>
                             </div>
+                            <!-- Model Button Start -->
                             <div class="col-md-6" align="right">
                                  <div class="modal-bootstrap modal-login-form" style="margin-right: 3%;">
                                         <a class="zoomInDown mg-t" href="#" data-toggle="modal" data-target="#zoomInDown1">Add Division</a>
                                     </div>
                             </div>
+                            <!-- Model Button End -->
+                            
+
                         </div>
                         
                     </div>

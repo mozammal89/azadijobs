@@ -15,7 +15,7 @@
   
     <link rel="stylesheet" href="{{asset('BackEnd/css/bootstrap.min.css')}}">
  
-    <link rel="stylesheet" href="{{asset('BackEnd/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
     <link rel="stylesheet" href="{{asset('BackEnd/css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{asset('BackEnd/css/owl.theme.css')}}">
@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="{{asset('BackEnd/css/responsive.css')}}">
  
     <script src="{{asset('BackEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
     @stack('css')
 
@@ -145,9 +147,22 @@
     <!-- main JS
         ============================================ -->
     <script src="{{asset('BackEnd/js/main.js')}}"></script>
-    <!-- tawk chat JS
-        ============================================ -->
-    <script src="{{asset('BackEnd/js/tawk-chat.js')}}"></script>
+
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
+
+        <script type="text/javascript">
+            @if ($errors->any()) {
+                 @foreach ($errors->all() as $error)
+                    toastr.error(' {{$error}} ','Error',{
+                        closeButton : true,
+                        progressBar : true,
+                    });
+                 @endforeach
+            }
+            @endif
+        </script>
+   
 
     @stack('js')
     
