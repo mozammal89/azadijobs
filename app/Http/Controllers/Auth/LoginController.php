@@ -32,6 +32,13 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+
+
+  
+
+
+
     public function __construct()
     {
 
@@ -41,12 +48,19 @@ class LoginController extends Controller
 
         }elseif(Auth::check() && Auth::user()->role_id==2){
 
-            $this->redirectTo=route('provider.dashboard');
+                $this->redirectTo=route('seeker.dashboard');
         }else{
 
-                 $this->redirectTo=route('seeker.dashboard');
+                $this->redirectTo=route('provider.dashboard');
 
         }
-        $this->middleware('guest')->except('logout');
+                $this->middleware('guest')->except('logout');
     }
+
+    
+
+
+    
+
+
 }

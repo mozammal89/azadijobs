@@ -67,7 +67,6 @@ Route::group(['as'=>'provider.','prefix'=>'provider', 'namespace'=>'JobProvider'
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
-
 });
 
 /*Provider Route End Here*/
@@ -91,3 +90,15 @@ Route::get('dashboard','DashboardController@index')->name('dashboard');
 Route::get('/auth/redirect/{provider}', 'AuthController@redirect');
 Route::get('/callback/{provider}', 'AuthController@callback');
 // Facebook Route Ends Here
+
+Route::get('jobprovider/register','JobProvider\JobProviderController@register')->name('register.jobprovider');
+Route::post('register/store','JobProvider\JobProviderController@store')->name('store.jobprovider');
+
+
+/*Custome Login Route Start here*/
+
+
+
+Route::post('custom/login','UserLoginCheck@authenticate')->name('user.login');
+
+/*Custome Login Route End here*/

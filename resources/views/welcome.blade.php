@@ -5,9 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Azadi Jobs</title>
+        
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
         <!-- Styles -->
         <style>
@@ -70,10 +73,11 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
+                        <a class="btn btn-info" href="{{ route('login') }}">Login</a>
+                        <a id="reg" class="btn btn-success" href="#" >Registration</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a id="jp" class="btn btn-primary" style="display: none;color: #fff" href="{{ route('register.jobprovider') }}">Job Provider</a>
+                            <a id="js" class="btn btn-warning" style="display: none;color: #fff" href="{{ route('register') }}">Job Seeker</a>
                         @endif
                     @endauth
                 </div>
@@ -96,4 +100,16 @@
             </div>
         </div>
     </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#reg").click(function(){
+        $("#js").css("display","");
+        $("#jp").css("display","");
+        $("#reg").css("display","none");
+      })
+    });
+</script>
+
 </html>

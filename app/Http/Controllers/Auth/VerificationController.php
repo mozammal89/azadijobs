@@ -41,10 +41,10 @@ class VerificationController extends Controller
 
         }elseif(Auth::check() && Auth::user()->role_id==2){
 
-            $this->redirectTo=route('provider.dashboard');
+            $this->redirectTo=route('seeker.dashboard');
         }else{
 
-                 $this->redirectTo=route('seeker.dashboard');
+                 $this->redirectTo=route('provider.dashboard');
 
         }
 
