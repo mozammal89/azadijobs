@@ -91,14 +91,20 @@ Route::get('/auth/redirect/{provider}', 'AuthController@redirect');
 Route::get('/callback/{provider}', 'AuthController@callback');
 // Facebook Route Ends Here
 
+
+// Job Seeker Register Start Here
+Route::get('jobseeker/register','JobSeeker\JobSeekerController@register')->name('register.jobseeker');
+Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('register.jobseeker');
+// Job Seeker Register End Here
+
+
+// Job Provider Register Start Here
 Route::get('jobprovider/register','JobProvider\JobProviderController@register')->name('register.jobprovider');
 Route::post('register/store','JobProvider\JobProviderController@store')->name('store.jobprovider');
+// Job Provider Register End Here
 
 
 /*Custome Login Route Start here*/
-
-
-
 Route::post('custom/login','UserLoginCheck@authenticate')->name('user.login');
 
 /*Custome Login Route End here*/

@@ -40,18 +40,19 @@ class UserLoginCheck extends Controller
 
 					 if(Auth::check() && Auth::user()->role_id==1){
 
-				                return redirect()->route('admin.dashboard');
+				            return redirect()->route('admin.dashboard');
 
 				        }elseif(Auth::check() && Auth::user()->role_id==2){
 
-				              return redirect()->route('seeker.dashboard');
+				            return redirect()->route('seeker.dashboard');
 				        }else{
 
-				                return redirect()->route('provider.dashboard');
+				            return redirect()->route('provider.dashboard');
 
 				        }
 
-			   }  }	
+			   }  
+			}	
 
 			   if($checkByPhone){
 
@@ -83,14 +84,7 @@ class UserLoginCheck extends Controller
 
 			   }
 
-			   }
-
-
-
-    		
-    	
-
-
+		}
 
     }
 }
