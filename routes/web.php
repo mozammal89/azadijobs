@@ -12,8 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('FrontEnd.layout');
 });
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
 
 Auth::routes();
 
