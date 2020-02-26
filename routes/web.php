@@ -48,11 +48,6 @@ Route::put('subcategory/update/{id}','subCategoryController@update')->name('subc
 Route::delete('subcategory/delete/{id}','subCategoryController@delete')->name('subcategory.delete');
 
 
-
- 
- 
-
-
 });
 
 /*Admin Route End Here*/
@@ -93,8 +88,8 @@ Route::get('/callback/{provider}', 'AuthController@callback');
 
 
 // Job Seeker Register Start Here
-Route::get('jobseeker/register','JobSeeker\JobSeekerController@register')->name('register.jobseeker');
-Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('register.jobseeker');
+Route::get('jobseeker/register','JobSeeker\JobSeekerController@register')->name('registration.jobseeker');
+Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('store.jobseeker');
 // Job Seeker Register End Here
 
 

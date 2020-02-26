@@ -74,20 +74,19 @@
             <div class="content-error">
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="{{route('register.jobseeker')}}" id="loginForm" method="post">
+                        <form action="{{route('store.jobseeker')}}" id="loginForm" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label>Name</label>
                                     <input class="form-control" type="text" name="seeker_name" required="">
                                 </div>
-                                <div class="form-group col-lg-6">
+                                <div class="form-group col-lg-12">
                                     <label>Address</label>
                                     <input class="form-control" type="text" name="seeker_address" required="">
                                 </div>
                                 
-                                <div class="form-group col-lg-12">                                        
-                                                                      
+                                <div class="form-group col-lg-12">                                  
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                         <div class="form-select-list">
                                             <label>Interested Area</label>
@@ -101,6 +100,12 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label>Image</label>
+                                    <input class="form-control" type="file" name="image" >
+                                </div>
+
                                 <div class="form-group col-lg-6">
                                     <label>Phone Number</label>
                                     <input class="form-control" type="text" name="phn_number">

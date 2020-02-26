@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\JobSeeker\JobSeeker;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Storage;
 
 class JobSeekerController extends Controller
 {
@@ -19,6 +20,18 @@ class JobSeekerController extends Controller
     {
     	// dd($request);
 
+        if($request->has('image'))
+                {
+                    $file=$request->file('image');
+                    $filename='image'.time().'.'.$file->getClientOriginalExtension();
+                    $filesize=$file->getClientSize();
+                    $file->storeAs('images',$filename);
+                    
+                }
+            else{
+                    $filename='demopic.png';
+                }
+
     	$jobseekers = new JobSeeker;
     	$user_info = new User;
     	$user_info->name = $request->seeker_name;
@@ -28,28 +41,21 @@ class JobSeekerController extends Controller
     	$user_info->password=bcrypt($request->password)?? bcrypt(123456);
     	$user_info->save();
 
+
     	$jobseekers->user_id = $user_info->id;
     	$jobseekers->seeker_name = $request->seeker_name;
     	$jobseekers->seeker_email = $request->seeker_email;
         $jobseekers->seeker_address = $request->seeker_address;
         $jobseekers->phn_number = $request->phn_number;
-        $jobseekers->seeker_Image = $request->seeker_Image??" ";
+
+        $jobseekers->seeker_image = $filename;
+        // dd($jobseekers);
     	$jobseekers->interested_area = $request->interested_area;    	
     
     	$jobseekers->save();
 
-    	
-
-    	// $credential=[];
-     //    $credential['email']=$request->seeker_email;
-    	// $credential['mobile']=$request->phn_number;
-    	// $credential['password']=$request->password;
-    	// auth()->login();
-    	// auth()->attempt($credential);
 
     	return redirect()->route('seeker.dashboard');
 
-    	// return 'ok';
-    	//return redirect()->route('login'); 
     }
 }

@@ -77,7 +77,7 @@
                         <a id="reg" class="btn btn-success" href="#" >Registration</a>
                         @if (Route::has('register'))
                             <a id="jp" class="btn btn-primary" style="display: none;color: #fff" href="{{ route('register.jobprovider') }}">Job Provider</a>
-                            <a id="js" class="btn btn-warning" style="display: none;color: #fff" href="{{ route('register.jobseeker') }}">Job Seeker</a>
+                            <a id="js" class="btn btn-warning" style="display: none;color: #fff" href="{{ route('registration.jobseeker') }}">Job Seeker</a>
                         @endif
                     @endauth
                 </div>

@@ -20,7 +20,7 @@ class CreateJobSeekerRegistersTable extends Migration
             $table->string('seeler_mobile');
             $table->string('seeker_address');
             $table->string('seeker_email');
-            $table->string('seeker_Image');
+            $table->string('seeker_image');
             $table->string('interested_area');
             $table->string('password');
             $table->timestamps();
