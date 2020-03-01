@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('FrontEnd.layout');
+    return view('FrontEnd.home');
 });
 
 
@@ -97,12 +97,15 @@ Route::get('/callback/{provider}', 'AuthController@callback');
 // Job Seeker Register Start Here
 Route::get('jobseeker/register','JobSeeker\JobSeekerController@register')->name('registration.jobseeker');
 Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('store.jobseeker');
+Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('profile.jobseeker');
 // Job Seeker Register End Here
 
 
 // Job Provider Register Start Here
 Route::get('jobprovider/register','JobProvider\JobProviderController@register')->name('register.jobprovider');
 Route::post('register/store','JobProvider\JobProviderController@store')->name('store.jobprovider');
+
+Route::get('jobprovider/profile','JobProvider\JobProviderProfileTab@profile')->name('profile.jobprovider');
 // Job Provider Register End Here
 
 

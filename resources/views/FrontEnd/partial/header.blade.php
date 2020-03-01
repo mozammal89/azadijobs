@@ -73,14 +73,10 @@
 								</ul>
 							</li>
 							<li>
-								<a href="#">Blog <i class="fa fa-chevron-down"></i></a>
+								<a href="#">Profile<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="#" class="dez-page">Classic</a></li>
-									<li><a href="#" class="dez-page">Classic Sidebar</a></li>
-									<li><a href="#" class="dez-page">Detailed Grid</a></li>
-									<li><a href="#" class="dez-page">Detailed Grid Sidebar</a></li>
-									<li><a href="#" class="dez-page">Left Image Sidebar</a></li>
-									<li><a href="#" class="dez-page">Blog Details</a></li>
+									<li><a href="{{route('profile.jobprovider')}}" class="dez-page">Job Providers Profile</a></li>
+									<li><a href="{{route('profile.jobseeker')}}" class="dez-page">Job Seekers Profile</a></li>									
 								</ul>
 							</li>
 						</ul>			
