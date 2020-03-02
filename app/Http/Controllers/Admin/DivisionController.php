@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Division;
 
 class DivisionController extends Controller
@@ -25,7 +26,10 @@ class DivisionController extends Controller
 
   		$division = new Division;
   		$division->division_name = $request->division_name;
-  		$division->save();   
+  		$division->save();
+
+      Toastr::success('Division successfully created','Created');   
+
          return redirect()->route('admin.division')
                          ->with('success','Division added successfully.');
     }
@@ -35,6 +39,9 @@ class DivisionController extends Controller
     	$division = Division::find($id);
   		$division->division_name = $request->division_name;
   		$division->save();   
+
+      Toastr::success('Division successfully Updated','Updated');
+
          return redirect()->route('admin.division')
                          ->with('success','Division updated successfully.');
 	
@@ -43,6 +50,10 @@ class DivisionController extends Controller
     public function delete ($id)
     {
     	Division::find($id)->delete();
+
+      Toastr::success('Division successfully Deleted','Deleted');
+
+
     	 return redirect()->route('admin.division')
                          ->with('success','Division updated successfully.');
     }

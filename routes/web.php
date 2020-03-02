@@ -56,42 +56,39 @@ Route::delete('subcategory/delete/{id}','subCategoryController@delete')->name('s
 
 
 });
-
 /*Admin Route End Here*/
 
 
 
 
 /*Provider Route Start Here*/
-
 Route::group(['as'=>'provider.','prefix'=>'provider', 'namespace'=>'JobProvider' ,'middleware'=>['auth','jobprovider'] ],function(){
 
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 });
-
 /*Provider Route End Here*/
 
 
 
 /*Job Seeker Route Start Here*/
-
 Route::group(['as'=>'seeker.','prefix'=>'seeker', 'namespace'=>'JobSeeker' ,'middleware'=>['auth','jobseeker'] ],function(){
-
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 
 });
-
 /*Job Seeker Route End Here*/
+
 
 
 // Facebook Route Start Here
 Route::get('/auth/redirect/{provider}', 'AuthController@redirect');
 Route::get('/callback/{provider}', 'AuthController@callback');
 // Facebook Route Ends Here
+
+
 
 
 // Job Seeker Register Start Here
@@ -101,12 +98,16 @@ Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('p
 // Job Seeker Register End Here
 
 
+
+
 // Job Provider Register Start Here
 Route::get('jobprovider/register','JobProvider\JobProviderController@register')->name('register.jobprovider');
 Route::post('register/store','JobProvider\JobProviderController@store')->name('store.jobprovider');
 
 Route::get('jobprovider/profile','JobProvider\JobProviderProfileTab@profile')->name('profile.jobprovider');
 // Job Provider Register End Here
+
+
 
 
 /*Custome Login Route Start here*/

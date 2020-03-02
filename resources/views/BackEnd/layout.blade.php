@@ -47,7 +47,7 @@
  
     <script src="{{asset('BackEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
     @stack('css')
 
@@ -148,7 +148,7 @@
         ============================================ -->
     <script src="{{asset('BackEnd/js/main.js')}}"></script>
 
-        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
 
         <script type="text/javascript">

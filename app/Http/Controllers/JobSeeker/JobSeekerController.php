@@ -29,7 +29,7 @@ class JobSeekerController extends Controller
                     
                 }
             else{
-                    $filename='demopic.png';
+                    $filename='demo.png';
                 }
 
     	$jobseekers = new JobSeeker;
