@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 use App\JobProvider\JobProvider;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use App\JobCategory;
 class JobProviderController extends Controller
 {
     public function register () 
     {
-    	return view('auth.jpregister');
+        $all_categories = JobCategory::get();
+    	return view('auth.jpregister', compact('all_categories'));
     }
 
     public function store(Request $request)

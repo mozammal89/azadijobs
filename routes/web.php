@@ -94,8 +94,12 @@ Route::get('/callback/{provider}', 'AuthController@callback');
 // Job Seeker Register Start Here
 Route::get('jobseeker/register','JobSeeker\JobSeekerController@register')->name('registration.jobseeker');
 Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('store.jobseeker');
-Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('profile.jobseeker');
 // Job Seeker Register End Here
+
+//Job Seeker Profile Start Here
+Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('profile.jobseeker');
+Route::put('jobpseeker/update/{id}','JobSeeker\JobSeekerProfileTab@update')->name('jobseeker.update');
+//Job Seeker Profile Start Here
 
 
 
@@ -103,9 +107,13 @@ Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('p
 // Job Provider Register Start Here
 Route::get('jobprovider/register','JobProvider\JobProviderController@register')->name('register.jobprovider');
 Route::post('register/store','JobProvider\JobProviderController@store')->name('store.jobprovider');
-
-Route::get('jobprovider/profile','JobProvider\JobProviderProfileTab@profile')->name('profile.jobprovider');
 // Job Provider Register End Here
+
+//Job Provider Profile Start Here
+Route::get('jobprovider/profile','JobProvider\JobProviderProfileTab@profile')->name('profile.jobprovider');
+Route::put('jobprovider/update/{id}','JobProvider\JobProviderProfileTab@update')->name('jobprovider.update');
+//Job Provider Profile End Here
+
 
 
 

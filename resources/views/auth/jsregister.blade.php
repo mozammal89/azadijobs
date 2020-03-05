@@ -91,11 +91,13 @@
                                         <div class="form-select-list">
                                             <label>Interested Area</label>
                                             <select class="form-control custom-select-value" name="interested_area">
-                                                <option value="1">Govt Job</option>
-                                                <option value="2">Private Job</option>
-                                                <option value="3">IIT</option>
-                                                <option value="4">Finance</option>
-                                                <option value="5">CSE</option>
+                                                <option value="">Select Interested Area</option>
+                                                @foreach($all_categories as $category)
+
+                                                <option value="{{$category->id}}">{{$category->job_category_name}}</option>
+
+                                                @endforeach
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -118,8 +120,7 @@
                                     <label>Password</label>
                                     <input class="form-control" type="password" name="password">
                                 </div>
-                                
-                                
+                                                                
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-success loginbtn">Register</button>

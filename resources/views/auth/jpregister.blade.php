@@ -94,11 +94,13 @@
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                         <div class="form-select-list">
                                             <select class="form-control custom-select-value" name="com_business_type">
-                                                <option value="1">Govt Job</option>
-                                                <option value="2">Private Job</option>
-                                                <option value="3">IIT</option>
-                                                <option value="4">Finance</option>
-                                                <option value="5">CSE</option>
+                                                <option value="">Select Business Type</option>
+                                                @foreach($all_categories as $category)
+
+                                                <option value="{{$category->id}}">{{$category->job_category_name}}</option>
+
+                                                @endforeach
+                                                
                                             </select>
                                         </div>
                                     </div>

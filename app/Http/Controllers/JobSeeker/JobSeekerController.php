@@ -8,12 +8,15 @@ use App\JobSeeker\JobSeeker;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Storage;
+use App\JobCategory;
 
 class JobSeekerController extends Controller
 {
     public function register()
     {
-    	return view('auth.jsregister');
+        $all_categories = JobCategory::get();
+
+    	return view('auth.jsregister', compact('all_categories'));
     }
 
     public function store(Request $request)
@@ -25,7 +28,7 @@ class JobSeekerController extends Controller
                     $file=$request->file('image');
                     $filename='image'.time().'.'.$file->getClientOriginalExtension();
                     $filesize=$file->getClientSize();
-                    $file->storeAs('images',$filename);
+                    $file->move('images',$filename);
                     
                 }
             else{
