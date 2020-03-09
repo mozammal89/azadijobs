@@ -74,7 +74,7 @@
             <div class="content-error">
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="{{route('store.jobprovider')}}" id="loginForm" method="post">
+                        <form action="{{route('store.jobprovider')}}" id="loginForm" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-lg-12">
@@ -105,6 +105,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group col-lg-12">
+                                    <label>Image</label>
+                                    <input class="form-control" type="file" name="provider_image">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Trade License</label>
+                                    <input class="form-control" type="text" name="trade_license">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>TIN Number</label>
+                                    <input class="form-control" type="text" name="tin_number">
+                                </div>
                                 <div class="form-group col-lg-6">
                                     <label>Phone Number</label>
                                     <input class="form-control" type="text" name="phn_number">
@@ -116,6 +128,10 @@
                                 <div class="form-group col-lg-6">
                                     <label>Password</label>
                                     <input class="form-control" type="password" name="password">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Starting Date</label>
+                                    <input class="form-control" type="date" name="company_starting_date">
                                 </div>
                                 
                                 

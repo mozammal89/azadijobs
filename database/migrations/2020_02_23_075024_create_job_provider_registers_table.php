@@ -20,6 +20,9 @@ class CreateJobProviderRegistersTable extends Migration
             $table->string('com_address');
             $table->string('com_web_link');
             $table->BigInteger('com_business_type');
+            $table->string('provider_image');
+            $table->string('trade_license');
+            $table->string('tin_number');
             $table->string('phn_number');
             $table->string('email');
             $table->string('password');

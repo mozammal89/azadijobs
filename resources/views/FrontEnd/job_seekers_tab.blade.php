@@ -10,7 +10,7 @@
 
 @section('content')
 
-<form action="{{route('jobseeker.update',$all_seeker_profiles[0]->id)}}" method="post">
+<form action="{{route('jobseeker.update',$all_seeker_profiles[0]->id)}}" method="post" enctype="multipart/form-data">
 @csrf
 @method('put')
 <div class="container">
@@ -18,7 +18,8 @@
     	<div class="col-md-3">
     		<div class="row">
     			<img width="50%" height="50%" align="center" src="/images/{{$all_seeker_profiles[0]->seeker_image}}" style="">
-    			<h3>Job Seeker</h3>
+
+    			<input type="file" name="seeker_image">
     			
     		</div>
     	</div>
@@ -53,7 +54,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="col-md-5">Interested Area: </label>
-                                <select class="form-control custom-select-value" name="">
+                                <select class="form-control custom-select-value" name="interested_area">
                                  <!-- <option value="">Select Business Type</option> -->
                                     @foreach($all_categories as $category)
                                    

@@ -19,6 +19,20 @@ class JobProviderController extends Controller
     public function store(Request $request)
     {
     	// dd($request);
+
+        if($request->has('provider_image'))
+                {
+                    $file=$request->file('provider_image');
+                    $filename='image'.time().'.'.$file->getClientOriginalExtension();
+                    $filesize=$file->getClientSize();
+                    $file->move('images',$filename);
+                    
+                }
+            else{
+                    $filename='demo.png';
+                }
+
+                
     	$jobproviders = new JobProvider;
     	$user_info = new User;
     	$user_info->name = $request->com_name;
@@ -28,13 +42,20 @@ class JobProviderController extends Controller
     	$user_info->password = bcrypt($request->password);
     	$user_info->save();
 
+        
+
+
+        $jobproviders->provider_image = $filename;
     	$jobproviders->user_id = $user_info->id;
-        $jobproviders->com_name = $request->com_name;
+        $jobproviders->com_name = $request->com_name; 
         $jobproviders->phn_number = $request->phn_number;
         $jobproviders->email = $request->email;
     	$jobproviders->com_address = $request->com_address;    	
     	$jobproviders->com_web_link = $request->com_web_link; 
-    	$jobproviders->com_business_type = $request->com_business_type; 
+        $jobproviders->com_business_type = $request->com_business_type; 
+        $jobproviders->trade_license = $request->trade_license; 
+        $jobproviders->tin_number = $request->tin_number; 
+    	$jobproviders->company_starting_date = $request->company_starting_date; 
     	$jobproviders->save();
 
     	
