@@ -8,7 +8,7 @@
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                        
-                      <!--   <li>
+                        <!-- <li>
                             <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a></li>
@@ -16,17 +16,17 @@
                             </ul>
                         </li> -->
 
-                        @if(Auth::user()->role_id==1)
+                        
                         <li>
                             
-                            <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="fa fa-user"></span> <span class="mini-click-non">Students</span></a>
+                            <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="fa fa-user"></span> <span class="mini-click-non">Seeker</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">All Students</span></a></li>
-                                <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Add Student</span></a></li>
+                                <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">Seeker 1</span></a></li>
+                                <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Seeker 2</span></a></li>
                             </ul>
                         </li>
 
-                        @endif
+                        @if(Auth::user()->role_id==1)
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Setting</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -35,7 +35,7 @@
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
                             </ul>
                         </li>
-                        
+                        @endif
                     </ul>
                 </nav>
             </div>

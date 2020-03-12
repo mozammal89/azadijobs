@@ -52,7 +52,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Profile successfully Updated','Updated');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('profile')
                          ->with('success','Profile updated successfully.');
 	
     }

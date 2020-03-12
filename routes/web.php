@@ -29,9 +29,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/test',function(){
 
-	dd(Auth::user()->role_id);
+	// dd(Auth::user()->role_id);
 
 })->middleware(['auth','admin']);
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 
@@ -99,6 +101,7 @@ Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('stor
 //Job Seeker Profile Start Here
 Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('profile.jobseeker');
 Route::put('jobpseeker/update/{id}','JobSeeker\JobSeekerProfileTab@update')->name('jobseeker.update');
+Route::get('jobseeker/cv','JobSeeker\JobSeekerCvController@index')->name('cv.jobseeker');
 //Job Seeker Profile Start Here
 
 

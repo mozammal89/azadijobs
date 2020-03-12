@@ -17,9 +17,16 @@
 					</button>
                     <!-- extra nav -->
                     <div class="extra-nav">
-                        <div class="extra-cell">
+                        <div class="extra-cell">                  
+                        	@if(Auth::check())
+                        	<a href="{{route('logout')}}" class="site-button">Logout</a>
+
+                        	@else
                             <a href="#" class="site-button"><i class="fa fa-user"></i> Sign Up</a>
-                            <a href="#" class="site-button"><i class="fa fa-lock"></i> login</a>
+                        	<a href="{{ route('login') }}" class="site-button"><i class="fa fa-lock"></i> login</a>
+                            @endif
+                            
+
                         </div>
                     </div>
                     <!-- Quik search -->
@@ -70,13 +77,33 @@
 									<li><a href="#" class="dez-page">Login</a></li>
 									<li><a href="#" class="dez-page">Register</a></li>
 									<li><a href="#" class="dez-page">Contact Us</a></li>
+
+									@if(Auth::check())
+
+									<li><a href="{{route('logout')}}" class="dez-page">Logout</a></li>
+
+									@endif
+
+									
 								</ul>
 							</li>
 							<li>
+								@if(Auth::check())
 								<a href="#">Profile<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="{{route('profile.jobprovider')}}" class="dez-page">Job Providers Profile</a></li>
-									<li><a href="{{route('profile.jobseeker')}}" class="dez-page">Job Seekers Profile</a></li>									
+									
+									@if(Auth::user()->role_id==3)
+
+									<li><a href="{{route('profile.jobprovider')}}" class="dez-page">Profile</a></li>
+
+										@else		
+
+										<li><a href="{{route('profile.jobseeker')}}" class="dez-page">Profile</a></li>
+										<li><a href="{{route('cv.jobseeker')}}" class="dez-page">View CV</a></li>	
+
+										@endif
+
+									@endif
 								</ul>
 							</li>
 						</ul>			

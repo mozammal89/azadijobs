@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
      public function index(){
 
-    	return view('BackEnd.dashboard');
+    	return view('FrontEnd.providerwelcome');
     }
 }

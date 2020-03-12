@@ -34,20 +34,33 @@
                             @method('put')
                               <div class="tab-content">
                                     <div id="personal_info" class="tab-pane fade in active">
-                                        
-                                        <h3 style="background-color: #1e6982; color: white; padding-left: 12px; padding-bottom: 12px;padding-top: 12px; border-radius: 6px;"><b>Personal Information</b></h3>
-                                      
-                                       <div class="col-md-3">
-                                            <div class="row">
-                                                <!-- <img width="50%" height="50%" align="center" src="/images/{{$all_profiles[0]->provider_image}}" style="">
-
-                                                <input type="file" name="provider_image" value=""> -->
-
-                                                <img id="uploadPreview" style="width: 100px; height: 100px;" src="/images/{{$all_profiles[0]->provider_image}}" />
-                                                <input id="uploadImage" type="file" name="provider_image" onchange="PreviewImage();" />
-                                                                                               
+                                       
+                                        <div class="card">
+                          
+                                                <div class="card-header" style="background-color: #1e6982;color: white;font-weight: bold;">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            Provider Information
+                                                        </div>
+                                                        <div class="col-md-6" align="right">
+                                                             <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Update</button>
+                                                        </div>        
+                                                    </div>
+                                         
                                             </div>
-                                        </div>
+                                            <div class="card-body">
+                                                <div class="col-md-3">
+                                                    <div class="row">
+                                                        <!-- <img width="50%" height="50%" align="center" src="/images/{{$all_profiles[0]->provider_image}}" style="">
+
+                                                        <input type="file" name="provider_image" value=""> -->
+
+                                                        <img id="uploadPreview" style="width: 100px; height: 100px;" src="/images/{{$all_profiles[0]->provider_image}}" />
+                                                        <input id="uploadImage" type="file" name="provider_image" onchange="PreviewImage();" />
+                                                                                                       
+                                                    </div>
+                                                </div>
+
                                        <div class="card-body">
                                             <div class="row">
 
@@ -88,11 +101,14 @@
                                                 <label class="col-md-5">Email: </label>
                                                 <input type="text" name="email" value="{{$all_profiles[0]->email}}" style="border: white;">
                                             </div>
-                                        </div>     
+                                        </div>
+                                            </div>
+                                        </div>
+                                            </form>
 
                                     </div>
 
-                                    <div id="menu1" class="tab-pane  fade">
+                                    <div id="menu1" class="tab-pane fade">
                                       <h3>Menu 1</h3>
                                       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                     </div>
@@ -114,10 +130,8 @@
 
             
             
-                <div class="col-md-6" align="right">
-                    <button class="btn btn-lg btn-primary login-submit-cs" style="margin-bottom: 20px; margin-right: 280px;" type="submit">Update</button>
-                </div>
-            </form>
+                
+        
     	</div>
     </div>
 
