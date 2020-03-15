@@ -57,34 +57,73 @@
                                                 </div>
 
                                                 <div class="card-body">
-                                            <div class="row">
+                                                    <div class="row">                                              
+                                                        <div class="col-md-3" align="right">
+                                                            <label>Seeker Name </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            :
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                           <input type="text" name="seeker_name" value="{{$all_seeker_profiles[0]->seeker_name}}" style="border: white;"> 
+                                                        </div>            
+                                                    </div>
 
-                                                <label class="col-md-5">Seeker Name: </label>
-                                                <input type="text" name="seeker_name" value="{{$all_seeker_profiles[0]->seeker_name}}" style="border: white;">
+                                                    <div class="row">
+                                                        <div class="col-md-3" align="right">
+                                                           <label>Seeker Address </label> 
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            :
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" name="seeker_address" value="{{$all_seeker_profiles[0]->seeker_address}}" style="border: white;">
+                                                        </div>
+                                                    </div>
 
-                                                <label class="col-md-5">Seeker Address: </label>
-                                                <input type="text" name="seeker_address" value="{{$all_seeker_profiles[0]->seeker_address}}" style="border: white;">
+                                                    <div class="row">
+                                                        <div class="col-md-3" align="right">
+                                                            <label>Interested Area </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            :
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select class="col-md-4" name="interested_area">
+                                                            <!-- <option value="">Select Business Type</option> -->
+                                                            @foreach($all_categories as $category)
+                                               
+                                                            <option value="{{$category->id}}" {{ ( $all_seeker_profiles[0]->interested_area == $category->id )? " selected= '' ": ' ' }}>{{$category->job_category_name}}</option>
+                                                            @endforeach
 
-                                                
-                                                    
-                                                <label class="col-md-5">Interested Area: </label>
-                                            
-                                           
-                                                <select class="col-md-4" name="interested_area">
-                                                    <!-- <option value="">Select Business Type</option> -->
-                                                    @foreach($all_categories as $category)
-                                       
-                                                    <option value="{{$category->id}}" {{ ( $all_seeker_profiles[0]->interested_area == $category->id )? " selected= '' ": ' ' }}>{{$category->job_category_name}}</option>
-                                                    @endforeach
+                                                        </select>
+                                                        </div>
+                                                    </div>
 
-                                                </select>
-                                                
-                                                <label class="col-md-5">Phone Number: </label>
-                                                <input type="text" name="phn_number" value="{{$all_seeker_profiles[0]->phn_number}}" style="border: white;">
+                                                    <div class="row">
+                                                        <div class="col-md-3" align="right">
+                                                            <label>Phone Number </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            :
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" name="phn_number" value="{{$all_seeker_profiles[0]->phn_number}}" style="border: white;">
+                                                        </div>
+                                                    </div>
 
-                                                <label class="col-md-5">Email: </label>
-                                                <input type="text" name="seeker_email" value="{{$all_seeker_profiles[0]->seeker_email}}" style="border: white;">                                              
-                                            </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3" align="right">
+                                                            <label>Email </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            :
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" name="seeker_email" value="{{$all_seeker_profiles[0]->seeker_email}}" style="border: white;">
+                                                        </div>
+                                                    </div>  
+
                                                 </div>
                                             </div>
                                         </div>
@@ -92,7 +131,12 @@
 
                                     </div>
 
+                                    
                                     <div id="personal" class="tab-pane fade">
+                                        <form action="{{route('jobseeker.cvupdate',$profiles[0]->id)}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('put')
+
                                         <div class="card">
                                             <div class="card-header" style="background-color: #1e6982;color: white;font-weight: bold;">
                                                 <div class="col-md-6">
@@ -104,44 +148,59 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>First name: </label>
+                                                    <div class="col-md-2" align="right">
+                                                        <label>First name </label>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="first_name" value="" style="border: white;">
+                                                        <input type="text" name="first_name" value="{{$profiles[0]->first_name}}" style="border: white;">
                                                     </div>                                                   
                                                 </div>
                                           
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Last Name: </label>
+                                                    <div class="col-md-2" align="right">
+                                                        <label>Last Name </label>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="first_name" value="" style="border: white;">
+                                                        <input type="text" name="last_name" value="{{$profiles[0]->last_name}}" style="border: white;">
                                                     </div>                                                    
                                                 </div>
                                       
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Father's Name: </label>
+                                                    <div class="col-md-2" align="right">
+                                                        <label>Father's Name </label> 
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="father_name" value="" style="border: white;">
+                                                        <input type="text" name="father_name" value="{{$profiles[0]->father_name}}" style="border: white;">
                                                     </div>                    
                                                 </div>
                                        
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Mother's Name: </label>
+                                                    <div class="col-md-2" align="right">
+                                                        <label>Mother's Name </label>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="mother_name" value="" style="border: white;">
+                                                        <input type="text" name="mother_name" value="{{$profiles[0]->mother_name}}" style="border: white;">
                                                     </div>      
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Select Gender: </label>
+                                                    <div class="col-md-2" align="right">
+                                                        <label>Select Gender </label>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="row">                                                       
@@ -151,16 +210,16 @@
                                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                             <div class="i-checks pull-left">
                                                                                 <label>
-                                                                                <input type="radio" name="gender" value="male" > <i></i> Male </label>
+                                                                                <input type="radio" name="gender" value="male"  {{ ($profiles[0]->gender=='male')?'checked' : '' }}  > <i></i> Male </label>
                                                                             </div>
                                                                             
                                                                             <div class="i-checks pull-left">
                                                                                 <label>
-                                                                                <input type="radio" name="gender" value="female" > <i></i> Female </label>
+                                                                                <input type="radio" name="gender" value="female"   {{ ($profiles[0]->gender=='female')?'checked' : '' }}  > <i></i> Female </label>
                                                                             </div>
                                                                             <div class="i-checks pull-left">
                                                                                 <label>
-                                                                                <input type="radio" name="gender" value="other"><i></i> Other </label>
+                                                                                <input type="radio" name="gender" value="other" {{ ($profiles[0]->gender=='other')?'checked' : '' }} ><i></i> Other </label>
                                                                             </div>
                                                                         </div>
                                                                     </div>                                                                
@@ -171,53 +230,71 @@
                                                 </div>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Date of Birth: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>Date of Birth </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="date" name="dob" value="" style="border: white;">
+                                                            <input type="date" name="dob" value="{{$profiles[0]->dob}}" style="border: white;">
                                                         </div>                                                        
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Religion: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>Religion </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="religion" value="" style="border: white;">
+                                                            <input type="text" name="religion" value="{{$profiles[0]->religion}}" style="border: white;">
                                                         </div>
-                                                                                                           </div>
+                                                    </div>
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Nationality: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>Nationality </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="nationality" value="" style="border: white;">
+                                                            <input type="text" name="nationality" value="{{$profiles[0]->nationality}}" style="border: white;">
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>NID: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>NID </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="nid" value="" style="border: white;">
+                                                            <input type="text" name="nid" value="{{$profiles[0]->nid}}" style="border: white;">
                                                         </div>                    
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Passport Number: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>Passport Number </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="passport_number" value="" style="border: white;">
+                                                            <input type="text" name="passport_number" value="{{$profiles[0]->passport_number}}" style="border: white;">
                                                         </div>                                                       
                                                     </div>
                                                     <br>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Maritial Status: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>Maritial Status </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="row">                                                       
@@ -227,16 +304,16 @@
                                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                                 <div class="i-checks pull-left">
                                                                                     <label>
-                                                                                    <input type="radio" name="maritial_status" value="Single" > <i></i> Single </label>
+                                                                                    <input type="radio" name="maritial_status" value="Single" {{($profiles[0]->maritial_status=='Single')? 'checked' : '' }} > <i></i> Single </label>
                                                                                 </div>
                                                                                 
                                                                                 <div class="i-checks pull-left">
                                                                                     <label>
-                                                                                    <input type="radio" name="maritial_status" value="Married" > <i></i> Married </label>
+                                                                                    <input type="radio" name="maritial_status" value="Married" {{($profiles[0]->maritial_status=='Married')? 'checked' : '' }} > <i></i> Married </label>
                                                                                 </div>
                                                                                 <div class="i-checks pull-left">
                                                                                     <label>
-                                                                                    <input type="radio" name="maritial_status" value="Divorce"><i></i> Divorce </label>
+                                                                                    <input type="radio" name="maritial_status" value="Divorce" {{($profiles[0]->maritial_status=='Divorce')? 'checked' : '' }}><i></i> Divorce </label>
                                                                                 </div>
                                                                             </div>
                                                                         </div>                                                                
@@ -247,30 +324,37 @@
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Mobile: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>Mobile </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="mobile" value="" style="border: white;">
+                                                            <input type="text" name="mobile" value="{{$profiles[0]->mobile}}" style="border: white;">
                                                         </div>            
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>Email: </label>
+                                                        <div class="col-md-2" align="right">
+                                                            <label>Email </label>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="email" value="" style="border: white;">
+                                                            <input type="text" name="email" value="{{$profiles[0]->email}}" style="border: white;">
                                                         </div>            
                                                     </div>
                                                     
 
                                                 </div>
-                                            </div>  
 
-                                      
+                                            </div>  
+                                            </form>
 
                                    </div>
+                                   
 
                                     <div id="menu2" class="tab-pane fade">
                                       <h3>Menu 2</h3>

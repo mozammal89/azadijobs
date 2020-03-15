@@ -36,7 +36,9 @@ class JobSeekerController extends Controller
                 }
 
     	$jobseekers = new JobSeeker;
+
     	$user_info = new User;
+        
     	$user_info->name = $request->seeker_name;
         $user_info->email = $request->seeker_email;
     	$user_info->mobile = $request->phn_number;

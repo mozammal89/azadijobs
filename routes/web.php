@@ -100,8 +100,9 @@ Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('stor
 
 //Job Seeker Profile Start Here
 Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('profile.jobseeker');
-Route::put('jobpseeker/update/{id}','JobSeeker\JobSeekerProfileTab@update')->name('jobseeker.update');
-Route::get('jobseeker/cv','JobSeeker\JobSeekerCvController@index')->name('cv.jobseeker');
+Route::put('jobseeker/update/{id}','JobSeeker\JobSeekerProfileTab@update')->name('jobseeker.update');
+Route::put('jobseeker/cvupdate/{id}','JobSeeker\JobSeekerProfileTab@cvupdate')->name('jobseeker.cvupdate');
+
 //Job Seeker Profile Start Here
 
 

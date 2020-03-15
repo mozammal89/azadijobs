@@ -99,7 +99,7 @@
 										@else		
 
 										<li><a href="{{route('profile.jobseeker')}}" class="dez-page">Profile</a></li>
-										<li><a href="{{route('cv.jobseeker')}}" class="dez-page">View CV</a></li>	
+										<li><a href="#" class="dez-page">View CV</a></li>	
 
 										@endif
 
