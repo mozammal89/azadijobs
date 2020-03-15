@@ -9,6 +9,7 @@ use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use App\JobCategory;
 use App\JobSeeker\JobSeekerProfile;
+use App\JobSeeker\JobSeekerEducation;
 
 class JobSeekerProfileTab extends Controller
 {
@@ -19,10 +20,12 @@ class JobSeekerProfileTab extends Controller
     	$all_categories = JobCategory::get();
 
       $profiles = JobSeekerProfile::get();
-      
-      dd()
 
-    	return view ('FrontEnd.job_seekers_tab', compact('all_seeker_profiles','all_categories','profiles'));
+      $educational_infos = JobSeekerEducation::get();
+      
+      
+
+    	return view ('FrontEnd.job_seekers_tab', compact('all_seeker_profiles','all_categories','profiles', 'educational_infos'));
     }
 
     public function update (Request $request, $id)
@@ -126,6 +129,65 @@ class JobSeekerProfileTab extends Controller
 
          return redirect()->route('profile.jobseeker')
                          ->with('success','Personal Information Updated successfully.');
+        
+      }
+    }
+
+    public function educationupdate(Request $request, $id)
+    {
+      $education_info = JobSeekerEducation::find($id);
+
+       if($education_info == null)
+      {
+        
+
+      $education_info = new JobSeekerEducation;
+      $user_info = new User;
+
+      $education_info->user_id = $user_info->id;
+
+      $education_info->school_name = $request->school_name;
+      $education_info->school_subject = $request->school_subject;
+      $education_info->school_grade = $request->school_grade;
+      $education_info->school_passing_year = $request->school_passing_year;
+      $education_info->college_name = $request->college_name;
+      $education_info->college_subject = $request->college_subject;
+      $education_info->college_grade = $request->college_grade;
+      $education_info->college_passing_year = $request->college_passing_year;
+      $education_info->versity_name = $request->versity_name;
+      $education_info->versity_subject = $request->versity_subject;
+      $education_info->versity_grade = $request->versity_grade;
+      $education_info->versity_passing_year = $request->versity_passing_year;
+      
+      $education_info->save();   
+
+      Toastr::success('Educational Information successfully Submitted','Submitted');
+
+         return redirect()->route('profile.jobseeker')
+                         ->with('success','Educational Information Submitted successfully.');
+      }
+
+      else{
+
+      $education_info->school_name = $request->school_name;
+      $education_info->school_subject = $request->school_subject;
+      $education_info->school_grade = $request->school_grade;
+      $education_info->school_passing_year = $request->school_passing_year;
+      $education_info->college_name = $request->college_name;
+      $education_info->college_subject = $request->college_subject;
+      $education_info->college_grade = $request->college_grade;
+      $education_info->college_passing_year = $request->college_passing_year;
+      $education_info->versity_name = $request->versity_name;
+      $education_info->versity_subject = $request->versity_subject;
+      $education_info->versity_grade = $request->versity_grade;
+      $education_info->versity_passing_year = $request->versity_passing_year;
+
+      $education_info->save();
+
+      Toastr::success('Educational Information successfully Updated','updated');
+
+         return redirect()->route('profile.jobseeker')
+                         ->with('success','Educational Information Updated successfully.');
         
       }
     }

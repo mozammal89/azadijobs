@@ -23,7 +23,7 @@
                               <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active"> <a data-toggle="tab" href="#basic_info" aria-controls="basic_info" role="tab" >Basic Information</a></li>
                                     <li><a data-toggle="tab" href="#personal" role="tab">Personal</a></li>
-                                    <li><a data-toggle="tab" href="#menu2" role="tab">Menu 2</a></li>
+                                    <li><a data-toggle="tab" href="#education" role="tab">Education</a></li>
                                     <li><a data-toggle="tab" href="#menu3" role="tab">Menu 3</a></li>
                               </ul>
                             <!-- Tab panes -->
@@ -356,10 +356,186 @@
                                    </div>
                                    
 
-                                    <div id="menu2" class="tab-pane fade">
-                                      <h3>Menu 2</h3>
-                                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    <div id="education" class="tab-pane fade">
+                                        <form action="{{route('jobseeker.educationupdate',$educational_infos[0]->id)}}" method="post">
+                                            @csrf
+                                            @method('put')
+                                      <div class="card">
+                                            <div class="card-header" style="background-color: #1e6982;color: white;font-weight: bold;">
+                                                <div class="col-md-6">
+                                                  Educational Information
+                                                </div>
+                                                <div class="col-md-6" align="right">
+                                                  <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Update</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="head" style="background-color: #1e6982;color: white;font-weight: bold;width: 90%; text-align: center;">
+                                                            SSC
+                                                        </div>
+                                                        <div class="body">
+                                                            <div class="row" style="padding-top: 5px;">
+                                                                <div class="col-md-4">
+                                                                    <label style="text-align: right;">School</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="school_name" value="{{$educational_infos[0]->school_name}}" style="border: white;width: 500%;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Subject</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="school_subject" value="{{$educational_infos[0]->school_subject}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Grade</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="school_grade" value="{{$educational_infos[0]->school_grade}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Year</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="school_passing_year" value="{{$educational_infos[0]->school_passing_year}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="head" style="background-color: #1e6982;color: white;font-weight: bold;width: 90%; text-align: center;">
+                                                            HSC
+                                                        </div>
+                                                        <div class="body">
+                                                            <div class="row" style="padding-top: 5px;">
+                                                                <div class="col-md-4">
+                                                                    <label style="text-align: right;">College</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="college_name" value="{{$educational_infos[0]->college_name}}" style="border: white;width: 500%;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Subject</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="college_subject" value="{{$educational_infos[0]->college_subject}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Grade</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="college_grade" value="{{$educational_infos[0]->college_grade}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Year</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="college_passing_year" value="{{$educational_infos[0]->college_passing_year}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="head" style="background-color: #1e6982;color: white;font-weight: bold;width: 90%; text-align: center;">
+                                                            University
+                                                        </div>
+                                                        <div class="body">
+                                                            <div class="row" style="padding-top: 5px;">
+                                                                <div class="col-md-4">
+                                                                    <label style="text-align: right;">Versity</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="versity_name" value="{{$educational_infos[0]->versity_name}}" style="border: white;width: 500%;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Subject</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="versity_subject" value="{{$educational_infos[0]->versity_subject}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Grade</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="versity_grade" value="{{$educational_infos[0]->versity_grade}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Year</label>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    :
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   <input type="text" name="versity_passing_year" value="{{$educational_infos[0]->versity_passing_year}}" style="border: white;"> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>                                           
+                                        </div> 
+
+                                    </form>
+
                                     </div>
+
+
                                     <div id="menu3" class="tab-pane fade">
                                       <h3>Menu 3</h3>
                                       <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
