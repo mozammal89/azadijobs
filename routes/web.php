@@ -103,6 +103,7 @@ Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('p
 Route::put('jobseeker/update/{id}','JobSeeker\JobSeekerProfileTab@update')->name('jobseeker.update');
 Route::put('jobseeker/cvupdate/{id}','JobSeeker\JobSeekerProfileTab@cvupdate')->name('jobseeker.cvupdate');
 Route::put('jobseeker/educationupdate/{id}','JobSeeker\JobSeekerProfileTab@educationupdate')->name('jobseeker.educationupdate');
+Route::put('jobseeker/addressupdate/{id}','JobSeeker\JobSeekerProfileTab@addressupdate')->name('jobseeker.addressupdate');
 
 //Job Seeker Profile Start Here
 

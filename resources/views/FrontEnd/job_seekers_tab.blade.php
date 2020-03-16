@@ -24,7 +24,7 @@
                                     <li role="presentation" class="active"> <a data-toggle="tab" href="#basic_info" aria-controls="basic_info" role="tab" >Basic Information</a></li>
                                     <li><a data-toggle="tab" href="#personal" role="tab">Personal</a></li>
                                     <li><a data-toggle="tab" href="#education" role="tab">Education</a></li>
-                                    <li><a data-toggle="tab" href="#menu3" role="tab">Menu 3</a></li>
+                                    <li><a data-toggle="tab" href="#address" role="tab">Address</a></li>
                               </ul>
                             <!-- Tab panes -->
                             <form action="{{route('jobseeker.update',$all_seeker_profiles[0]->id)}}" method="post" enctype="multipart/form-data">
@@ -89,7 +89,7 @@
                                                             :
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <select class="col-md-4" name="interested_area">
+                                                            <select class="col-md-4" name="interested_area" style="border: white;">
                                                             <!-- <option value="">Select Business Type</option> -->
                                                             @foreach($all_categories as $category)
                                                
@@ -536,16 +536,137 @@
                                     </div>
 
 
-                                    <div id="menu3" class="tab-pane fade">
-                                      <h3>Menu 3</h3>
-                                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    </div>
-                                  </div>
+                                    <div id="address" class="tab-pane fade">
+                                        <form action="{{route('jobseeker.addressupdate',$address_infos[0]->id ?? '0')}}" method="post">
+                                            @csrf
+                                            @method('put')
+                                      <div class="card">
+                                        <div class="card-header" style="background-color: #1e6982;color: white;font-weight: bold;">
+                                            <div class="col-md-6">
+                                              Address Details
+                                            </div>
+                                            <div class="col-md-6" align="right">
+                                              <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Update</button>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="head" style="background-color: #1e6982;color: white;font-weight: bold;width: 90%; text-align: center;">
+                                                        Present Address
+                                                    </div>
+                                                    <div class="body">
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right;margin-left: 30px;">Address</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="present_address" value="{{$address_infos[0]->present_address?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right;margin-left: 30px;">District</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="present_district" value="{{$address_infos[0]->present_district?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right;margin-left: 30px;">Country</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="present_country" value="{{$address_infos[0]->present_country?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right;margin-left: 30px;">ZIP Code</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="present_zip" value="{{$address_infos[0]->present_zip?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="head" style="background-color: #1e6982;color: white;font-weight: bold;width: 90%; text-align: center;">
+                                                        Parmanent Address
+                                                    </div>
+                                                    <div class="body">
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right; margin-left: 30px;">Address</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="parmanent_address" value="{{$address_infos[0]->parmanent_address?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right;margin-left: 30px;">District</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="parmanent_district" value="{{$address_infos[0]->parmanent_district?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right;margin-left: 30px;">Country</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="parmanent_country" value="{{$address_infos[0]->parmanent_country?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>                                                
+                                                        <div class="row" style="padding-top: 5px;">
+                                                            <div class="col-md-4">
+                                                                <label style="text-align: right; margin-left: 30px;">ZIP Code</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="text" name="parmanent_zip" value="{{$address_infos[0]->parmanent_zip?? ' '}}" style="border: white;width: 155%;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>                                    
                             </div>
+
+
                         </div>
-                    </div> 
+
+                    </div>
+                </div>
+            </div>
+        </div> 
 
 
             

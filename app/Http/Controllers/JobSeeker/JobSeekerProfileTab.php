@@ -10,6 +10,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\JobCategory;
 use App\JobSeeker\JobSeekerProfile;
 use App\JobSeeker\JobSeekerEducation;
+use App\JobSeeker\JobSeekerAddress;
 
 class JobSeekerProfileTab extends Controller
 {
@@ -20,12 +21,12 @@ class JobSeekerProfileTab extends Controller
     	$all_categories = JobCategory::get();
 
       $profiles = JobSeekerProfile::get();
-
       $educational_infos = JobSeekerEducation::get();
+      $address_infos = JobSeekerAddress::get();
       
       
 
-    	return view ('FrontEnd.job_seekers_tab', compact('all_seeker_profiles','all_categories','profiles', 'educational_infos'));
+    	return view ('FrontEnd.job_seekers_tab', compact('all_seeker_profiles','all_categories','profiles', 'educational_infos', 'address_infos'));
     }
 
     public function update (Request $request, $id)
@@ -190,6 +191,62 @@ class JobSeekerProfileTab extends Controller
                          ->with('success','Educational Information Updated successfully.');
         
       }
+    }
+
+    public function addressupdate(Request $request, $id)
+    {
+      $address_info = JobSeekerAddress::find($id);
+      
+
+      if($address_info == null)
+      {
+        
+
+      $address_info = new JobSeekerAddress;
+      $user_info = new User;
+
+      $address_info->user_id = $user_info->id;
+
+      $address_info->present_address = $request->present_address;
+      $address_info->present_district = $request->present_district;
+      $address_info->present_country = $request->present_country;
+      $address_info->present_zip = $request->present_zip;
+      $address_info->parmanent_address = $request->parmanent_address;
+      $address_info->parmanent_district = $request->parmanent_district;
+      $address_info->parmanent_country = $request->parmanent_country;
+      $address_info->parmanent_zip = $request->parmanent_zip;
+     
+      
+      $address_info->save();   
+
+      Toastr::success('Address Information successfully Submitted','Submitted');
+
+         return redirect()->route('profile.jobseeker')
+                         ->with('success','Address Information Submitted successfully.');
+      }
+
+      else{
+
+      $address_info->present_address = $request->present_address;
+      $address_info->present_district = $request->present_district;
+      $address_info->present_country = $request->present_country;
+      $address_info->present_zip = $request->present_zip;
+      $address_info->parmanent_address = $request->parmanent_address;
+      $address_info->parmanent_district = $request->parmanent_district;
+      $address_info->parmanent_country = $request->parmanent_country;
+      $address_info->parmanent_zip = $request->parmanent_zip;
+     
+      
+      $address_info->save(); 
+
+      Toastr::success('Address Information successfully Updated','updated');
+
+         return redirect()->route('profile.jobseeker')
+                         ->with('success','Address Information Updated successfully.');
+        
+      }
+    
+
     }
 
       
