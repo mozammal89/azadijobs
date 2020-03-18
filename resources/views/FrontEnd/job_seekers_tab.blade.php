@@ -2,6 +2,7 @@
 
 @push('css')
 <link rel="stylesheet" type="text/css" href="{{asset('FrontEnd/css/jpProfile.css')}}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 @endpush()
@@ -25,6 +26,7 @@
                                     <li><a data-toggle="tab" href="#personal" role="tab">Personal</a></li>
                                     <li><a data-toggle="tab" href="#education" role="tab">Education</a></li>
                                     <li><a data-toggle="tab" href="#address" role="tab">Address</a></li>
+                                    <li><a data-toggle="tab" href="#experience" role="tab">Experience</a></li>
                               </ul>
                             <!-- Tab panes -->
                             <form action="{{route('jobseeker.update',$all_seeker_profiles[0]->id)}}" method="post" enctype="multipart/form-data">
@@ -660,9 +662,38 @@
                                 </form>                                    
                             </div>
 
+                            <div id="experience" class="tab-pane fade">
+
+                                <div class="container">
+                             
+                                  <!-- Trigger the modal with a button -->
+                                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Experience</button>
+
+                                  <!-- Modal Experience End -->
+                                  <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                      <div class="modal-content" style="margin-top: 110px;">
+                                        <div class="modal-header" style="background: #1e6982">
+                                            <h2 style="font-weight: bold; color: white">Experience</h2>
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>This is a small modal.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Model Experience End -->
+                                </div>
+                            </div>
+
+
+
 
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -712,5 +743,8 @@
     };
 
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 @endpush()

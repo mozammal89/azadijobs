@@ -44,6 +44,7 @@ return array(
     'App\\JobCategory' => $baseDir . '/app/JobCategory.php',
     'App\\JobProvider\\JobProvider' => $baseDir . '/app/JobProvider/JobProvider.php',
     'App\\JobSeeker\\JobSeeker' => $baseDir . '/app/JobSeeker/JobSeeker.php',
+    'App\\JobSeeker\\JobSeekerAddress' => $baseDir . '/app/JobSeeker/JobSeekerAddress.php',
     'App\\JobSeeker\\JobSeekerEducation' => $baseDir . '/app/JobSeeker/JobSeekerEducation.php',
     'App\\JobSeeker\\JobSeekerProfile' => $baseDir . '/app/JobSeeker/JobSeekerProfile.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

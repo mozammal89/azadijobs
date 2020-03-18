@@ -468,6 +468,7 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
         'App\\JobCategory' => __DIR__ . '/../..' . '/app/JobCategory.php',
         'App\\JobProvider\\JobProvider' => __DIR__ . '/../..' . '/app/JobProvider/JobProvider.php',
         'App\\JobSeeker\\JobSeeker' => __DIR__ . '/../..' . '/app/JobSeeker/JobSeeker.php',
+        'App\\JobSeeker\\JobSeekerAddress' => __DIR__ . '/../..' . '/app/JobSeeker/JobSeekerAddress.php',
         'App\\JobSeeker\\JobSeekerEducation' => __DIR__ . '/../..' . '/app/JobSeeker/JobSeekerEducation.php',
         'App\\JobSeeker\\JobSeekerProfile' => __DIR__ . '/../..' . '/app/JobSeeker/JobSeekerProfile.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

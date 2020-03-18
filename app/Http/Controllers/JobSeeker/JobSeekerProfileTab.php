@@ -11,6 +11,7 @@ use App\JobCategory;
 use App\JobSeeker\JobSeekerProfile;
 use App\JobSeeker\JobSeekerEducation;
 use App\JobSeeker\JobSeekerAddress;
+use Auth;
 
 class JobSeekerProfileTab extends Controller
 {
@@ -62,7 +63,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Profile successfully Updated','Updated');
 
-         return redirect()->route('profile')
+         return redirect()->route('profile.jobseeker')
                          ->with('success','Profile updated successfully.');
 	
     
@@ -83,7 +84,7 @@ class JobSeekerProfileTab extends Controller
       $personal_info = new JobSeekerProfile;
       $user_info = new User;
 
-      $personal_info->user_id = $user_info->id;
+      $personal_info->user_id = Auth::user()->id;
 
       $personal_info->first_name = $request->first_name;
       $personal_info->last_name = $request->last_name;
@@ -145,7 +146,7 @@ class JobSeekerProfileTab extends Controller
       $education_info = new JobSeekerEducation;
       $user_info = new User;
 
-      $education_info->user_id = $user_info->id;
+      $education_info->user_id = Auth::user()->id;
 
       $education_info->school_name = $request->school_name;
       $education_info->school_subject = $request->school_subject;
@@ -205,7 +206,7 @@ class JobSeekerProfileTab extends Controller
       $address_info = new JobSeekerAddress;
       $user_info = new User;
 
-      $address_info->user_id = $user_info->id;
+      $address_info->user_id = Auth::user()->id;
 
       $address_info->present_address = $request->present_address;
       $address_info->present_district = $request->present_district;
