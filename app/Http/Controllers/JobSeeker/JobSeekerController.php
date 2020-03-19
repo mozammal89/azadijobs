@@ -9,6 +9,9 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Storage;
 use App\JobCategory;
+use App\JobSeeker\JobSeekerProfile;
+use App\JobSeeker\JobSeekerEducation;
+use App\JobSeeker\JobSeekerAddress;
 
 class JobSeekerController extends Controller
 {
@@ -38,13 +41,30 @@ class JobSeekerController extends Controller
     	$jobseekers = new JobSeeker;
 
     	$user_info = new User;
-        
-    	$user_info->name = $request->seeker_name;
+
+        $user_info->name = $request->seeker_name;
         $user_info->email = $request->seeker_email;
-    	$user_info->mobile = $request->phn_number;
-    	$user_info->role_id= 2;
-    	$user_info->password=bcrypt($request->password)?? bcrypt(123456);
-    	$user_info->save();
+        $user_info->mobile = $request->phn_number;
+        $user_info->role_id= 2;
+        $user_info->password=bcrypt($request->password)?? bcrypt(123456);
+        $user_info->save();
+
+        $personal_info = new JobSeekerProfile;
+        $personal_info->user_id = $user_info->id;
+        $personal_info->save();
+
+        $education_info = new JobSeekerEducation;
+        $education_info->user_id = $user_info->id;
+        $education_info->save();
+
+        $address_info = new JobSeekerAddress;
+        $address_info->user_id = $user_info->id;
+        $address_info->save();
+        
+    	
+
+
+
 
 
     	$jobseekers->user_id = $user_info->id;

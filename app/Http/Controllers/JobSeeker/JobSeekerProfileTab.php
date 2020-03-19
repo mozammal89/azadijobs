@@ -18,12 +18,12 @@ class JobSeekerProfileTab extends Controller
 
     public function profile ()
     {
-    	$all_seeker_profiles = JobSeeker::get();
+    	$all_seeker_profiles = JobSeeker::where('user_id',Auth::user()->id)->first();
     	$all_categories = JobCategory::get();
 
-      $profiles = JobSeekerProfile::get();
-      $educational_infos = JobSeekerEducation::get();
-      $address_infos = JobSeekerAddress::get();
+      $profiles = JobSeekerProfile::where('user_id',Auth::user()->id)->first();
+      $educational_infos = JobSeekerEducation::where('user_id',Auth::user()->id)->first();
+      $address_infos = JobSeekerAddress::where('user_id',Auth::user()->id)->first();
       
       
 
@@ -73,7 +73,7 @@ class JobSeekerProfileTab extends Controller
 
     }
 
-    public function cvupdate(Request $request, $id)
+    public function personalInfoupdate(Request $request, $id)
     {
       $personal_info = JobSeekerProfile::find($id);
 

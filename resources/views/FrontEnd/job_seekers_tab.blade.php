@@ -4,7 +4,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('FrontEnd/css/jpProfile.css')}}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+<!-- Date & Time Start -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<
+<!-- Date& Time End -->
+
 @endpush()
 
 
@@ -29,7 +35,7 @@
                                     <li><a data-toggle="tab" href="#experience" role="tab">Experience</a></li>
                               </ul>
                             <!-- Tab panes -->
-                            <form action="{{route('jobseeker.update',$all_seeker_profiles[0]->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('jobseeker.update',$all_seeker_profiles->user_id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                               <div class="tab-content">
@@ -51,7 +57,7 @@
                                             <div class="card-body">
                                                 <div class="col-md-3">
                                                     <div class="row">
-                                                        <img width="50%" height="50%" align="center" src="/images/{{$all_seeker_profiles[0]->seeker_image}}" style="">
+                                                        <img width="50%" height="50%" align="center" src="/images/{{$all_seeker_profiles->seeker_image}}" style="">
 
                                                         <input type="file" name="seeker_image">
                                                                                                        
@@ -67,7 +73,7 @@
                                                             :
                                                         </div>
                                                         <div class="col-md-6">
-                                                           <input type="text" name="seeker_name" value="{{$all_seeker_profiles[0]->seeker_name}}" style="border: white;"> 
+                                                           <input type="text" name="seeker_name" value="{{$all_seeker_profiles->seeker_name}}" style="border: white;"> 
                                                         </div>            
                                                     </div>
 
@@ -79,7 +85,7 @@
                                                             :
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="seeker_address" value="{{$all_seeker_profiles[0]->seeker_address}}" style="border: white;">
+                                                            <input type="text" name="seeker_address" value="{{$all_seeker_profiles->seeker_address}}" style="border: white;">
                                                         </div>
                                                     </div>
 
@@ -95,7 +101,7 @@
                                                             <!-- <option value="">Select Business Type</option> -->
                                                             @foreach($all_categories as $category)
                                                
-                                                            <option value="{{$category->id}}" {{ ( $all_seeker_profiles[0]->interested_area == $category->id )? " selected= '' ": ' ' }}>{{$category->job_category_name}}</option>
+                                                            <option value="{{$category->id}}" {{ ( $all_seeker_profiles->interested_area == $category->id )? " selected= '' ": ' ' }}>{{$category->job_category_name}}</option>
                                                             @endforeach
 
                                                         </select>
@@ -110,7 +116,7 @@
                                                             :
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="phn_number" value="{{$all_seeker_profiles[0]->phn_number}}" style="border: white;">
+                                                            <input type="text" name="phn_number" value="{{$all_seeker_profiles->phn_number}}" style="border: white;">
                                                         </div>
                                                     </div>
 
@@ -122,7 +128,7 @@
                                                             :
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="seeker_email" value="{{$all_seeker_profiles[0]->seeker_email}}" style="border: white;">
+                                                            <input type="text" name="seeker_email" value="{{$all_seeker_profiles->seeker_email}}" style="border: white;">
                                                         </div>
                                                     </div>  
 
@@ -135,7 +141,7 @@
 
                                     
                                     <div id="personal" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.cvupdate',$profiles[0]->id)}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('jobseeker.personalInfoupdate',$profiles->user_id)}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         @method('put')
 
@@ -157,7 +163,7 @@
                                                         <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="first_name" value="{{$profiles[0]->first_name}}" style="border: white;">
+                                                        <input type="text" name="first_name" value="{{$profiles->first_name}}" style="border: white;">
                                                     </div>                                                   
                                                 </div>
                                           
@@ -169,7 +175,7 @@
                                                         <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="last_name" value="{{$profiles[0]->last_name}}" style="border: white;">
+                                                        <input type="text" name="last_name" value="{{$profiles->last_name}}" style="border: white;">
                                                     </div>                                                    
                                                 </div>
                                       
@@ -181,7 +187,7 @@
                                                         <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="father_name" value="{{$profiles[0]->father_name}}" style="border: white;">
+                                                        <input type="text" name="father_name" value="{{$profiles->father_name}}" style="border: white;">
                                                     </div>                    
                                                 </div>
                                        
@@ -193,7 +199,7 @@
                                                         <label> : </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="mother_name" value="{{$profiles[0]->mother_name}}" style="border: white;">
+                                                        <input type="text" name="mother_name" value="{{$profiles->mother_name}}" style="border: white;">
                                                     </div>      
                                                 </div>
                                                 <br>
@@ -212,16 +218,16 @@
                                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                             <div class="i-checks pull-left">
                                                                                 <label>
-                                                                                <input type="radio" name="gender" value="male"  {{ ($profiles[0]->gender=='male')?'checked' : '' }}  > <i></i> Male </label>
+                                                                                <input type="radio" name="gender" value="male"  {{ ($profiles->gender=='male')?'checked' : '' }}  > <i></i> Male </label>
                                                                             </div>
                                                                             
                                                                             <div class="i-checks pull-left">
                                                                                 <label>
-                                                                                <input type="radio" name="gender" value="female"   {{ ($profiles[0]->gender=='female')?'checked' : '' }}  > <i></i> Female </label>
+                                                                                <input type="radio" name="gender" value="female"   {{ ($profiles->gender=='female')?'checked' : '' }}  > <i></i> Female </label>
                                                                             </div>
                                                                             <div class="i-checks pull-left">
                                                                                 <label>
-                                                                                <input type="radio" name="gender" value="other" {{ ($profiles[0]->gender=='other')?'checked' : '' }} ><i></i> Other </label>
+                                                                                <input type="radio" name="gender" value="other" {{ ($profiles->gender=='other')?'checked' : '' }} ><i></i> Other </label>
                                                                             </div>
                                                                         </div>
                                                                     </div>                                                                
@@ -239,7 +245,7 @@
                                                             <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="date" name="dob" value="{{$profiles[0]->dob}}" style="border: white;">
+                                                            <input type="date" name="dob" value="{{$profiles->dob}}" style="border: white;">
                                                         </div>                                                        
                                                     </div>
 
@@ -251,7 +257,7 @@
                                                             <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="religion" value="{{$profiles[0]->religion}}" style="border: white;">
+                                                            <input type="text" name="religion" value="{{$profiles->religion}}" style="border: white;">
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -262,7 +268,7 @@
                                                             <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="nationality" value="{{$profiles[0]->nationality}}" style="border: white;">
+                                                            <input type="text" name="nationality" value="{{$profiles->nationality}}" style="border: white;">
                                                         </div>
                                                     </div>
 
@@ -274,7 +280,7 @@
                                                             <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="nid" value="{{$profiles[0]->nid}}" style="border: white;">
+                                                            <input type="text" name="nid" value="{{$profiles->nid}}" style="border: white;">
                                                         </div>                    
                                                     </div>
 
@@ -286,7 +292,7 @@
                                                             <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="passport_number" value="{{$profiles[0]->passport_number}}" style="border: white;">
+                                                            <input type="text" name="passport_number" value="{{$profiles->passport_number}}" style="border: white;">
                                                         </div>                                                       
                                                     </div>
                                                     <br>
@@ -306,16 +312,16 @@
                                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                                 <div class="i-checks pull-left">
                                                                                     <label>
-                                                                                    <input type="radio" name="maritial_status" value="Single" {{($profiles[0]->maritial_status=='Single')? 'checked' : '' }} > <i></i> Single </label>
+                                                                                    <input type="radio" name="maritial_status" value="Single" {{($profiles->maritial_status=='Single')? 'checked' : '' }} > <i></i> Single </label>
                                                                                 </div>
                                                                                 
                                                                                 <div class="i-checks pull-left">
                                                                                     <label>
-                                                                                    <input type="radio" name="maritial_status" value="Married" {{($profiles[0]->maritial_status=='Married')? 'checked' : '' }} > <i></i> Married </label>
+                                                                                    <input type="radio" name="maritial_status" value="Married" {{($profiles->maritial_status=='Married')? 'checked' : '' }} > <i></i> Married </label>
                                                                                 </div>
                                                                                 <div class="i-checks pull-left">
                                                                                     <label>
-                                                                                    <input type="radio" name="maritial_status" value="Divorce" {{($profiles[0]->maritial_status=='Divorce')? 'checked' : '' }}><i></i> Divorce </label>
+                                                                                    <input type="radio" name="maritial_status" value="Divorce" {{($profiles->maritial_status=='Divorce')? 'checked' : '' }}><i></i> Divorce </label>
                                                                                 </div>
                                                                             </div>
                                                                         </div>                                                                
@@ -333,7 +339,7 @@
                                                             <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="mobile" value="{{$profiles[0]->mobile}}" style="border: white;">
+                                                            <input type="text" name="mobile" value="{{$profiles->mobile}}" style="border: white;">
                                                         </div>            
                                                     </div>
 
@@ -345,7 +351,7 @@
                                                             <label> : </label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" name="email" value="{{$profiles[0]->email}}" style="border: white;">
+                                                            <input type="text" name="email" value="{{$profiles->email}}" style="border: white;">
                                                         </div>            
                                                     </div>
                                                     
@@ -359,7 +365,7 @@
                                    
 
                                     <div id="education" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.educationupdate',$educational_infos[0]->id)}}" method="post">
+                                        <form action="{{route('jobseeker.educationupdate',$educational_infos->user_id)}}" method="post">
                                             @csrf
                                             @method('put')
                                       <div class="card">
@@ -387,7 +393,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="school_name" value="{{$educational_infos[0]->school_name}}" style="border: white;width: 500%;"> 
+                                                                   <input type="text" name="school_name" value="{{$educational_infos->school_name}}" style="border: white;width: 500%;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -398,7 +404,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="school_subject" value="{{$educational_infos[0]->school_subject}}" style="border: white;"> 
+                                                                   <input type="text" name="school_subject" value="{{$educational_infos->school_subject}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -409,7 +415,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="school_grade" value="{{$educational_infos[0]->school_grade}}" style="border: white;"> 
+                                                                   <input type="text" name="school_grade" value="{{$educational_infos->school_grade}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -420,7 +426,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="school_passing_year" value="{{$educational_infos[0]->school_passing_year}}" style="border: white;"> 
+                                                                   <input type="text" name="school_passing_year" value="{{$educational_infos->school_passing_year}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -439,7 +445,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="college_name" value="{{$educational_infos[0]->college_name}}" style="border: white;width: 500%;"> 
+                                                                   <input type="text" name="college_name" value="{{$educational_infos->college_name}}" style="border: white;width: 500%;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -450,7 +456,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="college_subject" value="{{$educational_infos[0]->college_subject}}" style="border: white;"> 
+                                                                   <input type="text" name="college_subject" value="{{$educational_infos->college_subject}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -461,7 +467,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="college_grade" value="{{$educational_infos[0]->college_grade}}" style="border: white;"> 
+                                                                   <input type="text" name="college_grade" value="{{$educational_infos->college_grade}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -472,7 +478,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="college_passing_year" value="{{$educational_infos[0]->college_passing_year}}" style="border: white;"> 
+                                                                   <input type="text" name="college_passing_year" value="{{$educational_infos->college_passing_year}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -490,7 +496,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="versity_name" value="{{$educational_infos[0]->versity_name}}" style="border: white;width: 500%;"> 
+                                                                   <input type="text" name="versity_name" value="{{$educational_infos->versity_name}}" style="border: white;width: 500%;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -501,7 +507,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="versity_subject" value="{{$educational_infos[0]->versity_subject}}" style="border: white;"> 
+                                                                   <input type="text" name="versity_subject" value="{{$educational_infos->versity_subject}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -512,7 +518,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="versity_grade" value="{{$educational_infos[0]->versity_grade}}" style="border: white;"> 
+                                                                   <input type="text" name="versity_grade" value="{{$educational_infos->versity_grade}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -523,7 +529,7 @@
                                                                     :
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                   <input type="text" name="versity_passing_year" value="{{$educational_infos[0]->versity_passing_year}}" style="border: white;"> 
+                                                                   <input type="text" name="versity_passing_year" value="{{$educational_infos->versity_passing_year}}" style="border: white;"> 
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -539,7 +545,7 @@
 
 
                                     <div id="address" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.addressupdate',$address_infos[0]->id ?? '0')}}" method="post">
+                                        <form action="{{route('jobseeker.addressupdate',$address_infos->user_id ?? '0')}}" method="post">
                                             @csrf
                                             @method('put')
                                       <div class="card">
@@ -567,7 +573,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_address" value="{{$address_infos[0]->present_address?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_address" value="{{$address_infos->present_address?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -578,7 +584,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_district" value="{{$address_infos[0]->present_district?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_district" value="{{$address_infos->present_district?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -589,7 +595,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_country" value="{{$address_infos[0]->present_country?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_country" value="{{$address_infos->present_country?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -600,7 +606,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_zip" value="{{$address_infos[0]->present_zip?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_zip" value="{{$address_infos->present_zip?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -618,7 +624,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_address" value="{{$address_infos[0]->parmanent_address?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_address" value="{{$address_infos->parmanent_address?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -629,7 +635,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_district" value="{{$address_infos[0]->parmanent_district?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_district" value="{{$address_infos->parmanent_district?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -640,7 +646,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_country" value="{{$address_infos[0]->parmanent_country?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_country" value="{{$address_infos->parmanent_country?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>                                                
                                                         <div class="row" style="padding-top: 5px;">
@@ -651,7 +657,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_zip" value="{{$address_infos[0]->parmanent_zip?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_zip" value="{{$address_infos->parmanent_zip?? ' '}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -663,11 +669,41 @@
                             </div>
 
                             <div id="experience" class="tab-pane fade">
+                                <!-- Trigger the modal with a button -->
+                                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Experience</button>
+
+                                <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                    <thead>
+                                        <tr>                                                
+                                            <th data-field="id">ID</th>
+                                            <th data-field="company_name">Company Name</th>
+                                            <th data-field="duration">Duration</th>
+                                            <th data-field="describtion">Describtion</th>
+                                            <th data-field="action">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div class="modal-bootstrap modal-login-form">
+                                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#zoomInDown2">Edit</a>
+                                                </div>
+
+                                                <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal3">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
 
                                 <div class="container">
                              
-                                  <!-- Trigger the modal with a button -->
-                                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Experience</button>
+                                  
 
                                   <!-- Modal Experience End -->
                                   <div class="modal fade" id="myModal" role="dialog">
@@ -678,8 +714,39 @@
                                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                         <div class="modal-body">
-                                          <p>This is a small modal.</p>
+                                            <div class="form-group">
+                                                <label>Company Name:</label>  
+                                                <input class="form-control" type="text" name="ex_company_name" value="" style="width: 50%;">
+
+                                               
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <span>From: </span>
+                                                        <div class='input-group date' id='datetimepicker1' style="width: 100%;">
+                                                            
+                                                            <input type='text' class="form-control" name="start_date" value="">
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div> 
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <span>To: </span>
+                                                        <div class='input-group date' id='datetimepicker2' style="width: 100%;">
+                                                            
+                                                             <input type='text' class="form-control" name="end_date" value="">
+                                                             <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                             </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <label>Describtion: </label>
+                                                <textarea class="form-control" name="ex_company_describtion" ></textarea>  
+                                            </div>
+          
                                         </div>
+
                                         <div class="modal-footer">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         </div>
@@ -735,7 +802,7 @@
 
     function PreviewImage() {
         var oFReader = new FileReader();
-        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files);
 
         oFReader.onload = function (oFREvent) {
             document.getElementById("uploadPreview").src = oFREvent.target.result;
@@ -744,7 +811,20 @@
 
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<!-- Date & Time Start -->
+<script>
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker();
+ });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<!-- Date & Time End -->
 
 @endpush()
