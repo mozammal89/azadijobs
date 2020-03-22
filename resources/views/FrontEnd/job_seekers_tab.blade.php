@@ -35,7 +35,7 @@
                                     <li><a data-toggle="tab" href="#experience" role="tab">Experience</a></li>
                               </ul>
                             <!-- Tab panes -->
-                            <form action="{{route('jobseeker.update',$all_seeker_profiles->user_id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('jobseeker.update',$all_seeker_profiles->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                               <div class="tab-content">
@@ -545,7 +545,7 @@
 
 
                                     <div id="address" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.addressupdate',$address_infos->user_id ?? '0')}}" method="post">
+                                        <form action="{{route('jobseeker.addressupdate',$address_infos->user_id)}}" method="post">
                                             @csrf
                                             @method('put')
                                       <div class="card">
@@ -573,7 +573,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_address" value="{{$address_infos->present_address?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_address" value="{{$address_infos->present_address}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -584,7 +584,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_district" value="{{$address_infos->present_district?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_district" value="{{$address_infos->present_district}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -595,7 +595,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_country" value="{{$address_infos->present_country?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_country" value="{{$address_infos->present_country}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -606,7 +606,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="present_zip" value="{{$address_infos->present_zip?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="present_zip" value="{{$address_infos->present_zip}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -624,7 +624,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_address" value="{{$address_infos->parmanent_address?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_address" value="{{$address_infos->parmanent_address}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -635,7 +635,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_district" value="{{$address_infos->parmanent_district?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_district" value="{{$address_infos->parmanent_district}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top: 5px;">
@@ -646,7 +646,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_country" value="{{$address_infos->parmanent_country?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_country" value="{{$address_infos->parmanent_country}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>                                                
                                                         <div class="row" style="padding-top: 5px;">
@@ -657,7 +657,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <input type="text" name="parmanent_zip" value="{{$address_infos->parmanent_zip?? ' '}}" style="border: white;width: 155%;">
+                                                                <input type="text" name="parmanent_zip" value="{{$address_infos->parmanent_zip}}" style="border: white;width: 155%;">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -669,92 +669,52 @@
                             </div>
 
                             <div id="experience" class="tab-pane fade">
-                                <!-- Trigger the modal with a button -->
-                                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Experience</button>
-
-                                <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
-                                data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
-                                    <thead>
-                                        <tr>                                                
-                                            <th data-field="id">ID</th>
-                                            <th data-field="company_name">Company Name</th>
-                                            <th data-field="duration">Duration</th>
-                                            <th data-field="describtion">Describtion</th>
-                                            <th data-field="action">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <div class="modal-bootstrap modal-login-form">
-                                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#zoomInDown2">Edit</a>
-                                                </div>
-
-                                                <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal3">Delete</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-
-                                <div class="container">
-                             
-                                  
-
-                                  <!-- Modal Experience End -->
-                                  <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog modal-lg">
-                                      <div class="modal-content" style="margin-top: 110px;">
-                                        <div class="modal-header" style="background: #1e6982">
-                                            <h2 style="font-weight: bold; color: white">Experience</h2>
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <form action="{{route('jobseeker.experienceupdate',$experiences->user_id)}}" method="post">
+                                @csrf
+                                @method('put')
+                                <div class="card">
+                                    <div class="card-header" style="background-color: #1e6982;color: white;font-weight: bold;">
+                                        <div class="col-md-6">
+                                          Experience
                                         </div>
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <label>Company Name:</label>  
-                                                <input class="form-control" type="text" name="ex_company_name" value="" style="width: 50%;">
-
-                                               
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <span>From: </span>
-                                                        <div class='input-group date' id='datetimepicker1' style="width: 100%;">
-                                                            
-                                                            <input type='text' class="form-control" name="start_date" value="">
-                                                            <span class="input-group-addon">
-                                                                <span class="glyphicon glyphicon-calendar"></span>
-                                                            </span>
-                                                        </div> 
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <span>To: </span>
-                                                        <div class='input-group date' id='datetimepicker2' style="width: 100%;">
-                                                            
-                                                             <input type='text' class="form-control" name="end_date" value="">
-                                                             <span class="input-group-addon">
-                                                                <span class="glyphicon glyphicon-calendar"></span>
-                                                             </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <label>Describtion: </label>
-                                                <textarea class="form-control" name="ex_company_describtion" ></textarea>  
-                                            </div>
-          
+                                        <div class="col-md-6" align="right">
+                                          <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Update</button>
                                         </div>
-
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                      </div>
                                     </div>
-                                  </div>
-                                  <!-- Model Experience End -->
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label>Company Name:</label>  
+                                            <input class="form-control" type="text" name="ex_company_name" value="{{$experiences->ex_company_name}}" style="width: 50%;">
+
+                                           
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <span>From: </span>
+                                                    <div class='input-group date' id='datetimepicker1' style="width: 100%;">
+                                                        
+                                                        <input type='text' class="form-control" name="ex_company_start_date" value="{{$experiences->ex_company_start_date}}">
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span>To: </span>
+                                                    <div class='input-group date' id='datetimepicker2' style="width: 100%;">
+                                                        
+                                                         <input type='text' class="form-control" name="ex_company_end_date" value="{{$experiences->ex_company_end_date}}">
+                                                         <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                         </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <label>Describtion: </label>
+                                            <textarea class="form-control" name="ex_company_describtion" >{{$experiences->ex_company_describtion}}</textarea>  
+                                        </div>
+                                    </div>
                                 </div>
+                                </form>
                             </div>
 
 

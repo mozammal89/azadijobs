@@ -104,8 +104,10 @@ Route::put('jobseeker/update/{id}','JobSeeker\JobSeekerProfileTab@update')->name
 Route::put('jobseeker/personalInfoupdate/{id}','JobSeeker\JobSeekerProfileTab@personalInfoupdate')->name('jobseeker.personalInfoupdate');
 Route::put('jobseeker/educationupdate/{id}','JobSeeker\JobSeekerProfileTab@educationupdate')->name('jobseeker.educationupdate');
 Route::put('jobseeker/addressupdate/{id}','JobSeeker\JobSeekerProfileTab@addressupdate')->name('jobseeker.addressupdate');
+Route::put('jobseeker/experienceupdate/{id}','JobSeeker\JobSeekerProfileTab@experienceupdate')->name('jobseeker.experienceupdate');
+Route::get('jobseeker/cv','JobSeeker\JobSeekerCvController@index')->name('jobseeker.cv');
 
-//Job Seeker Profile Start Here
+//Job Seeker Profile End Here
 
 
 

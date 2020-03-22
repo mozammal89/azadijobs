@@ -15,6 +15,10 @@ class CreateJobSeekerExperiencesTable extends Migration
     {
         Schema::create('job_seeker_experiences', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('ex_company_name');
+            $table->dateTime('ex_company_start_date');
+            $table->dateTime('ex_company_end_date');
+            $table->longText('ex_company_describtion');
             $table->timestamps();
         });
     }

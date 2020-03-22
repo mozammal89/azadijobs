@@ -11,6 +11,7 @@ use App\JobCategory;
 use App\JobSeeker\JobSeekerProfile;
 use App\JobSeeker\JobSeekerEducation;
 use App\JobSeeker\JobSeekerAddress;
+use App\JobSeeker\JobSeekerExperiences;
 use Auth;
 
 class JobSeekerProfileTab extends Controller
@@ -24,15 +25,22 @@ class JobSeekerProfileTab extends Controller
       $profiles = JobSeekerProfile::where('user_id',Auth::user()->id)->first();
       $educational_infos = JobSeekerEducation::where('user_id',Auth::user()->id)->first();
       $address_infos = JobSeekerAddress::where('user_id',Auth::user()->id)->first();
+      $experiences = JobSeekerExperiences::where('user_id',Auth::user()->id)->first();
+
+
       
       
 
-    	return view ('FrontEnd.job_seekers_tab', compact('all_seeker_profiles','all_categories','profiles', 'educational_infos', 'address_infos'));
+    	return view ('FrontEnd.job_seekers_tab', compact('all_seeker_profiles','all_categories','profiles', 'educational_infos', 'address_infos','experiences'));
     }
 
     public function update (Request $request, $id)
     {
       $seeker_profile = JobSeeker::find($id);
+
+      $user_info=User::find($seeker_profile->user_id);
+      $user_info->name=$request->seeker_name;
+      $user_info->save();
 
     	if($request->has('seeker_image'))
                 {
@@ -102,7 +110,6 @@ class JobSeekerProfileTab extends Controller
    
       
       $personal_info->save();   
-
       Toastr::success('Personal Information successfully Submitted','Submitted');
 
          return redirect()->route('profile.jobseeker')
@@ -250,5 +257,51 @@ class JobSeekerProfileTab extends Controller
 
     }
 
+    public function experienceupdate(Request $request, $id)
+    {
+      $experience_info = JobSeekerExperiences::find($id);
+      
+
+      if($experience_info == null)
+      {
+        
+
+      $experience_info = new JobSeekerExperiences;
+      $user_info = new User;
+
+      $experience_info->user_id = Auth::user()->id;
+
+      $experience_info->ex_company_name = $request->ex_company_name;
+      $experience_info->ex_company_start_date = $request->ex_company_start_date;
+      $experience_info->ex_company_end_date = $request->ex_company_end_date;
+      $experience_info->ex_company_describtion = $request->ex_company_describtion;
+
+      $experience_info->save();   
+
+      Toastr::success('Experience Information successfully Submitted','Submitted');
+
+         return redirect()->route('profile.jobseeker')
+                         ->with('success','Experience Information Submitted successfully.');
+      }
+
+      else{
+
+      $experience_info->ex_company_name = $request->ex_company_name;
+      $experience_info->ex_company_start_date = $request->ex_company_start_date;
+      $experience_info->ex_company_end_date = $request->ex_company_end_date;
+      $experience_info->ex_company_describtion = $request->ex_company_describtion;
+
+      $experience_info->save();   
+
+      Toastr::success('Experience Information successfully Updated','updated');
+
+         return redirect()->route('profile.jobseeker')
+                         ->with('success','Experience Information Updated successfully.');     
+     
+        
+      }
+    
+
+    }
       
 }

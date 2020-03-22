@@ -12,6 +12,7 @@ use App\JobCategory;
 use App\JobSeeker\JobSeekerProfile;
 use App\JobSeeker\JobSeekerEducation;
 use App\JobSeeker\JobSeekerAddress;
+use App\JobSeeker\JobSeekerExperiences;
 
 class JobSeekerController extends Controller
 {
@@ -60,6 +61,10 @@ class JobSeekerController extends Controller
         $address_info = new JobSeekerAddress;
         $address_info->user_id = $user_info->id;
         $address_info->save();
+
+        $experience_info = new JobSeekerExperiences;
+        $experience_info->user_id = $user_info->id;
+        $experience_info->save();
         
     	
 
