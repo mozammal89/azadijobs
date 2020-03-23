@@ -141,7 +141,7 @@
 
                                     
                                     <div id="personal" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.personalInfoupdate',$profiles->user_id)}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('jobseeker.personalInfoupdate',$profiles->id)}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         @method('put')
 
@@ -365,7 +365,7 @@
                                    
 
                                     <div id="education" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.educationupdate',$educational_infos->user_id)}}" method="post">
+                                        <form action="{{route('jobseeker.educationupdate',$educational_infos->id)}}" method="post">
                                             @csrf
                                             @method('put')
                                       <div class="card">
@@ -545,7 +545,7 @@
 
 
                                     <div id="address" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.addressupdate',$address_infos->user_id)}}" method="post">
+                                        <form action="{{route('jobseeker.addressupdate',$address_infos->id)}}" method="post">
                                             @csrf
                                             @method('put')
                                       <div class="card">
@@ -669,7 +669,7 @@
                             </div>
 
                             <div id="experience" class="tab-pane fade">
-                                <form action="{{route('jobseeker.experienceupdate',$experiences->user_id)}}" method="post">
+                                <form action="{{route('jobseeker.experienceupdate',$experiences->id)}}" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="card">
