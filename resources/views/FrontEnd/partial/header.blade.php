@@ -21,9 +21,15 @@
                         	@if(Auth::check())
                         	<a href="{{route('logout')}}" class="site-button">Logout</a>
 
-                        	@else
-                            <a href="#" class="site-button"><i class="fa fa-user"></i> Sign Up</a>
-                        	<a href="{{ route('login') }}" class="site-button"><i class="fa fa-lock"></i> login</a>
+	                        	@else
+	                            <a id="reg" href="#" class="site-button"><i class="fa fa-user"></i> Sign Up</a>
+
+		                            @if (Route::has('register'))
+		                            <a id="jp" class="btn btn-primary" style="display: none;color: #fff" href="{{ route('register.jobprovider') }}">Job Provider</a>
+		                            <a id="js" class="btn btn-warning" style="display: none;color: #fff" href="{{ route('registration.jobseeker') }}">Job Seeker</a>
+		                        	@endif
+
+	                        	<a href="{{ route('login') }}" class="site-button"><i class="fa fa-lock"></i> login</a>
                             @endif
                             
 
@@ -112,4 +118,14 @@
             </div>
         </div>
         <!-- main header END -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+		    $(document).ready(function(){
+		      $("#reg").click(function(){
+		        $("#js").css("display","");
+		        $("#jp").css("display","");
+		        $("#reg").css("display","none");
+		      })
+		    });
+		</script>
     </header>

@@ -681,38 +681,47 @@
                                           <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Update</button>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label>Company Name:</label>  
-                                            <input class="form-control" type="text" name="ex_company_name" value="{{$experiences->ex_company_name}}" style="width: 50%;">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label>Company Name:</label>  
+                                                    <input class="form-control" type="text" name="ex_company_name" value="{{$experiences->ex_company_name}}" style="width: 50%;">
 
-                                           
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <span>From: </span>
-                                                    <div class='input-group date' id='datetimepicker1' style="width: 100%;">
-                                                        
-                                                        <input type='text' class="form-control" name="ex_company_start_date" value="{{$experiences->ex_company_start_date}}">
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div> 
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <span>To: </span>
-                                                    <div class='input-group date' id='datetimepicker2' style="width: 100%;">
-                                                        
-                                                         <input type='text' class="form-control" name="ex_company_end_date" value="{{$experiences->ex_company_end_date}}">
-                                                         <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                         </span>
+                                                    <label>Designation:</label>  
+                                                    <input class="form-control" type="text" name="ex_company_designation" value="{{$experiences->ex_company_designation}}" style="width: 50%;">
+
+                                                   
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span>From: </span>
+                                                            <div class='input-group date' id='datetimepicker1' style="width: 100%;">
+                                                                
+                                                                <input type='text' class="form-control" name="ex_company_start_date" value="{{$experiences->ex_company_start_date}}">
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span>To: </span>
+                                                            <div class='input-group date' id='datetimepicker2' style="width: 100%;">
+                                                                
+                                                                 <input type='text' class="form-control" name="ex_company_end_date" value="{{$experiences->ex_company_end_date}}">
+                                                                 <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                 </span>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                    <label>Describtion: </label>
+                                                    <textarea class="form-control" name="ex_company_describtion" >{{$experiences->ex_company_describtion}}</textarea>  
                                                 </div>
                                             </div>
-                                            <label>Describtion: </label>
-                                            <textarea class="form-control" name="ex_company_describtion" >{{$experiences->ex_company_describtion}}</textarea>  
                                         </div>
+                                        <div class="col-md-4"></div>
                                     </div>
+                                    
                                 </div>
                                 </form>
                             </div>

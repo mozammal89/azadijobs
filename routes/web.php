@@ -79,7 +79,6 @@ Route::group(['as'=>'seeker.','prefix'=>'seeker', 'namespace'=>'JobSeeker' ,'mid
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
-
 });
 /*Job Seeker Route End Here*/
 
@@ -97,6 +96,8 @@ Route::get('/callback/{provider}', 'AuthController@callback');
 Route::get('jobseeker/register','JobSeeker\JobSeekerController@register')->name('registration.jobseeker');
 Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('store.jobseeker');
 // Job Seeker Register End Here
+
+
 
 //Job Seeker Profile Start Here
 Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('profile.jobseeker');
@@ -128,5 +129,8 @@ Route::put('jobprovider/update/{id}','JobProvider\JobProviderProfileTab@update')
 
 /*Custome Login Route Start here*/
 Route::post('custom/login','UserLoginCheck@authenticate')->name('user.login');
-
 /*Custome Login Route End here*/
+
+// PDF Route Start Here
+Route::get('jobseekerCv',array('as'=>'jobseekerCv','uses'=>'ItemController@jobseekerCv'));
+// PDF Route Ends Here

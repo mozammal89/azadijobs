@@ -272,6 +272,7 @@ class JobSeekerProfileTab extends Controller
       $experience_info->user_id = Auth::user()->id;
 
       $experience_info->ex_company_name = $request->ex_company_name;
+      $experience_info->ex_company_designation = $request->ex_company_designation;
       $experience_info->ex_company_start_date = $request->ex_company_start_date;
       $experience_info->ex_company_end_date = $request->ex_company_end_date;
       $experience_info->ex_company_describtion = $request->ex_company_describtion;
@@ -287,6 +288,7 @@ class JobSeekerProfileTab extends Controller
       else{
 
       $experience_info->ex_company_name = $request->ex_company_name;
+      $experience_info->ex_company_designation = $request->ex_company_designation;
       $experience_info->ex_company_start_date = $request->ex_company_start_date;
       $experience_info->ex_company_end_date = $request->ex_company_end_date;
       $experience_info->ex_company_describtion = $request->ex_company_describtion;
