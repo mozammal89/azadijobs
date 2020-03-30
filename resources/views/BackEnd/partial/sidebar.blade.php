@@ -35,6 +35,16 @@
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
                             </ul>
                         </li>
+
+                            @else
+                            <li>
+                                <a class="has-arrow" href="#" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Setting</span></a>
+                                <ul class="submenu-angle" aria-expanded="false">
+                                    <li><a title="" href="{{route('provider.jpPost')}}"><span class="mini-sub-pro">Post Jobs</span></a></li>
+                                    
+                                </ul>
+                            </li>
+
                         @endif
                     </ul>
                 </nav>

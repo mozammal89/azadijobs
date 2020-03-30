@@ -9,12 +9,13 @@ use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use App\JobCategory;
 use File;
+use Auth;
 
 class JobProviderProfileTab extends Controller
 {
     public function profile ()
     {
-    	$all_profiles = JobProvider::get();
+    	$all_profiles = JobProvider::where('user_id',Auth::user()->id)->first();
     	// dd($all_profiles);
     	// dd($all_profiles[0]->com_name);
 		$all_categories = JobCategory::get();

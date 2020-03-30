@@ -68,6 +68,8 @@ Route::group(['as'=>'provider.','prefix'=>'provider', 'namespace'=>'JobProvider'
 
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
+Route::get('jpsetting','JobPostController@index')->name('jpsetting');
+Route::get('jpPost','JobPostController@jobPostIndex')->name('jpPost');
 
 });
 /*Provider Route End Here*/

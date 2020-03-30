@@ -101,6 +101,7 @@
 									@if(Auth::user()->role_id==3)
 
 									<li><a href="{{route('profile.jobprovider')}}" class="dez-page">Profile</a></li>
+									<li><a href="{{route('provider.jpsetting')}}" class="dez-page">Setting</a></li>
 
 										@else		
 

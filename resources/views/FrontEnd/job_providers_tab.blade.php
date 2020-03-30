@@ -29,7 +29,7 @@
                                     <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
                               </ul>
                             <!-- Tab panes -->
-                            <form action="{{route('jobprovider.update',$all_profiles[0]->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('jobprovider.update',$all_profiles->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                               <div class="tab-content">
@@ -51,11 +51,8 @@
                                             <div class="card-body">
                                                 <div class="col-md-3">
                                                     <div class="row">
-                                                        <!-- <img width="50%" height="50%" align="center" src="/images/{{$all_profiles[0]->provider_image}}" style="">
 
-                                                        <input type="file" name="provider_image" value=""> -->
-
-                                                        <img id="uploadPreview" style="width: 100px; height: 100px;" src="/images/{{$all_profiles[0]->provider_image}}" />
+                                                        <img id="uploadPreview" style="width: 100px; height: 100px;" src="/images/{{$all_profiles->provider_image}}" />
                                                         <input id="uploadImage" type="file" name="provider_image" onchange="PreviewImage();" />
                                                                                                        
                                                     </div>
@@ -65,10 +62,10 @@
                                             <div class="row">
 
                                                 <label class="col-md-5">Company Name: </label>
-                                                <input type="text" name="com_name" value="{{$all_profiles[0]->com_name}}" style="border: white;">
+                                                <input type="text" name="com_name" value="{{$all_profiles->com_name}}" style="border: white;">
 
                                                 <label class="col-md-5">Website Link: </label>
-                                                <input type="text" name="com_web_link" value="{{$all_profiles[0]->com_web_link}}" style="border: white;">
+                                                <input type="text" name="com_web_link" value="{{$all_profiles->com_web_link}}" style="border: white;">
 
                                                 
                                                     
@@ -76,10 +73,10 @@
                                             
                                            
                                                 <select class="col-md-4" name="com_business_type">
-                                                <!-- <option value="">Select Business Type</option> -->
+                                                
                                                 @foreach($all_categories as $category)
                                                
-                                                <option value="{{$category->id}}" {{ ( $all_profiles[0]->com_business_type == $category->id )? " selected= '' ": ' ' }}>{{$category->job_category_name}}</option>
+                                                <option value="{{$category->id}}" {{ ( $all_profiles->com_business_type == $category->id )? " selected= '' ": ' ' }}>{{$category->job_category_name}}</option>
                                                 @endforeach
 
                                                 </select>
@@ -87,19 +84,19 @@
                                               
 
                                                 <label class="col-md-5">Address: </label>
-                                                <input type="text" name="com_address" value="{{$all_profiles[0]->com_address}}" style="border: white;">
+                                                <input type="text" name="com_address" value="{{$all_profiles->com_address}}" style="border: white;">
 
                                                 <label class="col-md-5">Trade License: </label>
-                                                <input type="text" name="trade_license" value="{{$all_profiles[0]->trade_license}}" style="border: white;">
+                                                <input type="text" name="trade_license" value="{{$all_profiles->trade_license}}" style="border: white;">
 
                                                 <label class="col-md-5">TIN Number: </label>
-                                                <input type="text" name="tin_number" value="{{$all_profiles[0]->tin_number}}" style="border: white;">
+                                                <input type="text" name="tin_number" value="{{$all_profiles->tin_number}}" style="border: white;">
 
                                                 <label class="col-md-5">Phone Number: </label>
-                                                <input type="text" name="phn_number" value="{{$all_profiles[0]->phn_number}}" style="border: white;">
+                                                <input type="text" name="phn_number" value="{{$all_profiles->phn_number}}" style="border: white;">
 
                                                 <label class="col-md-5">Email: </label>
-                                                <input type="text" name="email" value="{{$all_profiles[0]->email}}" style="border: white;">
+                                                <input type="text" name="email" value="{{$all_profiles->email}}" style="border: white;">
                                             </div>
                                         </div>
                                             </div>
