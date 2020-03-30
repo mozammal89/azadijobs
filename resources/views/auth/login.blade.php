@@ -1,12 +1,19 @@
 @extends('FrontEnd.layout')
 
+@push('css')
+
+
+@endpush()
+
+
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8" style="margin-top: 40px;margin-bottom: 70px;">
             <div class="card">
                 
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header" style="background-color: rgb(30, 105, 130);color: white;font-weight: bold;font-size: larger;text-align: center;">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('user.login') }}">
@@ -80,4 +87,14 @@
         </div>
     </div>
 </div>
-@endsection
+
+
+
+
+
+@endsection()
+
+
+@push('js')
+
+@endpush()

@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6" style="margin-top: 40px;margin-bottom: 70px;">
         <div class="card">
             <div class="card-header" style="background-color: rgb(30, 105, 130);color: white;font-weight: bold;font-size: larger;text-align: center;">
                 <span>Registration for Job Provider</span>
