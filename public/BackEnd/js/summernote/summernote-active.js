@@ -1,6 +1,6 @@
 (function ($) {
  "use strict";
-	$('#summernote1').summernote({
+	$('#job_context').summernote({
 		height: 200,
 	});
 	$('#summernote2').summernote({

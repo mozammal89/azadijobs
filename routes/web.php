@@ -68,10 +68,15 @@ Route::group(['as'=>'provider.','prefix'=>'provider', 'namespace'=>'JobProvider'
 
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
+// Job Post Routes Start
 Route::get('jpsetting','JobPostController@index')->name('jpsetting');
 Route::get('jpPost','JobPostController@jobPostIndex')->name('jpPost');
+Route::get('jpPost/Create','JobPostController@jobPostCreate')->name('jpPostCreate');
 
+Route::post('jpPost/store','JobPostController@jobPostStore')->name('jpPostStore');
+// Job Post Routes End
 });
+Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'JobProvider\JobPostController@myformAjax'));
 /*Provider Route End Here*/
 
 

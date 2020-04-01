@@ -48,6 +48,8 @@
     <script src="{{asset('BackEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     
     <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="{{asset('BackEnd/css/summernote/summernote.css')}}">
+    
 
     @stack('css')
 
@@ -162,6 +164,11 @@
             }
             @endif
         </script>
+
+    <!-- summernote JS
+    ============================================ -->
+    <script src="{{asset('BackEnd/js/summernote/summernote.min.js')}}"></script>
+    <script src="{{asset('BackEnd/js/summernote/summernote-active.js')}}"></script>
    
 
     @stack('js')
