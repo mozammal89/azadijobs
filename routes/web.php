@@ -72,8 +72,11 @@ Route::get('dashboard','DashboardController@index')->name('dashboard');
 Route::get('jpsetting','JobPostController@index')->name('jpsetting');
 Route::get('jpPost','JobPostController@jobPostIndex')->name('jpPost');
 Route::get('jpPost/Create','JobPostController@jobPostCreate')->name('jpPostCreate');
-
 Route::post('jpPost/store','JobPostController@jobPostStore')->name('jpPostStore');
+Route::get('jpPost/details/{id}','JobPostController@jobPostDetails')->name('jpPostDetails');
+Route::get('jpPost/edit/{id}','JobPostController@jobPostgetEdit')->name('jpPostEditget');
+Route::put('jpPost/edit/{id}','JobPostController@jobPostEdit')->name('jpPostEdit');
+Route::delete('jpPost/delete/{id}','JobPostController@delete')->name('jpPostDelete');
 // Job Post Routes End
 });
 Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'JobProvider\JobPostController@myformAjax'));

@@ -40,7 +40,7 @@
                             <li>
                                 <a class="has-arrow" href="#" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Jobs</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="" href="{{route('provider.jpPost')}}"><span class="mini-sub-pro">View Jobs</span></a></li>
+                                    <li><a title="" href="{{route('provider.jpPost')}}"><span class="mini-sub-pro">Jobs Lists</span></a></li>
                                     <li><a title="" href="{{route('provider.jpPostCreate')}}"><span class="mini-sub-pro">Add Jobs</span></a></li>
                                     
                                 </ul>

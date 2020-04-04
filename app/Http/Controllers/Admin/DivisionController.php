@@ -55,6 +55,6 @@ class DivisionController extends Controller
 
 
     	 return redirect()->route('admin.division')
-                         ->with('success','Division updated successfully.');
+                         ->with('success','Division deleted successfully.');
     }
 }

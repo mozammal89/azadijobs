@@ -49,6 +49,11 @@
     
     <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="{{asset('BackEnd/css/summernote/summernote.css')}}">
+
+    <!-- normalize CSS
+    ============================================ -->
+    <link rel="stylesheet" href="{{asset('BackEnd/css/data-table/bootstrap-table.css')}}">
+    <link rel="stylesheet" href="{{asset('BackEnd/css/data-table/bootstrap-editable.css')}}">
     
 
     @stack('css')
@@ -169,6 +174,17 @@
     ============================================ -->
     <script src="{{asset('BackEnd/js/summernote/summernote.min.js')}}"></script>
     <script src="{{asset('BackEnd/js/summernote/summernote-active.js')}}"></script>
+
+    <!-- data table JS
+    ============================================ -->
+    <script src="{{asset('BackEnd/js/data-table/bootstrap-table.js')}}"></script>
+    <script src="{{asset('BackEnd/js/data-table/tableExport.js')}}"></script>
+    <script src="{{asset('BackEnd/js/data-table/data-table-active.js')}}"></script>
+    <script src="{{asset('BackEnd/js/data-table/bootstrap-table-editable.js')}}"></script>
+    <script src="{{asset('BackEnd/js/data-table/bootstrap-editable.js')}}"></script>
+    <script src="{{asset('BackEnd/js/data-table/bootstrap-table-resizable.js')}}"></script>
+    <script src="{{asset('BackEnd/js/data-table/colResizable-1.5.source.js')}}"></script>
+    <script src="{{asset('BackEnd/js/data-table/bootstrap-table-export.js')}}"></script>
    
 
     @stack('js')
