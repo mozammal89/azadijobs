@@ -17,9 +17,12 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <form action="{{route('provider.jpPostEdit',$JobPostDetails->id)}}" method="post">
+        <form action="{{route('provider.jpPostEdit',$JobPostDetails->id)}}" method="post" style="margin-top: -30px;">
             @csrf
             @method('PUT')
+            <div class="form-group">
+                <a href="{{route('provider.jpPost')}}" class="btn btn-success" role="button" style="margin-left: 900px;">Back</a>
+            </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">

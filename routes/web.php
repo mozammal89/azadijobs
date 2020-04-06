@@ -80,6 +80,7 @@ Route::delete('jpPost/delete/{id}','JobPostController@delete')->name('jpPostDele
 // Job Post Routes End
 });
 Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'JobProvider\JobPostController@myformAjax'));
+Route::get('/changeJobStatus', 'JobProvider\JobPostController@changeStatus')->name('changeJobStatus');
 /*Provider Route End Here*/
 
 

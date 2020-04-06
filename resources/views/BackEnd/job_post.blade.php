@@ -1,5 +1,12 @@
 @extends('BackEnd.layout')
 
+@push('css')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+@endpush()
 
 @section('content')
 
@@ -8,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="sparkline13-list">
+                <div class="sparkline13-list" style="margin-top: -60px;">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
                             <h1>Projects <span class="table-project-n">Data</span> Table</h1>
@@ -31,6 +38,7 @@
                                         <th data-field="job_title">Job Title</th>
                                         <th data-field="application_deadline" >Application Deadline</th>
                                         <th data-field="action">Action</th>
+                                        <th data-field="status">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,6 +51,9 @@
                                         	<a href="{{route('provider.jpPostDetails',$all_JobPost->id)}}" class="btn btn-info" role="button">Details</a>
                                         	<a href="{{route('provider.jpPostEdit',$all_JobPost->id)}}" class="btn btn-primary" role="button">Edit</a>
                                         	<button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal_{{$all_JobPost->id}}">Delete</button>
+                                        </td>
+                                        <td>
+                                             <input data-id="{{$all_JobPost->id}}" id="status_id_{{$all_JobPost->id}}" class="toggle-class" onchange="fnstatuschange({{$all_JobPost->id}});" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $all_JobPost->status ? 'checked' : '' }}>
                                         </td>     
                                     </tr>
                         <!--Delete Mode Start here -->
@@ -89,3 +100,32 @@
 
 
 @endsection()
+
+@push('js')
+
+
+
+<script>
+ 
+  function fnstatuschange(JobId)
+  {
+    
+     var status = $('#status_id_'+JobId).prop('checked') == true ? 1 : 0; 
+        var id = JobId; 
+        $.ajax({
+            method: "GET",         
+            url: "{{url('/changeJobStatus')}}",
+            dataType: "json",
+            data: { status:status, id: id},
+            success: function(data){
+
+
+              console.log(data.success);
+            }
+        });
+  }
+</script>
+
+
+
+@endpush()

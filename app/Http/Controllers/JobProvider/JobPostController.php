@@ -107,6 +107,15 @@ class JobPostController extends Controller
          return redirect()->route('provider.jpPostCreate')
                          ->with('success','Job created successfully.');
     }
+    public function changeStatus(Request $request)
+    {
+     //dd('test');
+        $job_post_info = JobPost::find($request->id);
+        $job_post_info->status = $request->status;
+        $job_post_info->save();
+  
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 
 
     public function jobPostDetails ($id)
