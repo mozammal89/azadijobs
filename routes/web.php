@@ -56,6 +56,11 @@ Route::post('subcategory','subCategoryController@store')->name('subcategory.stor
 Route::put('subcategory/update/{id}','subCategoryController@update')->name('subcategory.update');
 Route::delete('subcategory/delete/{id}','subCategoryController@delete')->name('subcategory.delete');
 
+Route::get('adsManagement','adsManagementController@index')->name('adsManagement');
+Route::post('adsManagement/store','adsManagementController@store')->name('adsManagement.store');
+Route::put('adsManagement/update/{id}','adsManagementController@update')->name('adsManagement.update');
+Route::delete('adsManagement/delete/{id}','adsManagementController@delete')->name('adsManagement.delete');
+
 
 });
 /*Admin Route End Here*/
@@ -90,6 +95,21 @@ Route::group(['as'=>'seeker.','prefix'=>'seeker', 'namespace'=>'JobSeeker' ,'mid
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
+//Job Seeker Profile Start Here
+Route::get('jsProfile','JobSeekerProfileTab@profile')->name('jobseekerProfile');
+Route::put('jsUpdate/{id}','JobSeekerProfileTab@update')->name('jobseekerUpdate');
+Route::put('jsPersonalInfoupdate/{id}','JobSeekerProfileTab@personalInfoupdate')->name('personalInfoUpdate');
+Route::put('jsEducationupdate/{id}','JobSeekerProfileTab@educationupdate')->name('educationUpdate');
+Route::put('jsAddressupdate/{id}','JobSeekerProfileTab@addressupdate')->name('addressUpdate');
+Route::put('jsExperienceupdate/{id}','JobSeekerProfileTab@experienceupdate')->name('experienceUpdate');
+//Job Seeker Profile End Here
+
+// Job Seeker CV Route Start Here
+Route::get('jsCv','JobSeekerCvController@index')->name('jobseekerCv');
+Route::get('jsCvUpload','JobSeekerCvController@CvUpload')->name('jobseekerCvUpload');
+Route::post('jsCvUpload/store','JobSeekerCvController@store')->name('jobseekerCvStore');
+// Job Seeker CV Route End Here
+
 });
 /*Job Seeker Route End Here*/
 
@@ -108,18 +128,6 @@ Route::get('jobseeker/register','JobSeeker\JobSeekerController@register')->name(
 Route::post('jobseeker/store','JobSeeker\JobSeekerController@store')->name('store.jobseeker');
 // Job Seeker Register End Here
 
-
-
-//Job Seeker Profile Start Here
-Route::get('jobseeker/profile','JobSeeker\JobSeekerProfileTab@profile')->name('profile.jobseeker');
-Route::put('jobseeker/update/{id}','JobSeeker\JobSeekerProfileTab@update')->name('jobseeker.update');
-Route::put('jobseeker/personalInfoupdate/{id}','JobSeeker\JobSeekerProfileTab@personalInfoupdate')->name('jobseeker.personalInfoupdate');
-Route::put('jobseeker/educationupdate/{id}','JobSeeker\JobSeekerProfileTab@educationupdate')->name('jobseeker.educationupdate');
-Route::put('jobseeker/addressupdate/{id}','JobSeeker\JobSeekerProfileTab@addressupdate')->name('jobseeker.addressupdate');
-Route::put('jobseeker/experienceupdate/{id}','JobSeeker\JobSeekerProfileTab@experienceupdate')->name('jobseeker.experienceupdate');
-Route::get('jobseeker/cv','JobSeeker\JobSeekerCvController@index')->name('jobseeker.cv');
-
-//Job Seeker Profile End Here
 
 
 

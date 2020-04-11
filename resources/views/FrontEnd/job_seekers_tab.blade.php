@@ -35,7 +35,7 @@
                                     <li><a data-toggle="tab" href="#experience" role="tab">Experience</a></li>
                               </ul>
                             <!-- Tab panes -->
-                            <form action="{{route('jobseeker.update',$all_seeker_profiles->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('seeker.jobseekerUpdate',$all_seeker_profiles->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                               <div class="tab-content">
@@ -141,7 +141,7 @@
 
                                     
                                     <div id="personal" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.personalInfoupdate',$profiles->id)}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('seeker.personalInfoUpdate',$profiles->id)}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         @method('put')
 
@@ -365,7 +365,7 @@
                                    
 
                                     <div id="education" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.educationupdate',$educational_infos->id)}}" method="post">
+                                        <form action="{{route('seeker.educationUpdate',$educational_infos->id)}}" method="post">
                                             @csrf
                                             @method('put')
                                       <div class="card">
@@ -545,7 +545,7 @@
 
 
                                     <div id="address" class="tab-pane fade">
-                                        <form action="{{route('jobseeker.addressupdate',$address_infos->id)}}" method="post">
+                                        <form action="{{route('seeker.addressUpdate',$address_infos->id)}}" method="post">
                                             @csrf
                                             @method('put')
                                       <div class="card">
@@ -669,7 +669,7 @@
                             </div>
 
                             <div id="experience" class="tab-pane fade">
-                                <form action="{{route('jobseeker.experienceupdate',$experiences->id)}}" method="post">
+                                <form action="{{route('seeker.experienceUpdate',$experiences->id)}}" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="card">

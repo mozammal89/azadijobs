@@ -71,7 +71,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Profile successfully Updated','Updated');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Profile updated successfully.');
 	
     
@@ -112,7 +112,7 @@ class JobSeekerProfileTab extends Controller
       $personal_info->save();   
       Toastr::success('Personal Information successfully Submitted','Submitted');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Personal Information Submitted successfully.');
       }
 
@@ -136,7 +136,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Personal Information successfully Updated','updated');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Personal Information Updated successfully.');
         
       }
@@ -172,7 +172,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Educational Information successfully Submitted','Submitted');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Educational Information Submitted successfully.');
       }
 
@@ -195,7 +195,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Educational Information successfully Updated','updated');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Educational Information Updated successfully.');
         
       }
@@ -229,7 +229,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Address Information successfully Submitted','Submitted');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Address Information Submitted successfully.');
       }
 
@@ -249,7 +249,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Address Information successfully Updated','updated');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Address Information Updated successfully.');
         
       }
@@ -281,7 +281,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Experience Information successfully Submitted','Submitted');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Experience Information Submitted successfully.');
       }
 
@@ -297,7 +297,7 @@ class JobSeekerProfileTab extends Controller
 
       Toastr::success('Experience Information successfully Updated','updated');
 
-         return redirect()->route('profile.jobseeker')
+         return redirect()->route('seeker.jobseekerProfile')
                          ->with('success','Experience Information Updated successfully.');     
      
         

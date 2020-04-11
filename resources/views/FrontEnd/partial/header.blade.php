@@ -105,8 +105,9 @@
 
 										@else		
 
-										<li><a href="{{route('profile.jobseeker')}}" class="dez-page">Profile</a></li>
-										<li><a href="{{route('jobseeker.cv')}}" class="dez-page">View CV</a></li>	
+										<li><a href="{{route('seeker.jobseekerProfile')}}" class="dez-page">Profile</a></li>
+										<li><a href="{{route('seeker.jobseekerCv')}}" class="dez-page">View Resume</a></li>
+										<li><a href="{{route('seeker.jobseekerCvUpload')}}" class="dez-page">Upload Resume</a></li>	
 
 										@endif
 

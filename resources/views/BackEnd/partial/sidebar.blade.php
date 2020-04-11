@@ -33,6 +33,7 @@
                                 <li><a title="All Courses" href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.jobcategory')}}"><span class="mini-sub-pro">Job Category</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.adsManagement')}}"><span class="mini-sub-pro">Ads Management</span></a></li>
                             </ul>
                         </li>
 
@@ -40,9 +41,8 @@
                             <li>
                                 <a class="has-arrow" href="#" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Jobs</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="" href="{{route('provider.jpPost')}}"><span class="mini-sub-pro">Jobs Lists</span></a></li>
                                     <li><a title="" href="{{route('provider.jpPostCreate')}}"><span class="mini-sub-pro">Add Jobs</span></a></li>
-                                    
+                                    <li><a title="" href="{{route('provider.jpPost')}}"><span class="mini-sub-pro">Jobs Lists</span></a></li> 
                                 </ul>
                             </li>
 

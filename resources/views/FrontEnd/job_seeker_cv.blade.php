@@ -7,7 +7,7 @@
 
 @section('content')
 
-<form action="{{route('jobseeker.cv', $all_seeker_profiles->id, $profiles->id, $educational_infos->id, $address_infos->id, $experiences->id)}}">
+<form action="{{route('seeker.jobseekerCv', $all_seeker_profiles->id, $profiles->id, $educational_infos->id, $address_infos->id, $experiences->id)}}">
 	@csrf
 	<div class="row">
 		<div class="col-md-2">
