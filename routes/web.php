@@ -60,9 +60,12 @@ Route::get('adsManagement','adsManagementController@index')->name('adsManagement
 Route::post('adsManagement/store','adsManagementController@store')->name('adsManagement.store');
 Route::put('adsManagement/update/{id}','adsManagementController@update')->name('adsManagement.update');
 Route::delete('adsManagement/delete/{id}','adsManagementController@delete')->name('adsManagement.delete');
+Route::get('adsManagement/details/{id}','adsManagementController@details')->name('adsManagement.details');
 
 
 });
+
+Route::get('/changeAdsStatus', 'Admin\adsManagementController@changeStatus')->name('changeAdsStatus');
 /*Admin Route End Here*/
 
 

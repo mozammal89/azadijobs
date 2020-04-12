@@ -33,8 +33,11 @@
                                 <li><a title="All Courses" href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.jobcategory')}}"><span class="mini-sub-pro">Job Category</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.adsManagement')}}"><span class="mini-sub-pro">Ads Management</span></a></li>
+                                
                             </ul>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.adsManagement')}}" aria-expanded="false"><span class="fa fa-ad"></span> <span class="mini-click-non">Ads Management</span></a>
                         </li>
 
                             @else
