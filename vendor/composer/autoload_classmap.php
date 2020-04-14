@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\AdsManagement' => $baseDir . '/app/AdsManagement.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Division' => $baseDir . '/app/Division.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',

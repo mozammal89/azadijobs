@@ -457,6 +457,7 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
     );
 
     public static $classMap = array (
+        'App\\AdsManagement' => __DIR__ . '/../..' . '/app/AdsManagement.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Division' => __DIR__ . '/../..' . '/app/Division.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',

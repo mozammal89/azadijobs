@@ -1,3 +1,5 @@
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
@@ -17,16 +19,18 @@
                         </li> -->
 
                         
-                        <li>
-                            
+                        <!-- <li>                           
                             <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="fa fa-user"></span> <span class="mini-click-non">Seeker</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">Seeker 1</span></a></li>
                                 <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Seeker 2</span></a></li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         @if(Auth::user()->role_id==1)
+                        <li>
+                            <a href="{{route('admin.adsManagement')}}" ><span class="fas fa-ad"></span> <span class="mini-click-non">Ads Management</span></a>
+                        </li>
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Setting</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -36,8 +40,15 @@
                                 
                             </ul>
                         </li>
+                        
                         <li>
-                            <a href="{{route('admin.adsManagement')}}" aria-expanded="false"><span class="fa fa-ad"></span> <span class="mini-click-non">Ads Management</span></a>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-chalkboard-teacher"></span> <span class="mini-click-non">Training</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="{{route('admin.trainingCreate')}}"><span class="mini-sub-pro">Add Training</span></a></li>
+                                <li><a title="All Courses" href="{{route('admin.training')}}"><span class="mini-sub-pro">Training List</span></a></li>
+                               
+                                
+                            </ul>
                         </li>
 
                             @else

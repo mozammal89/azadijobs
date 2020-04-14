@@ -62,6 +62,14 @@ Route::put('adsManagement/update/{id}','adsManagementController@update')->name('
 Route::delete('adsManagement/delete/{id}','adsManagementController@delete')->name('adsManagement.delete');
 Route::get('adsManagement/details/{id}','adsManagementController@details')->name('adsManagement.details');
 
+Route::get('training','trainingController@index')->name('training');
+Route::get('training/Create','trainingController@trainingCreate')->name('trainingCreate');
+Route::post('training/store','trainingController@trainingStore')->name('trainingStore');
+Route::get('training/details/{id}','trainingController@trainingDetails')->name('trainingDetails');
+Route::get('training/edit/{id}','trainingController@traininggetEdit')->name('trainingEditget');
+Route::put('training/edit/{id}','trainingController@trainingEdit')->name('trainingEdit');
+Route::delete('training/delete/{id}','trainingController@delete')->name('trainingDelete');
+
 
 });
 
