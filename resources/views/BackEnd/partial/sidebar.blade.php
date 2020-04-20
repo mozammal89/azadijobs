@@ -1,4 +1,5 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
@@ -45,9 +46,14 @@
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-chalkboard-teacher"></span> <span class="mini-click-non">Training</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Courses" href="{{route('admin.trainingCreate')}}"><span class="mini-sub-pro">Add Training</span></a></li>
-                                <li><a title="All Courses" href="{{route('admin.training')}}"><span class="mini-sub-pro">Training List</span></a></li>
-                               
-                                
+                                <li><a title="All Courses" href="{{route('admin.training')}}"><span class="mini-sub-pro">Training List</span></a></li>                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fa fa-tasks"></span> <span class="mini-click-non">Course Outline</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="{{route('admin.trainingCourseOutlineCreate')}}"><span class="mini-sub-pro">Add Course Outline</span></a></li>
+                                <li><a title="All Courses" href="{{route('admin.trainingCourseOutline')}}"><span class="mini-sub-pro">Course Outline List</span></a></li>                                
                             </ul>
                         </li>
 

@@ -70,6 +70,15 @@ Route::get('training/edit/{id}','trainingController@traininggetEdit')->name('tra
 Route::put('training/edit/{id}','trainingController@trainingEdit')->name('trainingEdit');
 Route::delete('training/delete/{id}','trainingController@delete')->name('trainingDelete');
 
+Route::get('trainingCourseOutline','TrainingCourseOutlineController@index')->name('trainingCourseOutline');
+Route::get('trainingCourseOutline/Create','TrainingCourseOutlineController@trainingCourseOutlineCreate')->name('trainingCourseOutlineCreate');
+Route::post('trainingCourseOutline/store','TrainingCourseOutlineController@trainingCourseOutlineStore')->name('trainingCourseOutlineStore');
+Route::get('trainingCourseOutline/details/{id}','TrainingCourseOutlineController@details')->name('trainingCourseOutlineDetails');
+Route::get('trainingCourseOutline/edit/{id}','TrainingCourseOutlineController@trainingCourseGetEdit')->name('trainingCourseOutlineGetEdit');
+Route::put('trainingCourseOutline/edit/{id}','TrainingCourseOutlineController@edit')->name('trainingCourseOutlineEdit');
+Route::delete('trainingCourseOutline/delete/{id}','TrainingCourseOutlineController@delete')->name('trainingCourseOutlineDelete');
+
+
 
 });
 

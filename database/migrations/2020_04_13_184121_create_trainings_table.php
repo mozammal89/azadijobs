@@ -22,7 +22,7 @@ class CreateTrainingsTable extends Migration
             $table->string('training_number');
             $table->string('training_address');
             $table->string('training_place');
-            $table->time('training_hour');
+            $table->string('training_hour');
             $table->timestamps();
         });
     }

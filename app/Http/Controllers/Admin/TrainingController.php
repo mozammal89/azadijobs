@@ -22,6 +22,16 @@ class TrainingController extends Controller
 
     public function trainingStore(Request $request)
     {
+    	$request->validate([
+        	'training_title' => 'required',
+        	'training_subject' => 'required',
+        	'training_describtion' => 'required',
+        	'training_name' => 'required',
+        	'training_address' => 'required',
+        	'training_place' => 'required',
+        	'training_hour' => 'required',
+        ]);
+    	
     	$training = new Training;
 
     	$training->training_title = $request->training_title;

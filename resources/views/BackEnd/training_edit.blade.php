@@ -58,7 +58,7 @@
 
                     <div class="chosen-select-single mg-b-20">
                         <label>Training Hour</label>
-                        <input name="training_hour" type="time" class="form-control" value="{{$trainingDetails->training_hour}}" style="background-color: #ececec;width: 75%;">
+                        <input name="training_hour" type="text" class="form-control" value="{{$trainingDetails->training_hour}}" style="background-color: #ececec;width: 75%;">
                     </div>
                 </div>
             </div>
