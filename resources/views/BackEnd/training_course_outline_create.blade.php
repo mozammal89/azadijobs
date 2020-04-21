@@ -70,8 +70,8 @@
 			            <th data-field="id">ID</th>
 			            <th data-field="training_id">Title</th>
 			            <th data-field="date" >Date</th>
-			            <th data-field="type">Type</th>
 			            <th data-field="topic">Topic</th>
+			            <th data-field="type">Type</th>
 			            <th data-field="duration">Duration</th>
 						<th data-field="topic_describtion">Describtion</th>
 						<th data-field="remove">Remove</th>
@@ -96,8 +96,8 @@
 <script>
 	function fnaddToTable(){
 
-		var columnID = "cl_training_id&cl_date_id&cl_type_id&cl_topic_id&cl_duration_id&cl_topic_describtion_id";
-		var columnName = "training_name[]&date[]&type[]&topic[]&duration[]&topic_describtion[]";
+		var columnID = "cl_training_id&cl_date_id&cl_topic_id&cl_type_id&cl_duration_id&cl_topic_describtion_id";
+		var columnName = "training_name[]&date[]&topic[]&type[]&duration[]&topic_describtion[]";
 
 		columnID = columnID.split("&");
 		columnName = columnName.split("&");
@@ -127,7 +127,7 @@
 		html += '<td > <input type="text" style="border:none;" readonly id="'+columnID[4]+'_'+totalROW+'" name="'+columnName[4]+'" value="'+duration+'"> </td>';
 		html += '<td > <input type="text" style="border:none;" readonly id="'+columnID[5]+'_'+totalROW+'" name="'+columnName[5]+'" value="'+topic_describtion+'"> </td>';
 
-		html += '<td ><button class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>';
+		html += '<td ><button class="btn btn-danger btn-sm far fa-trash-alt" onclick="removeRow(this)"></button></td>';
 
 		html += '</tr>';
 

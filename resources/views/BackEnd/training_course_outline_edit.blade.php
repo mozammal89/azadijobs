@@ -20,10 +20,10 @@
                     
                     <div class="form-group">
                         <label>Training Title</label>
-                        <select class="form-control custom-select-value" name="training_id" style="width: 75%; background-color: #ececec;">
-						<option value="">{{$tco_edit->courseOutline->training_title}}</option>
+                        <select class="form-control custom-select-value" name="training_id" style="width: 75%; background-color: #ececec;" required="">
+						<option value="">Select Training Title</option>
 						@foreach($training as $all_training)
-							<option value="{{$all_training->id}}" data="{{$all_training->training_title}}">{{$all_training->training_title}}</option>
+							<option value="{{$all_training->id}}" {{($all_training->id==$tco_edit->training_id)?'selected=""':''}}>{{$all_training->training_title}}</option>
 						@endforeach            
 						</select>
                     </div>
@@ -35,10 +35,10 @@
 
                     <div class="form-group">
                         <label>Training Type</label>
-                        <select class="form-control custom-select-value" name="type" style="width: 75%; background-color: #ececec;">
-                        	<option value="">{{$tco_edit->type}}</option>
+                        <select class="form-control custom-select-value" name="type" style="width: 75%; background-color: #ececec;" required="">
+                        	<option value="">Select Type</option>
 						@foreach($training_course_outline as $all_types)
-							<option value="{{$all_types->type}}" data="{{$all_types->type}}">{{$all_types->type}}</option>
+							<option value="{{($all_types->type)}}" {{($all_types->type==$tco_edit->type)?'selected=""':''}}>{{$all_types->type}}</option>
 						@endforeach 	
                         </select>
                     </div>

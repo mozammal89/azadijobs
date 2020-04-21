@@ -12,4 +12,5 @@ class TrainingCourseOutline extends Model
     {
     	return $this->belongsTo(Training::class,'training_id','id');
     }
+
 }

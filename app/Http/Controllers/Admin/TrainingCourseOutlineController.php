@@ -44,8 +44,8 @@ class TrainingCourseOutlineController extends Controller
 
 		$trainingArray = (isset($RequestData['training_name'])? $RequestData['training_name'] : array() );
 		$dateArray = (isset($RequestData['date'])? $RequestData['date'] : array() );
-		$typeArray = (isset($RequestData['type'])? $RequestData['type'] : array() );
 		$topicArray = (isset($RequestData['topic'])? $RequestData['topic'] : array() );
+		$typeArray = (isset($RequestData['type'])? $RequestData['type'] : array() );
 		$durationArray = (isset($RequestData['duration'])? $RequestData['duration'] : array() );
 		$topic_describtionArray = (isset($RequestData['topic_describtion'])? $RequestData['topic_describtion'] : array() );
 
@@ -58,8 +58,8 @@ class TrainingCourseOutlineController extends Controller
 
 			$tco->training_id = $data;
 			$tco->date = $dateArray[$key];
-			$tco->topic =$typeArray[$key];
-			$tco->type =$topicArray[$key];
+			$tco->topic = $topicArray[$key];
+			$tco->type = $typeArray[$key];
 			$tco->duration = $durationArray[$key];
 			$tco->topic_describtion = $topic_describtionArray[$key];
 	
