@@ -38,7 +38,6 @@
                                 <li><a title="All Courses" href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.jobcategory')}}"><span class="mini-sub-pro">Job Category</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
-                                
                             </ul>
                         </li>
                         
@@ -54,6 +53,13 @@
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Courses" href="{{route('admin.trainingCourseOutlineCreate')}}"><span class="mini-sub-pro">Add Course Outline</span></a></li>
                                 <li><a title="All Courses" href="{{route('admin.trainingCourseOutline')}}"><span class="mini-sub-pro">Course Outline List</span></a></li>                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-briefcase"></span> <span class="mini-click-non">Govt Jobs</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="{{route('admin.govtJobsCreate')}}"><span class="mini-sub-pro">Add Govt Jobs</span></a></li>
+                                <li><a title="All Courses" href=""><span class="mini-sub-pro">Govt Jobs List</span></a></li>                                
                             </ul>
                         </li>
 

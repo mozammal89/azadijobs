@@ -64,7 +64,7 @@
 <div class="row">
 	<div class="col-md-1"></div>
 	<div class="col-md-10">
-			<table id="table" data-toggle="table" data-key-events="true"  data-resizable="true" data-click-to-select="true" data-toolbar="#toolbar">
+			<table id="table" data-toggle="table" data-key-events="true" data-resizable="true" data-click-to-select="true" data-toolbar="#toolbar">
 			    <thead>
 			        <tr>
 			            <th data-field="id">ID</th>
@@ -118,7 +118,7 @@
 
 
 		html= '<tr>';
-		html += '<td >'+totalROW+'</td>';
+		html += '<td > <input type="hidden" '+totalROW+' ></td>';
 		html += '<td > <input type="hidden" readonly id="'+columnID[0]+'_'+totalROW+'" name="'+columnName[0]+'" value="'+title_ID+'">'; 
 		html += '<input type="text" style="border:none;" readonly  value="'+title_name+'"></td>';
 		html += '<td > <input type="text" style="border:none;" readonly id="'+columnID[1]+'_'+totalROW+'" name="'+columnName[1]+'" value="'+date+'"> </td>';
@@ -140,20 +140,6 @@
 		$('#type').val("");
 		$('#duration').val("");
 		$('#topic_describtion').val("");
-
-
-
-
-
-
-		console.log(columnName[0]);
-		
-
-
-
-		
-
-		console.log(title_name);
 
 
 	}

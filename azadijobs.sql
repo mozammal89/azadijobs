@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 12, 2020 at 12:31 PM
+-- Generation Time: Apr 23, 2020 at 08:30 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.20
 
@@ -380,7 +380,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2020_03_18_061719_create_job_seeker_experiences_table', 10),
 (26, '2020_03_30_115024_create_job_provider_job_post_table', 11),
 (27, '2020_04_08_053015_create_job_seeker_cvs_table', 12),
-(28, '2020_04_11_090433_create_ads_managements_table', 13);
+(28, '2020_04_11_090433_create_ads_managements_table', 13),
+(29, '2020_04_13_183257_create_trainings_table', 14),
+(30, '2020_04_13_184121_create_trainings_table', 15);
 
 -- --------------------------------------------------------
 
@@ -422,6 +424,63 @@ INSERT INTO `sub_categories` (`id`, `cat_id`, `sub_category_name`, `created_at`,
 (9, 12, 'Bank', '2020-04-02 00:46:34', '2020-04-02 00:46:34'),
 (10, 12, 'Police', '2020-04-02 00:46:51', '2020-04-02 00:46:51'),
 (11, 13, 'Office', '2020-04-02 00:47:15', '2020-04-02 00:47:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trainings`
+--
+
+CREATE TABLE `trainings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `training_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `training_subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `training_describtion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `training_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `training_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `training_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `training_place` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `training_hour` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `trainings`
+--
+
+INSERT INTO `trainings` (`id`, `training_title`, `training_subject`, `training_describtion`, `training_name`, `training_number`, `training_address`, `training_place`, `training_hour`, `created_at`, `updated_at`) VALUES
+(2, 'Learn PHP', 'PHP', 'This is a PHP training course. Hope you will like it.', 'Learn PHP', '1', 'Uttara', 'Home', '40 Hour', '2020-04-15 09:17:39', '2020-04-15 09:17:39'),
+(3, 'Learn Java', 'Java', 'This a second training name as Java', 'JaaVaa', '2', 'Shahbag', 'Dhaka', '20 Hours', '2020-04-16 00:31:27', '2020-04-16 00:31:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `training_course_outlines`
+--
+
+CREATE TABLE `training_course_outlines` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `training_id` bigint(20) UNSIGNED NOT NULL,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `duration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic_describtion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `training_course_outlines`
+--
+
+INSERT INTO `training_course_outlines` (`id`, `training_id`, `date`, `type`, `topic`, `duration`, `topic_describtion`, `created_at`, `updated_at`) VALUES
+(9, 2, '2020-04-30', 'class', 'Introduction New', '70 Hours', 'TEST', '2020-04-19 05:03:31', '2020-04-20 10:01:55'),
+(10, 2, '2020-04-22', 'class', 'Introduction', '50 Hours', 'fgnbfgn', '2020-04-19 05:03:31', '2020-04-19 05:03:31'),
+(15, 3, '2020-04-28', 'test', 'Introduction', '50 Hours', 'ttt', '2020-04-21 02:14:56', '2020-04-21 02:15:43'),
+(16, 2, '2020-04-23', 'class', 'Introduction', '50 Hours', 'pp', '2020-04-22 00:40:48', '2020-04-22 00:40:48'),
+(17, 3, '2020-04-28', 'test', 'Introduction', '50 Hours', 'ii', '2020-04-22 00:44:18', '2020-04-22 00:44:18');
 
 -- --------------------------------------------------------
 
@@ -555,6 +614,19 @@ ALTER TABLE `sub_categories`
   ADD KEY `sub_categories_cat_id_foreign` (`cat_id`);
 
 --
+-- Indexes for table `trainings`
+--
+ALTER TABLE `trainings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `training_course_outlines`
+--
+ALTER TABLE `training_course_outlines`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `training_ibfk_1` (`training_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -641,13 +713,25 @@ ALTER TABLE `job_seeker_registers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `trainings`
+--
+ALTER TABLE `trainings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `training_course_outlines`
+--
+ALTER TABLE `training_course_outlines`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -670,6 +754,12 @@ ALTER TABLE `job_provider_registers`
 --
 ALTER TABLE `sub_categories`
   ADD CONSTRAINT `sub_categories_cat_id_foreign` FOREIGN KEY (`cat_id`) REFERENCES `job_categories` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `training_course_outlines`
+--
+ALTER TABLE `training_course_outlines`
+  ADD CONSTRAINT `training_ibfk_1` FOREIGN KEY (`training_id`) REFERENCES `trainings` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

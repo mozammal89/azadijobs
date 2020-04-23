@@ -78,7 +78,7 @@ Route::get('trainingCourseOutline/edit/{id}','TrainingCourseOutlineController@tr
 Route::put('trainingCourseOutline/edit/{id}','TrainingCourseOutlineController@edit')->name('trainingCourseOutlineEdit');
 Route::delete('trainingCourseOutline/delete/{id}','TrainingCourseOutlineController@delete')->name('trainingCourseOutlineDelete');
 
-
+Route::get('govtJobs/create','GovtJobsController@create')->name('govtJobsCreate');
 
 });
 
