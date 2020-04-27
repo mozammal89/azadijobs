@@ -59,7 +59,7 @@
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-briefcase"></span> <span class="mini-click-non">Govt Jobs</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Courses" href="{{route('admin.govtJobsCreate')}}"><span class="mini-sub-pro">Add Govt Jobs</span></a></li>
-                                <li><a title="All Courses" href=""><span class="mini-sub-pro">Govt Jobs List</span></a></li>                                
+                                <li><a title="All Courses" href="{{route('admin.govtJobs')}}"><span class="mini-sub-pro">Govt Jobs List</span></a></li>                                
                             </ul>
                         </li>
 

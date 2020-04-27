@@ -461,7 +461,6 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Division' => __DIR__ . '/../..' . '/app/Division.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\GovtJobs' => __DIR__ . '/../..' . '/app/GovtJobs.php',
         'App\\Http\\Controllers\\Admin\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DashboardController.php',
         'App\\Http\\Controllers\\Admin\\DivisionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DivisionController.php',
         'App\\Http\\Controllers\\Admin\\GovtJobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GovtJobsController.php',

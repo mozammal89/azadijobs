@@ -78,11 +78,18 @@ Route::get('trainingCourseOutline/edit/{id}','TrainingCourseOutlineController@tr
 Route::put('trainingCourseOutline/edit/{id}','TrainingCourseOutlineController@edit')->name('trainingCourseOutlineEdit');
 Route::delete('trainingCourseOutline/delete/{id}','TrainingCourseOutlineController@delete')->name('trainingCourseOutlineDelete');
 
+Route::get('govtJobs','GovtJobsController@index')->name('govtJobs');
 Route::get('govtJobs/create','GovtJobsController@create')->name('govtJobsCreate');
+Route::post('govtJobs/store','GovtJobsController@store')->name('govtJobsStore');
+Route::get('govtJobs/details/{id}','GovtJobsController@govtJobsDetails')->name('govtJobsDetails');
+Route::get('govtJobs/edit/{id}','GovtJobsController@govtJobsgetEdit')->name('govtJobsGetEdit');
+Route::put('govtJobs/edit/{id}','GovtJobsController@govtJobsEdit')->name('govtJobsEdit');
+Route::delete('govtJobs/delete/{id}','GovtJobsController@delete')->name('govtJobsDelete');
 
 });
 
 Route::get('/changeAdsStatus', 'Admin\adsManagementController@changeStatus')->name('changeAdsStatus');
+Route::get('/changeGovtJobStatus', 'Admin\GovtJobsController@changeStatus')->name('changeJobStatus');
 /*Admin Route End Here*/
 
 

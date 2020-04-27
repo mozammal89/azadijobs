@@ -10,7 +10,6 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Division' => $baseDir . '/app/Division.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
-    'App\\GovtJobs' => $baseDir . '/app/GovtJobs.php',
     'App\\Http\\Controllers\\Admin\\DashboardController' => $baseDir . '/app/Http/Controllers/Admin/DashboardController.php',
     'App\\Http\\Controllers\\Admin\\DivisionController' => $baseDir . '/app/Http/Controllers/Admin/DivisionController.php',
     'App\\Http\\Controllers\\Admin\\GovtJobsController' => $baseDir . '/app/Http/Controllers/Admin/GovtJobsController.php',

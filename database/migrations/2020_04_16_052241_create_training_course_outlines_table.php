@@ -23,7 +23,7 @@ class CreateTrainingCourseOutlinesTable extends Migration
             $table->string('topic_describtion');
             $table->foreign('training_id')
                     ->references('id')
-                    ->on('training')
+                    ->on('trainings')
                     ->onDelete('cascade');
             $table->timestamps();
         });
