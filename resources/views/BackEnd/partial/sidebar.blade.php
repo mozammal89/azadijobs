@@ -38,6 +38,8 @@
                                 <li><a title="All Courses" href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.jobcategory')}}"><span class="mini-sub-pro">Job Category</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.designation')}}"><span class="mini-sub-pro">Designation</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.department')}}"><span class="mini-sub-pro">Department</span></a></li>
                             </ul>
                         </li>
                         
@@ -60,6 +62,13 @@
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Courses" href="{{route('admin.govtJobsCreate')}}"><span class="mini-sub-pro">Add Govt Jobs</span></a></li>
                                 <li><a title="All Courses" href="{{route('admin.govtJobs')}}"><span class="mini-sub-pro">Govt Jobs List</span></a></li>                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-diagnoses"></span> <span class="mini-click-non">Employees</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="{{route('admin.employeeCreate')}}"><span class="mini-sub-pro">Add Employee</span></a></li>
+                                <li><a title="All Courses" href="{{route('admin.employee')}}"><span class="mini-sub-pro">Employee List</span></a></li>                                
                             </ul>
                         </li>
 

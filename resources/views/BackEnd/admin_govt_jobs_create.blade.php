@@ -1,7 +1,6 @@
 @extends('BackEnd.layout')
 
 @push('css')
-@push('css')
 
 
 @endpush

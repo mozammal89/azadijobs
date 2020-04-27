@@ -41,6 +41,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin' ,'middleware'=>['auth','admin'] ],function(){
 
 Route::get('dashboard','DashboardController@index')->name('dashboard');
+
 Route::get('division','DivisionController@division')->name('division');
 Route::post('division/store','DivisionController@store')->name('division.store');
 Route::put('division/update/{id}','DivisionController@update')->name('division.update');
@@ -85,6 +86,24 @@ Route::get('govtJobs/details/{id}','GovtJobsController@govtJobsDetails')->name('
 Route::get('govtJobs/edit/{id}','GovtJobsController@govtJobsgetEdit')->name('govtJobsGetEdit');
 Route::put('govtJobs/edit/{id}','GovtJobsController@govtJobsEdit')->name('govtJobsEdit');
 Route::delete('govtJobs/delete/{id}','GovtJobsController@delete')->name('govtJobsDelete');
+
+Route::get('designation','DesignationController@index')->name('designation');
+Route::post('designation/store','DesignationController@store')->name('designation.store');
+Route::put('designation/update/{id}','DesignationController@update')->name('designation.update');
+Route::delete('designation/delete/{id}','DesignationController@delete')->name('designation.delete');
+
+Route::get('department','DepartmentController@index')->name('department');
+Route::post('department/store','DepartmentController@store')->name('department.store');
+Route::put('department/update/{id}','DepartmentController@update')->name('department.update');
+Route::delete('department/delete/{id}','DepartmentController@delete')->name('department.delete');
+
+Route::get('employee','EmployeeController@index')->name('employee');
+Route::get('employee/create','EmployeeController@create')->name('employeeCreate');
+Route::post('employee/store','EmployeeController@store')->name('employeeStore');
+Route::get('employee/details/{id}','EmployeeController@employeeDetails')->name('employeeDetails');
+Route::get('employee/edit/{id}','EmployeeController@employeeGetEdit')->name('employeeGetEdit');
+Route::put('employee/edit/{id}','EmployeeController@employeeEdit')->name('employeeEdit');
+Route::delete('employee/delete/{id}','EmployeeController@delete')->name('employeeDelete');
 
 });
 
