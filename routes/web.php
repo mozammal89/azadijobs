@@ -105,6 +105,16 @@ Route::get('employee/edit/{id}','EmployeeController@employeeGetEdit')->name('emp
 Route::put('employee/edit/{id}','EmployeeController@employeeEdit')->name('employeeEdit');
 Route::delete('employee/delete/{id}','EmployeeController@delete')->name('employeeDelete');
 
+Route::get('institute','InstituteController@index')->name('institute');
+Route::post('institute/store','InstituteController@store')->name('institute.store');
+Route::put('institute/update/{id}','InstituteController@update')->name('institute.update');
+Route::delete('institute/delete/{id}','InstituteController@delete')->name('institute.delete');
+
+Route::get('district','DistrictController@index')->name('district');
+Route::post('district/store','DistrictController@store')->name('district.store');
+Route::put('district/update/{id}','DistrictController@update')->name('district.update');
+Route::delete('district/delete/{id}','DistrictController@delete')->name('district.delete');
+
 });
 
 Route::get('/changeAdsStatus', 'Admin\adsManagementController@changeStatus')->name('changeAdsStatus');

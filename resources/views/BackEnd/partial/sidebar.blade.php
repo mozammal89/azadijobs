@@ -40,6 +40,8 @@
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.designation')}}"><span class="mini-sub-pro">Designation</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.department')}}"><span class="mini-sub-pro">Department</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.institute')}}"><span class="mini-sub-pro">Institute</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.district')}}"><span class="mini-sub-pro">District</span></a></li>
                             </ul>
                         </li>
                         
