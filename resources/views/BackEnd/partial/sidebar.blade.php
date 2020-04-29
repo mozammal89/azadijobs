@@ -42,6 +42,7 @@
                                 <li><a title="Add Courses" href="{{route('admin.department')}}"><span class="mini-sub-pro">Department</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.institute')}}"><span class="mini-sub-pro">Institute</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.district')}}"><span class="mini-sub-pro">District</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.notice')}}"><span class="mini-sub-pro">Notice</span></a></li>
                             </ul>
                         </li>
                         

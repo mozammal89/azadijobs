@@ -115,10 +115,16 @@ Route::post('district/store','DistrictController@store')->name('district.store')
 Route::put('district/update/{id}','DistrictController@update')->name('district.update');
 Route::delete('district/delete/{id}','DistrictController@delete')->name('district.delete');
 
+Route::get('notice','NoticeController@index')->name('notice');
+Route::post('notice/store','NoticeController@store')->name('notice.store');
+Route::put('notice/update/{id}','NoticeController@update')->name('notice.update');
+Route::delete('notice/delete/{id}','NoticeController@delete')->name('notice.delete');
+
 });
 
 Route::get('/changeAdsStatus', 'Admin\adsManagementController@changeStatus')->name('changeAdsStatus');
 Route::get('/changeGovtJobStatus', 'Admin\GovtJobsController@changeStatus')->name('changeJobStatus');
+Route::get('/changeNoticeStatus', 'Admin\NoticeController@changeStatus')->name('changeNoticeStatus');
 /*Admin Route End Here*/
 
 

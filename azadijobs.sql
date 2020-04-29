@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 23, 2020 at 08:30 AM
+-- Generation Time: Apr 28, 2020 at 09:39 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.20
 
@@ -47,8 +47,72 @@ CREATE TABLE `ads_managements` (
 --
 
 INSERT INTO `ads_managements` (`id`, `ads_cat_name`, `ads_cat_title`, `ads_ref_url`, `image`, `ads_position`, `start_date`, `end_date`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'Juice', 'Pran Juice', 'https://www.pranfoods.net/brands/beverages', 'image1586672826.jpg', 'Position 2', '2020-04-12', '2020-04-30', '1', '2020-04-12 00:27:06', '2020-04-12 05:57:04'),
-(6, 'Test', 'vokkhor', 'httpllll', 'image1586692319.jpg', 'Position 3', '2020-04-12', '2020-04-30', '0', '2020-04-12 05:51:59', '2020-04-12 05:55:31');
+(3, 'Juice', 'Pran Juice', 'https://www.pranfoods.net/brands/beverages', 'image1586672826.jpg', 'Position 2', '2020-04-12', '2020-04-30', '1', '2020-04-12 00:27:06', '2020-04-26 02:15:10'),
+(6, 'Test', 'vokkhor', 'httpllll', 'image1586692319.jpg', 'Position 3', '2020-04-12', '2020-04-30', '0', '2020-04-12 05:51:59', '2020-04-26 02:15:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `departments`
+--
+
+CREATE TABLE `departments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `department_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `department_name`, `created_at`, `updated_at`) VALUES
+(1, 'Technical', '2020-04-27 01:13:52', '2020-04-27 01:13:52'),
+(2, 'Business', '2020-04-27 01:14:11', '2020-04-27 01:14:11'),
+(3, 'Support', '2020-04-27 01:14:28', '2020-04-27 01:16:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `designations`
+--
+
+CREATE TABLE `designations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designation_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `designations`
+--
+
+INSERT INTO `designations` (`id`, `designation_name`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '2020-04-27 00:34:11', '2020-04-27 01:00:50'),
+(3, 'Super Admin', '2020-04-27 00:36:23', '2020-04-27 01:01:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `districts`
+--
+
+CREATE TABLE `districts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `district_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `districts`
+--
+
+INSERT INTO `districts` (`id`, `district_name`, `created_at`, `updated_at`) VALUES
+(2, 'Dhaka', '2020-04-28 01:27:22', '2020-04-28 01:27:22'),
+(3, 'Bogura', '2020-04-28 01:27:38', '2020-04-28 01:27:38');
 
 -- --------------------------------------------------------
 
@@ -78,6 +142,38 @@ INSERT INTO `divisions` (`id`, `division_name`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `employee_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `employee_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `employee_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `employee_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dob` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `present_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parmanent_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `passport` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `employee_designation` bigint(20) UNSIGNED NOT NULL,
+  `employee_department` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`id`, `user_id`, `employee_name`, `employee_id`, `employee_email`, `employee_phone`, `dob`, `present_address`, `parmanent_address`, `image`, `nid`, `passport`, `employee_designation`, `employee_department`, `created_at`, `updated_at`) VALUES
+(3, NULL, 'Reshad Test', '01', 'res@gmail.com', '017', '2020-04-30', 'Dhaka', 'Bogra', 'image1587980090.jpg', '4521', '2563', 3, 1, '2020-04-27 02:43:30', '2020-04-27 03:54:07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -89,6 +185,65 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `govt_jobs`
+--
+
+CREATE TABLE `govt_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `job_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dept_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_post_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `application_deadline` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `vacancy` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_context` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_responsibilities` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `employment_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `educational_requirements` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `additional_requirements` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_location` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `application_note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `govt_jobs`
+--
+
+INSERT INTO `govt_jobs` (`id`, `job_title`, `dept_title`, `image`, `job_post_date`, `application_deadline`, `vacancy`, `job_context`, `job_responsibilities`, `employment_status`, `educational_requirements`, `additional_requirements`, `job_location`, `salary`, `application_note`, `status`, `created_at`, `updated_at`) VALUES
+(4, 'Govt Jobs', 'Engineering', 'demo.png', '2020-04-26', '2020-04-30', '2', 'yy', 'hj', 'Part Time Job', 'ghi', 'ghi', '8', '100', 'ghki', '1', '2020-04-26 03:52:19', '2020-04-26 04:44:11'),
+(6, 'Govt Jobs', 'Agri', 'image1587898240.jpg', NULL, NULL, NULL, NULL, NULL, 'Employment Status', NULL, NULL, NULL, NULL, NULL, '1', '2020-04-26 04:50:40', '2020-04-26 04:50:40'),
+(7, 'Govt Jobs', 'Agriculture', 'demo.png', '2020-04-26', '2020-04-30', '2', 'dfh', 'fdhdfh', 'Full Time Job', 'dfhh', 'dfh', '8', '100', 'hh', '0', '2020-04-26 04:51:24', '2020-04-26 04:52:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `institutes`
+--
+
+CREATE TABLE `institutes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `institute_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `institute_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `institute_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `institute_contact_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `institutes`
+--
+
+INSERT INTO `institutes` (`id`, `institute_name`, `institute_email`, `institute_address`, `institute_contact_number`, `created_at`, `updated_at`) VALUES
+(1, 'Bogura Zilla School', 'bzs@gmail.com', 'Bogura', '017', '2020-04-28 01:05:40', '2020-04-28 01:08:42');
 
 -- --------------------------------------------------------
 
@@ -148,8 +303,8 @@ CREATE TABLE `job_provider_job_post` (
 --
 
 INSERT INTO `job_provider_job_post` (`id`, `provider_id`, `job_title`, `category`, `sub_category`, `job_post_date`, `application_deadline`, `joining_date`, `vacancy`, `job_context`, `job_responsibilities`, `employment_status`, `educational_requirements`, `additional_requirements`, `job_location`, `salary`, `application_note`, `status`, `created_at`, `updated_at`) VALUES
-(13, '60', 'Software Engineering', '10', '4', '02.04.2020', '22.04.2020', '30.04.2020', '2', '1. aaa\r\n2. BBBB\r\n3.CCC', '1. aaa\r\n2. BBBB\r\n3.CCC', 'full_time_job', '1. aaa\r\n2. BBBB\r\n3.CCC', '1. aaa\r\n2. BBBB\r\n3.CCC', '4', '100', 'abcd efgh ijkl mnop qrst uvw xyz', 1, '2020-04-02 02:05:37', '2020-04-09 05:55:42'),
-(19, '60', 'Private Jobs', '13', '11', '06.04.2020', '20.04.2020', '30.04.2020', '2', '!. Need to work hard\r\n2. All the best', '!. Need to work hard\r\n2. All the best', 'part_time_job', '!. Need to work hard\r\n2. All the best', '!. Need to work hard\r\n2. All the best', '8', '100', '!. Need to work hard\r\n2. All the best', 1, '2020-04-06 04:49:52', '2020-04-09 05:56:22');
+(13, '60', 'Software Engineering', '10', '4', '02.04.2020', '22.04.2020', '30.04.2020', '2', '1. aaa\r\n2. BBBB\r\n3.CCC', '1. aaa\r\n2. BBBB\r\n3.CCC', 'full_time_job', '1. aaa\r\n2. BBBB\r\n3.CCC', '1. aaa\r\n2. BBBB\r\n3.CCC', '4', '100', 'abcd efgh ijkl mnop qrst uvw xyz', 1, '2020-04-02 02:05:37', '2020-04-26 04:59:49'),
+(19, '60', 'Private Jobs', '13', '11', '06.04.2020', '20.04.2020', '30.04.2020', '2', '!. Need to work hard\r\n2. All the best', '!. Need to work hard\r\n2. All the best', 'part_time_job', '!. Need to work hard\r\n2. All the best', '!. Need to work hard\r\n2. All the best', '8', '100', '!. Need to work hard\r\n2. All the best', 1, '2020-04-06 04:49:52', '2020-04-26 04:59:50');
 
 -- --------------------------------------------------------
 
@@ -382,7 +537,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2020_04_08_053015_create_job_seeker_cvs_table', 12),
 (28, '2020_04_11_090433_create_ads_managements_table', 13),
 (29, '2020_04_13_183257_create_trainings_table', 14),
-(30, '2020_04_13_184121_create_trainings_table', 15);
+(30, '2020_04_13_184121_create_trainings_table', 15),
+(31, '2020_04_16_052241_create_training_course_outlines_table', 16),
+(32, '2020_04_23_085956_create_govt_jobs_table', 16),
+(33, '2020_04_27_061752_create_designations_table', 17),
+(34, '2020_04_27_070452_create_departments_table', 18),
+(36, '2020_04_27_074010_create_employees_table', 19),
+(37, '2020_04_28_063516_create_institutes_table', 20),
+(38, '2020_04_28_071515_create_districts_table', 21);
 
 -- --------------------------------------------------------
 
@@ -476,11 +638,8 @@ CREATE TABLE `training_course_outlines` (
 --
 
 INSERT INTO `training_course_outlines` (`id`, `training_id`, `date`, `type`, `topic`, `duration`, `topic_describtion`, `created_at`, `updated_at`) VALUES
-(9, 2, '2020-04-30', 'class', 'Introduction New', '70 Hours', 'TEST', '2020-04-19 05:03:31', '2020-04-20 10:01:55'),
-(10, 2, '2020-04-22', 'class', 'Introduction', '50 Hours', 'fgnbfgn', '2020-04-19 05:03:31', '2020-04-19 05:03:31'),
-(15, 3, '2020-04-28', 'test', 'Introduction', '50 Hours', 'ttt', '2020-04-21 02:14:56', '2020-04-21 02:15:43'),
-(16, 2, '2020-04-23', 'class', 'Introduction', '50 Hours', 'pp', '2020-04-22 00:40:48', '2020-04-22 00:40:48'),
-(17, 3, '2020-04-28', 'test', 'Introduction', '50 Hours', 'ii', '2020-04-22 00:44:18', '2020-04-22 00:44:18');
+(1, 2, '2020-04-30', 'class', 'Introduction', '50 Hours', '11111', '2020-04-23 03:29:25', '2020-04-23 03:30:10'),
+(2, 3, '2020-04-25', 'test', 'Introduction New', '50 Hours', '22222', '2020-04-23 03:29:51', '2020-04-23 03:29:51');
 
 -- --------------------------------------------------------
 
@@ -527,15 +686,53 @@ ALTER TABLE `ads_managements`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `departments`
+--
+ALTER TABLE `departments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `designations`
+--
+ALTER TABLE `designations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `districts`
+--
+ALTER TABLE `districts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `divisions`
 --
 ALTER TABLE `divisions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `employees_employee_designation_foreign` (`employee_designation`),
+  ADD KEY `employees_employee_department_foreign` (`employee_department`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `govt_jobs`
+--
+ALTER TABLE `govt_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `institutes`
+--
+ALTER TABLE `institutes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -624,7 +821,7 @@ ALTER TABLE `trainings`
 --
 ALTER TABLE `training_course_outlines`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `training_ibfk_1` (`training_id`);
+  ADD KEY `training_course_outlines_training_id_foreign` (`training_id`);
 
 --
 -- Indexes for table `users`
@@ -644,16 +841,52 @@ ALTER TABLE `ads_managements`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `departments`
+--
+ALTER TABLE `departments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `designations`
+--
+ALTER TABLE `designations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `districts`
+--
+ALTER TABLE `districts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `divisions`
 --
 ALTER TABLE `divisions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `govt_jobs`
+--
+ALTER TABLE `govt_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `institutes`
+--
+ALTER TABLE `institutes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `job_categories`
@@ -713,7 +946,7 @@ ALTER TABLE `job_seeker_registers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `sub_categories`
@@ -731,7 +964,7 @@ ALTER TABLE `trainings`
 -- AUTO_INCREMENT for table `training_course_outlines`
 --
 ALTER TABLE `training_course_outlines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -742,6 +975,13 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `employees`
+--
+ALTER TABLE `employees`
+  ADD CONSTRAINT `employees_employee_department_foreign` FOREIGN KEY (`employee_department`) REFERENCES `departments` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `employees_employee_designation_foreign` FOREIGN KEY (`employee_designation`) REFERENCES `designations` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `job_provider_registers`
@@ -759,7 +999,7 @@ ALTER TABLE `sub_categories`
 -- Constraints for table `training_course_outlines`
 --
 ALTER TABLE `training_course_outlines`
-  ADD CONSTRAINT `training_ibfk_1` FOREIGN KEY (`training_id`) REFERENCES `trainings` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `training_course_outlines_training_id_foreign` FOREIGN KEY (`training_id`) REFERENCES `trainings` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
