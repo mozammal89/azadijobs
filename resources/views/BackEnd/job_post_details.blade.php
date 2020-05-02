@@ -50,13 +50,13 @@
                         <label>Vacancy</label>
                         <input name="vacancy" type="text" class="form-control" value="{{$JobPostDetails->vacancy}}" style="background-color: #ececec;width: 75%;" readonly="">
                     </div>
-                    <div class="chosen-select-single mg-b-20">
+                    <div class="form-group">
                         <label>Employment Status</label>
                         <input name="employment_status" type="text" class="form-control" value="{{$JobPostDetails->employment_status}}" style="background-color: #ececec;width: 75%;" readonly="">
                     </div>
                     <div class="form-group">
                         <label>Job Location</label>
-                        <input name="job_location" type="text" class="form-control" value="{{$JobPostDetails->job_location}}" style="background-color: #ececec;width: 75%;" readonly="">
+                        <input name="job_location" type="text" class="form-control" value="{{$JobPostDetails->divisions->division_name}}" style="background-color: #ececec;width: 75%;" readonly="">
                     </div>
 
                     <div class="form-group">

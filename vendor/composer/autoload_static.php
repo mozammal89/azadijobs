@@ -459,6 +459,7 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
     public static $classMap = array (
         'App\\AdsManagement' => __DIR__ . '/../..' . '/app/AdsManagement.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\CoverImage' => __DIR__ . '/../..' . '/app/CoverImage.php',
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',
         'App\\Designation' => __DIR__ . '/../..' . '/app/Designation.php',
         'App\\District' => __DIR__ . '/../..' . '/app/District.php',
@@ -474,6 +475,7 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
         'App\\Http\\Controllers\\Admin\\EmployeeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/EmployeeController.php',
         'App\\Http\\Controllers\\Admin\\GovtJobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GovtJobsController.php',
         'App\\Http\\Controllers\\Admin\\InstituteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/InstituteController.php',
+        'App\\Http\\Controllers\\Admin\\NoticeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NoticeController.php',
         'App\\Http\\Controllers\\Admin\\TrainingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TrainingController.php',
         'App\\Http\\Controllers\\Admin\\TrainingCourseOutlineController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TrainingCourseOutlineController.php',
         'App\\Http\\Controllers\\Admin\\adsManagementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/adsManagementController.php',

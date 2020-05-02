@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group">
                         <label>Job Location</label>
-                        <input name="job_location" type="text" class="form-control" value="{{$govt_jobs_details->job_location}}" style="background-color: #ececec;width: 75%;" readonly="">
+                        <input name="job_location" type="text" class="form-control" value="{{$govt_jobs_details->divisions->division_name}}" style="background-color: #ececec;width: 75%;" readonly="">
                     </div>
                     <div class="form-group">
                         <label>Salary</label>

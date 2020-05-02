@@ -120,11 +120,17 @@ Route::post('notice/store','NoticeController@store')->name('notice.store');
 Route::put('notice/update/{id}','NoticeController@update')->name('notice.update');
 Route::delete('notice/delete/{id}','NoticeController@delete')->name('notice.delete');
 
+Route::get('coverImage','CoverImageController@index')->name('coverImage');
+Route::post('coverImage/store','CoverImageController@store')->name('coverImage.store');
+Route::put('coverImage/update/{id}','CoverImageController@update')->name('coverImage.update');
+Route::delete('coverImage/delete/{id}','CoverImageController@delete')->name('coverImage.delete');
+
 });
 
 Route::get('/changeAdsStatus', 'Admin\adsManagementController@changeStatus')->name('changeAdsStatus');
 Route::get('/changeGovtJobStatus', 'Admin\GovtJobsController@changeStatus')->name('changeJobStatus');
 Route::get('/changeNoticeStatus', 'Admin\NoticeController@changeStatus')->name('changeNoticeStatus');
+Route::get('/changeCoverImageStatus', 'Admin\CoverImageController@changeStatus')->name('changeCoverImageStatus');
 /*Admin Route End Here*/
 
 

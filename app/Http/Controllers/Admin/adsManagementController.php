@@ -62,6 +62,9 @@ class adsManagementController extends Controller
                 {
                     $file=$request->file('image');
                     $filename='image'.time().'.'.$file->getClientOriginalExtension();
+                    if ($all_ads_info->image) {
+                       unlink('ads_images/'.$all_ads_info->image);
+                    }
                     $filesize=$file->getClientSize();
                     $file->move('ads_images',$filename);
                     

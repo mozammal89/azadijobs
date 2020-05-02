@@ -62,8 +62,8 @@
 			        	<label>Employment Status</label>
 	                    <select class="select2_demo_3 form-control" name="employment_status" style="background-color: #ececec;width: 75%;">
 							<option>Employment Status</option>
-							<option value="part_time_job">Part Time Job</option>
-							<option value="full_time_job">Full Time Job</option> 
+							<option value="Part Time Job">Part Time Job</option>
+							<option value="Full Time Job">Full Time Job</option> 
 						</select>
 	            	</div>
 	            	<div class="form-group">

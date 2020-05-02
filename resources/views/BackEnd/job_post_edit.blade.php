@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label>Job Location</label>
-                        <input name="job_location" type="text" class="form-control" value="{{$JobPostDetails->job_location}}" style="background-color: #ececec;width: 75%;">
+                        <input name="job_location" type="text" class="form-control" value="{{$JobPostDetails->divisions->division_name}}" style="background-color: #ececec;width: 75%;">
                     </div>
 
                     <div class="form-group">

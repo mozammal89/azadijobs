@@ -14,16 +14,22 @@
 		<form action="{{route('admin.govtJobsStore')}}" method="post" enctype="multipart/form-data">
 			@csrf
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<div class="form-group">
 			        	<label>Job Title</label>
 			            <input name="job_title" type="text" class="form-control" placeholder="" style="background-color: #ececec;width: 75%;">
 			        </div> 
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<div class="form-group">
 			        	<label>Department Title</label>
 			            <input name="dept_title" type="text" class="form-control" placeholder="" style="background-color: #ececec;width: 75%;">
+			        </div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+			        	<label>Application Deadline</label>
+			            <input name="application_deadline" type="date" class="form-control" placeholder=" " style="background-color: #ececec;width: 75%;">
 			        </div>
 				</div>
 			</div>
@@ -55,11 +61,6 @@
 					<div class="form-group">
 			        	<label>Job Post Date</label>
 			            <input name="job_post_date" type="date" class="form-control" placeholder="  " style="background-color: #ececec;width: 75%;">
-			        </div>
-
-			        <div class="form-group">
-			        	<label>Application Deadline</label>
-			            <input name="application_deadline" type="date" class="form-control" placeholder=" " style="background-color: #ececec;width: 75%;">
 			        </div>
 
 			        <div class="form-group">

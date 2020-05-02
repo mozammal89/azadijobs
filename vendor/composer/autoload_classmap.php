@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\AdsManagement' => $baseDir . '/app/AdsManagement.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\CoverImage' => $baseDir . '/app/CoverImage.php',
     'App\\Department' => $baseDir . '/app/Department.php',
     'App\\Designation' => $baseDir . '/app/Designation.php',
     'App\\District' => $baseDir . '/app/District.php',
@@ -23,6 +24,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\EmployeeController' => $baseDir . '/app/Http/Controllers/Admin/EmployeeController.php',
     'App\\Http\\Controllers\\Admin\\GovtJobsController' => $baseDir . '/app/Http/Controllers/Admin/GovtJobsController.php',
     'App\\Http\\Controllers\\Admin\\InstituteController' => $baseDir . '/app/Http/Controllers/Admin/InstituteController.php',
+    'App\\Http\\Controllers\\Admin\\NoticeController' => $baseDir . '/app/Http/Controllers/Admin/NoticeController.php',
     'App\\Http\\Controllers\\Admin\\TrainingController' => $baseDir . '/app/Http/Controllers/Admin/TrainingController.php',
     'App\\Http\\Controllers\\Admin\\TrainingCourseOutlineController' => $baseDir . '/app/Http/Controllers/Admin/TrainingCourseOutlineController.php',
     'App\\Http\\Controllers\\Admin\\adsManagementController' => $baseDir . '/app/Http/Controllers/Admin/adsManagementController.php',
