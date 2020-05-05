@@ -2,14 +2,19 @@
 
 @section('content')
 
+
 <div class="page-content">
 		<!-- Section Banner -->
-		<div class="dez-bnr-inr dez-bnr-inr-md" style="background-image:url({{asset('FrontEnd/images/main-slider/slide7.jpg')}} ">
+		@foreach($coverImage as $all_cover_iamge)
+		<div class="dez-bnr-inr dez-bnr-inr-md" style="background-image:url(/cover_images/{{$all_cover_iamge->image}}) ">
+		@endforeach
+
+	
             <div class="container">
                 <div class="dez-bnr-inr-entry align-m ">
 					<div class="find-job-bx">
 						<!-- <p class="site-button button-sm">Find Jobs, Employment & Career Opportunities</p> -->
-						<h2 style="color: springgreen !important">Search Between More Then <br/> <span class="text-primary">50,000</span> Open Jobs.</h2>
+						<h2 style="color: springgreen !important">Search Between More Then <br/> <span class="text-primary">{{$countJobPost}}</span> Open Jobs.</h2>
 						<form class="dezPlaceAni">
 							<div class="row">
 								<div class="col-lg-4 col-md-6">
@@ -60,6 +65,7 @@
 					</div>
 				</div>
             </div>
+
         </div>
 		<!-- Section Banner END -->
         <!-- About Us -->
@@ -83,18 +89,21 @@
 						<h6 class="fw3">Freelancers</h6>
 					</div>
 				</div>
+				
 				<div class="row sp20">
+					@foreach($jobCategory as $all_job_category)
 					<div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="icon-bx-wraper">
 							<div class="icon-content">
 								<div class="icon-md text-primary m-b20"><i class="fas fa-palette"></i></div>
-								<a href="#" class="dez-tilte">Design, Art & Multimedia</a>
-								<p class="m-a0">198 Open Positions</p>
+								<a href="#" class="dez-tilte">{{$all_job_category->job_category_name}}</a>
+								<p class="m-a0">Open Positions</p>
 								<div class="rotate-icon"><i class="ti-location-pin"></i></div> 
 							</div>
 						</div>				
 					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
+					@endforeach
+				<!-- 	<div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="icon-bx-wraper">
 							<div class="icon-content">
 								<div class="icon-md text-primary m-b20"><i class="fas fa-school"></i></div>
@@ -163,7 +172,7 @@
 								<div class="rotate-icon"><i class="ti-panel"></i></div> 
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="col-lg-12 text-center m-t30">
 						<button class="site-button radius-xl">All Categories</button>
 					</div>
@@ -189,6 +198,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-9">
+						@foreach($jobPost as $all_job_post)
 						<ul class="post-job-bx">
 							<li>
 								<a href="#">
@@ -197,25 +207,25 @@
 											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
 										</div>
 										<div class="job-post-info">
-											<h4>Digital Marketing Executive</h4>
+											<h4>{{$all_job_post->job_title}}</h4>
 											<ul>
-												<li><i class="fa fa-map-marker"></i> Sacramento, California</li>
-												<li><i class="fa fa-bookmark-o"></i> Full Time</li>
-												<li><i class="fa fa-clock-o"></i> Published 11 months ago</li>
+												<li><i class="fa fa-map-marker"></i>{{$all_job_post->divisions->division_name}}</li>
+												<li><i class="fa fa-bookmark-o"></i>{{$all_job_post->employment_status}}</li>
+												<li><i class="fa fa-clock-o"></i>{{$all_job_post->job_post_date}}</li>
 											</ul>
 										</div>
 									</div>
 									<div class="d-flex">
 										<div class="job-time mr-auto">
-											<span>Full Time</span>
+											<span>{{$all_job_post->employment_status}}</span>
 										</div>
 										<div class="salary-bx">
-											<span>$1200 - $ 2500</span>
+											<span>{{$all_job_post->salary}}</span>
 										</div>
 									</div>
 									<span class="post-like fa fa-heart-o"></span>
 								</a>
-							</li>
+							<!-- </li>
 							<li>
 								<a href="#">
 									<div class="d-flex m-b30">
@@ -345,8 +355,9 @@
 									</div>
 									<span class="post-like fa fa-heart-o"></span>
 								</a>
-							</li>
+							</li> -->
 						</ul>
+						@endforeach
 						<div class="m-t30">
 							<div class="d-flex">
 								<a class="site-button button-sm mr-auto" href="#"><i class="ti-arrow-left"></i> Prev</a>
@@ -356,16 +367,17 @@
 					</div>
 					<div class="col-lg-3">
 						<div class="sticky-top">
-							<div class="candidates-are-sys m-b30" style="padding: 0px 0px !important;">
-								<img src="images/gjobs.png" alt="" width="100%" style="height: 300px !important">
-							</div>
+							@foreach($adsManagement as $all_ads)
 							<div class="quote-bx">
 								<div class="quote-info">
-									<h4>Make a Difference with Your Online Resume!</h4>
-									<p>Your resume in minutes with JobBoard resume assistant is ready!</p>
-									<a href="#" class="site-button">Make Ads</a>
+									<img src="/ads_images/{{$all_ads->image}}" alt="" width="100%" style="height: 300px !important">
+									<h4>{{$all_ads->ads_cat_name}}</h4>
+									<p>{{$all_ads->ads_cat_title}}</p>
+									<a href="{{$all_ads->ads_ref_url}}" target="_blank" class="site-button">View Ad</a>
 								</div>
 							</div>
+							<br>
+							@endforeach
 						</div>
 					</div>
 				</div>
@@ -396,106 +408,29 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <div class="row">
+                    	@foreach($jobProvider as $all_job_provider)
                       <div class="col-md-3" >
                         <div class="item-box-blog">
                           <div class="item-box-blog-image">
                             <!--Date-->
                            
                             <!--Image-->
-                            <figure> <img alt="" src="https://d30fl32nd2baj9.cloudfront.net/media/2014/02/10/gp-logo.jpg1/BINARY/w940/GP-logo.jpg"> </figure>
+                            <figure> <img alt="" src="/images/{{$all_job_provider->provider_image}}" height="30%" width="30%"> </figure>
                           </div>
                           <div class="item-box-blog-body">
                             <!--Heading-->
                             <div class="item-box-blog-heading">
                               <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
+                                <h5>{{$all_job_provider->com_name}}</h5>
                               </a>
                             </div>
                             <!--Data-->
                             
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                              <h5>{{$all_job_provider->com_address}}</h5>
                             </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="https://media-eng.dhakatribune.com/uploads/2019/05/robi7-1557158517138.jpg"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                            </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                            </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="https://assetsds.cdnedge.bluemix.net/sites/default/files/styles/big_2/public/feature/images/teletalk_logo.jpg?itok=zVHp0ZjS"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                            </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
+                            <div class="mt"> <a href="{{$all_job_provider->com_web_link}}" target="_blank" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
                             <!--Read More Button-->
                           </div>
                         </div>
@@ -512,104 +447,27 @@
                             <!--Date-->
                            
                             <!--Image-->
-                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
+                            <figure> <img alt="" src="/images/{{$all_job_provider->provider_image}}" height="30%" width="30%"> </figure>
                           </div>
                           <div class="item-box-blog-body">
                             <!--Heading-->
                             <div class="item-box-blog-heading">
                               <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
+                                <h5>{{$all_job_provider->com_name}}</h5>
                               </a>
                             </div>
                             <!--Data-->
                             
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                              <h5>{{$all_job_provider->com_address}}</h5>
                             </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
+                            <div class="mt"> <a href="{{$all_job_provider->com_web_link}}" target="_blank" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
                             <!--Read More Button-->
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                            </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                            </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>Company Name</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                            </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
+                      @endforeach
                     </div>
                     <!--.row-->
                   </div>

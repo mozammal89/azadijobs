@@ -855,7 +855,7 @@
 }
 /* Quote Box */
 .quote-bx{
-	background-image:url(../images/our-work/pic4.jpg);
+	/*background-image:url(../images/our-work/pic4.jpg);*/
 	background-size:cover;
 	position:relative;
 	border-radius:4px;

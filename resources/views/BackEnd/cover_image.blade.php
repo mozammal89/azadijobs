@@ -120,7 +120,7 @@
                                     <tr>     
                                         <td>{{$loop->iteration}}</td>
                                         <td>
-                                        <img src="/cover_images/{{$all_images->image}}" style="height: 50%; width: 30%;" />
+                                        <img src="/cover_images/{{$all_images->image}}" style="height: 50px; width: 100px;" />
                                         </td>
                                         <td>
                                         <a class="zoomInDown mg-t btn btn-primary" href="#" data-toggle="modal" data-target="#zoomInDown2_{{$all_images->id}}">Edit</a>

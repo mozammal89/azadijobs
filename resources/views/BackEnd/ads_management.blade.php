@@ -61,7 +61,7 @@
                                                             </div>
 
                                                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                                <label>Image</label>
+                                                                <label class="login2">Image</label>
                                                                 <input type="file" class="form-control" name="image">
 
                                                                 <label>Position</label>

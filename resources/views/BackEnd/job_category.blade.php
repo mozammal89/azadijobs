@@ -94,29 +94,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
-                            		<div class="row">
-                            			<div class="col-2"></div>
-                            			<div class="col-md-8">
-                            				@if (session('success'))
-                            					<div class="alert alert-success">
-										        	<span>{{ session('success') }}</span>
-										    </div>
-                            				@endif
-
-
-                            				  @if ($errors->any())
-										    <div class="alert alert-danger">
-										        <ul>
-										            @foreach ($errors->all() as $error)
-										                <li>{{ $error }}</li>
-										            @endforeach
-										        </ul>
-										    </div>
-									       @endif
-                            			</div>
-
-                            			<div class="col-2"></div>
-                            		</div>
+                            		
 
                             	<div class="row">
                             		<div class="col-md-6">

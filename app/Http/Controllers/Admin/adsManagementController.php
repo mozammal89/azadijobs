@@ -18,6 +18,8 @@ class adsManagementController extends Controller
 
     public function store(Request $request)
     {
+        
+        
     	if($request->has('image'))
                 {
                     $file=$request->file('image');
@@ -30,12 +32,16 @@ class adsManagementController extends Controller
                     $filename='demo.png';
                 }
 
-        $request->validate([
-        	'ads_cat_name' => 'required',
-        	'ads_cat_title' => 'required',
-        	'ads_ref_url' => 'required',
-        	'ads_position' => 'required',
+                $request->validate([
+            'ads_cat_name' => 'required',
+            'ads_cat_title' => 'required',
+            'ads_ref_url' => 'required',
+            'ads_position' => 'required',
+            'image' => 'dimensions:min_width=300,min_height=150'
+
         ]);
+
+        
 
         $all_ads_info = new AdsManagement;
 
@@ -58,6 +64,8 @@ class adsManagementController extends Controller
     {
     	$all_ads_info = AdsManagement::find($id);
 
+        
+
     	if($request->has('image'))
                 {
                     $file=$request->file('image');
@@ -74,11 +82,15 @@ class adsManagementController extends Controller
                 }
 
                 $request->validate([
-        	'ads_cat_name' => 'required',
-        	'ads_cat_title' => 'required',
-        	'ads_ref_url' => 'required',
-        	'ads_position' => 'required',
-        ]);
+                    'ads_cat_name' => 'required',
+                    'ads_cat_title' => 'required',
+                    'ads_ref_url' => 'required',
+                    'ads_position' => 'required',
+                    'image' => 'dimensions:min_width=300,min_height=150'
+
+                ]);
+
+                 
 
         $all_ads_info->ads_cat_name = $request->ads_cat_name;
         $all_ads_info->ads_cat_title = $request->ads_cat_title;

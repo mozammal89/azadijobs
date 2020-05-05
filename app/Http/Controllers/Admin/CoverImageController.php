@@ -19,7 +19,8 @@ class CoverImageController extends Controller
     public function store (Request $request)
     {
       $request->validate([
-            'image' => 'required|file|max:3000',
+            // 'image' => 'required|file|min:180',
+            'image' => 'dimensions:min_width=2000,min_height=1125'
         ]);
 
     	if($request->has('image'))
@@ -48,6 +49,11 @@ class CoverImageController extends Controller
     public function update (Request $request, $id)
     {
     	$coverImage = CoverImage::find($id);
+
+      $request->validate([
+            // 'image' => 'required|file|min:180',
+            'image' => 'dimensions:min_width=2000,min_height=1125'
+        ]);
 
 
     	if($request->has('image'))

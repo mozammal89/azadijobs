@@ -16,11 +16,6 @@
 
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <div class="sparkline11-list responsive-mg-b-30">
-        <div class="sparkline11-hd">
-            <div class="main-sparkline11-hd">
-                
-            </div>
-        </div>
         <div class="sparkline11-graph">
             <div class="basic-login-form-ad">
                 <div class="row">
