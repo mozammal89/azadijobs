@@ -57,7 +57,7 @@
 								<ul class="sub-menu">
 									<li><a href="#" class="dez-page">Browse Job</a></li>
 									<li><a href="#" class="dez-page">companies</a></li>
-									<li><a href="#" class="dez-page">Job Detail</a></li>
+									
 								</ul>
 							</li>
 							<li>

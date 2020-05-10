@@ -66,6 +66,7 @@ class JobPostController extends Controller
             'sub_category' => 'required',
             'job_post_date' => 'required',
             'application_deadline' => 'required',
+            'experience' => 'required',
             'joining_date' => 'required',
             'vacancy' => 'required',
             'job_context' => 'required',
@@ -86,7 +87,8 @@ class JobPostController extends Controller
     	$job_post_info->category = $request->category;
     	$job_post_info->sub_category = $request->sub_category;
     	$job_post_info->job_post_date = $request->job_post_date;
-    	$job_post_info->application_deadline = $request->application_deadline;
+        $job_post_info->application_deadline = $request->application_deadline;
+    	$job_post_info->experience = $request->experience;
     	$job_post_info->joining_date = $request->joining_date;
     	$job_post_info->vacancy = $request->vacancy;
     	$job_post_info->job_context = $request->job_context;
@@ -143,7 +145,8 @@ class JobPostController extends Controller
     	$JobPostEdit->category = $request->category;
     	$JobPostEdit->sub_category = $request->sub_category;
     	$JobPostEdit->job_post_date = $request->job_post_date;
-    	$JobPostEdit->application_deadline = $request->application_deadline;
+        $JobPostEdit->application_deadline = $request->application_deadline;
+    	$JobPostEdit->experience = $request->experience;
     	$JobPostEdit->joining_date = $request->joining_date;
     	$JobPostEdit->vacancy = $request->vacancy;
     	$JobPostEdit->job_context = $request->job_context;

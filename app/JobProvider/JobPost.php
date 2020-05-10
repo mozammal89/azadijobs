@@ -5,6 +5,7 @@ use App\JobCategory;
 use App\SubCategory;
 use App\Division;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class JobPost extends Model
@@ -25,5 +26,7 @@ class JobPost extends Model
     {
     	return $this->belongsTo(Division::class,'job_location','id');
     }
+
+    
 
 }

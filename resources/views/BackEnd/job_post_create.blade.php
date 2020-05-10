@@ -51,6 +51,10 @@
 			            <input name="application_deadline" id="finish2" type="text" class="form-control" placeholder=" " style="background-color: #ececec;width: 75%;">
 			        </div>
 			        <div class="form-group">
+			        	<label>Experience</label>
+			            <input name="experience" type="text" class="form-control" placeholder="" style="background-color: #ececec;width: 75%;">
+			        </div>
+			        <div class="form-group">
 			        	<label>Joining Date</label>
 			            <input name="joining_date" id="finish3" type="text" class="form-control" placeholder=" " style="background-color: #ececec;width: 75%;">
 			        </div>

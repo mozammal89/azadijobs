@@ -103,76 +103,7 @@
 						</div>				
 					</div>
 					@endforeach
-				<!-- 	<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="icon-bx-wraper">
-							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="fas fa-school"></i></div>
-								<a href="#" class="dez-tilte">Education Training</a>
-								<p class="m-a0">198 Open Positions</p>
-								<div class="rotate-icon"><i class="ti-wand"></i></div> 
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="icon-bx-wraper">
-							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="fas fa-hand-holding-usd"></i></div>
-								<a href="#" class="dez-tilte">Accounting / Finance</a>
-								<p class="m-a0">198 Open Positions</p>
-								<div class="rotate-icon"><i class="ti-wallet"></i></div> 
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="icon-bx-wraper">
-							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="fas fa-users"></i></div>
-								<a href="#" class="dez-tilte">Human Resource</a>
-								<p class="m-a0">198 Open Positions</p>
-								<div class="rotate-icon"><i class="ti-cloud-up"></i></div> 
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="icon-bx-wraper">
-							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="fas fa-broadcast-tower"></i></div>
-								<a href="#" class="dez-tilte">Telecommunications</a>
-								<p class="m-a0">198 Open Positions</p>
-								<div class="rotate-icon"><i class="ti-bar-chart"></i></div> 
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="icon-bx-wraper">
-							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="fas fa-users"></i></div>
-								<a href="#" class="dez-tilte">Restaurant / Food Service</a>
-								<p class="m-a0">198 Open Positions</p>
-								<div class="rotate-icon"><i class="ti-tablet"></i></div> 
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="icon-bx-wraper">
-							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="fas fa-users"></i></div>
-								<a href="#" class="dez-tilte">Construction / Facilities</a>
-								<p class="m-a0">198 Open Positions</p>
-								<div class="rotate-icon"><i class="ti-camera"></i></div> 
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="icon-bx-wraper">
-							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="ti-panel"></i></div>
-								<a href="#" class="dez-tilte">Health</a>
-								<p class="m-a0">198 Open Positions</p>
-								<div class="rotate-icon"><i class="ti-panel"></i></div> 
-							</div>
-						</div>
-					</div> -->
+				
 					<div class="col-lg-12 text-center m-t30">
 						<button class="site-button radius-xl">All Categories</button>
 					</div>
@@ -201,7 +132,7 @@
 						@foreach($jobPost as $all_job_post)
 						<ul class="post-job-bx">
 							<li>
-								<a href="#">
+								<a href="{{route('post.jobdetails',$all_job_post->id)}}">
 									<div class="d-flex m-b30">
 										<div class="job-post-company">
 											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
@@ -211,7 +142,7 @@
 											<ul>
 												<li><i class="fa fa-map-marker"></i>{{$all_job_post->divisions->division_name}}</li>
 												<li><i class="fa fa-bookmark-o"></i>{{$all_job_post->employment_status}}</li>
-												<li><i class="fa fa-clock-o"></i>{{$all_job_post->job_post_date}}</li>
+												<li><i class="fa fa-clock-o"></i>{{$all_job_post->application_deadline}}</li>
 											</ul>
 										</div>
 									</div>
@@ -219,143 +150,13 @@
 										<div class="job-time mr-auto">
 											<span>{{$all_job_post->employment_status}}</span>
 										</div>
-										<div class="salary-bx">
+										<!-- <div class="salary-bx">
 											<span>{{$all_job_post->salary}}</span>
-										</div>
+										</div> -->
 									</div>
-									<span class="post-like fa fa-heart-o"></span>
-								</a>
-							<!-- </li>
-							<li>
-								<a href="#">
-									<div class="d-flex m-b30">
-										<div class="job-post-company">
-											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
-										</div>
-										<div class="job-post-info">
-											<h4>Digital Marketing Executive</h4>
-											<ul>
-												<li><i class="fa fa-map-marker"></i> Sacramento, California</li>
-												<li><i class="fa fa-bookmark-o"></i> Full Time</li>
-												<li><i class="fa fa-clock-o"></i> Published 11 months ago</li>
-											</ul>
-										</div>
-									</div>
-									<div class="d-flex">
-										<div class="job-time mr-auto">
-											<span>Full Time</span>
-										</div>
-										<div class="salary-bx">
-											<span>$1200 - $ 2500</span>
-										</div>
-									</div>
-									<span class="post-like fa fa-heart-o"></span>
-								</a>
+									<!-- <span class="post-like fa fa-heart-o"></span> -->
+								</a>							
 							</li>
-							<li>
-								<a href="#">
-									<div class="d-flex m-b30">
-										<div class="job-post-company">
-											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
-										</div>
-										<div class="job-post-info">
-											<h4>Digital Marketing Executive</h4>
-											<ul>
-												<li><i class="fa fa-map-marker"></i> Sacramento, California</li>
-												<li><i class="fa fa-bookmark-o"></i> Full Time</li>
-												<li><i class="fa fa-clock-o"></i> Published 11 months ago</li>
-											</ul>
-										</div>
-									</div>
-									<div class="d-flex">
-										<div class="job-time mr-auto">
-											<span>Full Time</span>
-										</div>
-										<div class="salary-bx">
-											<span>$1200 - $ 2500</span>
-										</div>
-									</div>
-									<span class="post-like fa fa-heart-o"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<div class="d-flex m-b30">
-										<div class="job-post-company">
-											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
-										</div>
-										<div class="job-post-info">
-											<h4>Digital Marketing Executive</h4>
-											<ul>
-												<li><i class="fa fa-map-marker"></i> Sacramento, California</li>
-												<li><i class="fa fa-bookmark-o"></i> Full Time</li>
-												<li><i class="fa fa-clock-o"></i> Published 11 months ago</li>
-											</ul>
-										</div>
-									</div>
-									<div class="d-flex">
-										<div class="job-time mr-auto">
-											<span>Full Time</span>
-										</div>
-										<div class="salary-bx">
-											<span>$1200 - $ 2500</span>
-										</div>
-									</div>
-									<span class="post-like fa fa-heart-o"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<div class="d-flex m-b30">
-										<div class="job-post-company">
-											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
-										</div>
-										<div class="job-post-info">
-											<h4>Digital Marketing Executive</h4>
-											<ul>
-												<li><i class="fa fa-map-marker"></i> Sacramento, California</li>
-												<li><i class="fa fa-bookmark-o"></i> Full Time</li>
-												<li><i class="fa fa-clock-o"></i> Published 11 months ago</li>
-											</ul>
-										</div>
-									</div>
-									<div class="d-flex">
-										<div class="job-time mr-auto">
-											<span>Full Time</span>
-										</div>
-										<div class="salary-bx">
-											<span>$1200 - $ 2500</span>
-										</div>
-									</div>
-									<span class="post-like fa fa-heart-o"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<div class="d-flex m-b30">
-										<div class="job-post-company">
-											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
-										</div>
-										<div class="job-post-info">
-											<h4>Digital Marketing Executive</h4>
-											<ul>
-												<li><i class="fa fa-map-marker"></i> Sacramento, California</li>
-												<li><i class="fa fa-bookmark-o"></i> Full Time</li>
-												<li><i class="fa fa-clock-o"></i> Published 11 months ago</li>
-											</ul>
-										</div>
-									</div>
-									<div class="d-flex">
-										<div class="job-time mr-auto">
-											<span>Full Time</span>
-										</div>
-										<div class="salary-bx">
-											<span>$1200 - $ 2500</span>
-										</div>
-									</div>
-									<span class="post-like fa fa-heart-o"></span>
-								</a>
-							</li> -->
 						</ul>
 						@endforeach
 						<div class="m-t30">

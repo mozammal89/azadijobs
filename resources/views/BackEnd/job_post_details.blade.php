@@ -43,6 +43,10 @@
                         <input name="application_deadline" id="finish2" type="text" class="form-control" value="{{$JobPostDetails->application_deadline}}" style="background-color: #ececec;width: 75%;" readonly="">
                     </div>
                     <div class="form-group">
+                        <label>Experience</label>
+                        <input name="experience" type="text" class="form-control" value="{{$JobPostDetails->experience}}" style="background-color: #ececec;width: 75%;">
+                    </div>
+                    <div class="form-group">
                         <label>Joining Date</label>
                         <input name="joining_date" id="finish3" type="text" class="form-control" value="{{$JobPostDetails->joining_date}}" style="background-color: #ececec;width: 75%;" readonly="">
                     </div>
