@@ -39,7 +39,20 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::get('jobdetails','FrontEndController@jobdetails')->name('jobdetails');
 
+
+
+
+// FrontEnd Routes Starts Here
 Route::get('post/jobdetails/{id}','FrontEndController@postjobdetails')->name('post.jobdetails');
+
+Route::get('browseAllJobs','FrontEndController@browseAllJobs')->name('browseAllJobs');
+Route::post('loadmore/load_data', 'FrontEndController@load_data')->name('loadmore.load_data');
+
+// FrontEnd Routes Ends Here
+
+
+
+
 
 /*Admin Route Start Here*/
 Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin' ,'middleware'=>['auth','admin'] ],function(){

@@ -55,6 +55,7 @@
 </div>
 <!-- JAVASCRIPT FILES ========================================= -->
 <script src="{{asset('FrontEnd/js/jquery.min.js')}}"></script><!-- JQUERY.MIN JS -->
+
 <script src="{{asset('FrontEnd/plugins/wow/wow.js')}}"></script><!-- WOW JS -->
 <script src="{{asset('FrontEnd/plugins/bootstrap/js/popper.min.js')}}"></script><!-- BOOTSTRAP.MIN JS -->
 <script src="{{asset('FrontEnd/plugins/bootstrap/js/bootstrap.min.js')}}"></script><!-- BOOTSTRAP.MIN JS -->

@@ -124,7 +124,7 @@
 						<h6 class="fw4 m-b0">20+ Recently Added Jobs</h5>
 					</div>
 					<div class="align-self-end">
-						<a href="#" class="site-button button-sm">Browse All Jobs <i class="fa fa-long-arrow-right"></i></a>
+						<a href="{{route('browseAllJobs')}}" class="site-button button-sm">Browse All Jobs <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<div class="row">
