@@ -48,6 +48,9 @@ Route::get('post/jobdetails/{id}','FrontEndController@postjobdetails')->name('po
 Route::get('browseAllJobs','FrontEndController@browseAllJobs')->name('browseAllJobs');
 Route::post('loadmore/load_data', 'FrontEndController@load_data')->name('loadmore.load_data');
 
+Route::get('browseAllCat','FrontEndController@browseAllCat')->name('browseAllCat');
+Route::post('loadMoreCat/load_cat', 'FrontEndController@load_cat')->name('loadMoreCat.load_cat');
+
 // FrontEnd Routes Ends Here
 
 

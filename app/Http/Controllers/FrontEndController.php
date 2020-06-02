@@ -37,6 +37,7 @@ class FrontEndController extends Controller
 
     function browseAllJobs()
     {
+      
      return view('FrontEnd.browse_all_jobs');
     }
 
@@ -47,14 +48,100 @@ class FrontEndController extends Controller
       if($request->id > 0)
       {
        $data = DB::table('job_provider_job_post')
-          ->where('id', '<', $request->id)
-          ->orderBy('id', 'DESC')
+          ->leftjoin('divisions', 'divisions.id', '=', 'job_provider_job_post.job_location')
+          ->select('job_provider_job_post.id','job_provider_job_post.job_title','job_provider_job_post.employment_status','job_provider_job_post.application_deadline','job_provider_job_post.job_location','divisions.division_name')
+          ->where('job_provider_job_post.id', '<', $request->id)
+          ->orderBy('job_provider_job_post.id', 'DESC')
           ->limit(5)
           ->get();
+          
       }
       else
       {
        $data = DB::table('job_provider_job_post')
+          ->leftjoin('divisions', 'divisions.id', '=', 'job_provider_job_post.job_location')
+          ->select('job_provider_job_post.id','job_provider_job_post.job_title','job_provider_job_post.employment_status','job_provider_job_post.application_deadline','job_provider_job_post.job_location','divisions.division_name')
+          ->orderBy('job_provider_job_post.id', 'DESC')
+          ->limit(5)
+          ->get();
+      }
+      $output = '';
+      $lst_id = '';
+      
+      if(!$data->isEmpty())
+      {
+       foreach($data as $row)
+       {
+        $output .= '
+        <ul class="post-job-bx">
+            <li>
+                <a href="post/jobdetails/'.$row->id.'">
+                    <div class="d-flex m-b30">
+                        <div class="job-post-company">
+                            <span><img src="../FrontEnd/images/logo/icon1.png"/></span>
+                        </div>
+                        <div class="job-post-info">
+                          <h4> '.$row->job_title.' </h4>
+                          <ul>
+                            <li><i class="fa fa-map-marker"></i> '.$row->division_name.' </li>
+                            <li><i class="fa fa-bookmark-o"></i> '.$row->employment_status.' </li>
+                            <li><i class="fa fa-clock-o"></i> '.$row->application_deadline.' </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="d-flex">
+                        <div class="job-time mr-auto">
+                          <span> '.$row->employment_status.' </span>
+                        </div>
+                      </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        ';
+        $lst_id = $row->id;
+       }
+
+       $output .= '
+       <div id="load_more">
+        <button type="button" name="load_more_button" class="btn btn-success" data-id="'.$lst_id.'" id="load_more_button">Load More</button>
+       </div>
+       ';
+      }
+      else
+      { 
+       $output .= '
+       <div id="no_data">
+        <button type="button" class="btn btn-info">No Data Found</button>
+       </div>
+       ';
+      }
+      echo $output;
+     }
+    }
+
+    function browseAllCat()
+    {
+      
+     return view('FrontEnd.browse_all_categories');
+    }
+
+    function load_cat(Request $request)
+    {
+     if($request->ajax())
+     {
+      if($request->id > 0)
+      {
+       $data = DB::table('job_categories')
+          ->where('id', '<', $request->id)
+          ->orderBy('id', 'DESC')
+          ->limit(5)
+          ->get();
+          
+      }
+      else
+      {
+       $data = DB::table('job_categories')
           ->orderBy('id', 'DESC')
           ->limit(5)
           ->get();
@@ -67,30 +154,16 @@ class FrontEndController extends Controller
        foreach($data as $row)
        {
         $output .= '
-        <ul class="post-job-bx">
-            <li>
-                <a href="#">
-                    <div class="d-flex m-b30">
-                        <div class="job-post-company">
-                            <span><img src="../FrontEnd/images/logo/icon1.png"/></span>
-                        </div>
-                        <div class="job-post-info">
-                            <h4>'.$row->job_title.'</h4>
-                            <ul>
-                              
-                              <li><i class="fa fa-bookmark-o"></i> '.$row->employment_status.'</li>
-                              <li><i class="fa fa-clock-o"></i>Deadline '.$row->application_deadline.'</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="job-time mr-auto">
-                            <span> '.$row->employment_status.'</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        </ul>
+        <div class="row sp20">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="icon-bx-wraper">
+              <div class="icon-content">
+                <div class="icon-md text-primary m-b20"><i class="fas fa-palette"></i></div>
+                <a href="#" class="dez-tilte">'.$row->job_category_name.'</a>
+              </div>
+            </div>        
+          </div>
+        </div>
         ';
         $last_id = $row->id;
        }

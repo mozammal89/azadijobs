@@ -105,7 +105,7 @@
 					@endforeach
 				
 					<div class="col-lg-12 text-center m-t30">
-						<button class="site-button radius-xl">All Categories</button>
+						<a href="{{route('browseAllCat')}}" class="site-button button-md">All Categories <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -159,12 +159,12 @@
 							</li>
 						</ul>
 						@endforeach
-						<div class="m-t30">
+						<!-- <div class="m-t30">
 							<div class="d-flex">
 								<a class="site-button button-sm mr-auto" href="#"><i class="ti-arrow-left"></i> Prev</a>
 								<a class="site-button button-sm" href="#">Next <i class="ti-arrow-right"></i></a>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="col-lg-3">
 						<div class="sticky-top">
