@@ -170,6 +170,7 @@ Route::get('jpPost/details/{id}','JobPostController@jobPostDetails')->name('jpPo
 Route::get('jpPost/edit/{id}','JobPostController@jobPostgetEdit')->name('jpPostEditget');
 Route::put('jpPost/edit/{id}','JobPostController@jobPostEdit')->name('jpPostEdit');
 Route::delete('jpPost/delete/{id}','JobPostController@delete')->name('jpPostDelete');
+Route::get('jpPost/applicants/{id}','JobPostController@applicants')->name('applicants');
 // Job Post Routes End
 });
 Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'JobProvider\JobPostController@myformAjax'));
@@ -198,8 +199,15 @@ Route::get('jsCvUpload','JobSeekerCvController@CvUpload')->name('jobseekerCvUplo
 Route::post('jsCvUpload/store','JobSeekerCvController@store')->name('jobseekerCvStore');
 // Job Seeker CV Route End Here
 
+// Apply Jobs Route Start Here
+Route::get('applyjobs/{id}','ApplyJobsController@index')->name('applyjobs');
+Route::post('applyjobs/store/{id}','ApplyJobsController@store')->name('applyjobsStore');
+
+// Apply Jobs Route End Here
+
 });
 /*Job Seeker Route End Here*/
+
 
 
 

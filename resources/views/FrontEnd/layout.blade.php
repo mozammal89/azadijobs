@@ -33,6 +33,9 @@
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Revolution Navigation Style -->
 
+	<!-- Toastr -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 	@stack('css')
 
 </head>
@@ -64,6 +67,22 @@
 <script src="{{asset('FrontEnd/plugins/owl-carousel/owl.carousel.js')}}"></script><!-- OWL SLIDER -->
 <script src="{{asset('FrontEnd/plugins/rangeslider/rangeslider.js')}}" ></script><!-- Rangeslider -->
 <script src="{{asset('FrontEnd/js/custom.js')}}"></script><!-- CUSTOM FUCTIONS  -->
+
+<!-- Toastr -->
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
+
+        <script type="text/javascript">
+            @if ($errors->any()) {
+                 @foreach ($errors->all() as $error)
+                    toastr.error(' {{$error}} ','Error',{
+                        closeButton : true,
+                        progressBar : true,
+                    });
+                 @endforeach
+            }
+            @endif
+        </script>
 
 
 @stack('js')

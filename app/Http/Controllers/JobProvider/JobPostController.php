@@ -12,6 +12,7 @@ use App\SubCategory;
 use Auth;
 use DB;
 use App\Division;
+use App\JobSeeker\ApplyJobs;
 
 
 class JobPostController extends Controller
@@ -23,7 +24,8 @@ class JobPostController extends Controller
 
     public function jobPostIndex ()
     {
-    	$JobPost = JobPost::get();
+    	$JobPost = JobPost::where('provider_id',Auth::user()->id)->get();
+        // dd($JobPost);
     	return view('BackEnd.job_post', compact('JobPost'));
     }
 
@@ -178,5 +180,14 @@ class JobPostController extends Controller
 
     	 return redirect()->route('provider.jpPost')
                          ->with('success','Job Post deleted successfully.'); 
+    }
+
+    public function applicants ($id)
+    {
+        $apply_jobs = ApplyJobs::Where ('job_post_id',$id)->get();
+
+        // dd($apply_jobs);
+
+        return view ('BackEnd.job_post_applicant', compact('apply_jobs'));
     }
 }

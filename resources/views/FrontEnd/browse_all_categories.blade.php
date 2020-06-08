@@ -8,6 +8,14 @@
 
 @section('content')
 
+
+<div class="section-full job-categories content-inner-2 bg-white" style="background-image:url(../images/pattern/pic1.html);">
+			<div class="container">
+				<h5>Category</h5>
+				{{ csrf_field() }}
+				<div id="post_data"></div>
+			</div>
+		</div>
 <!-- Content -->
 <div class="page-content bg-white">
     <!-- inner page banner -->

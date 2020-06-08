@@ -160,6 +160,7 @@ class FrontEndController extends Controller
               <div class="icon-content">
                 <div class="icon-md text-primary m-b20"><i class="fas fa-palette"></i></div>
                 <a href="#" class="dez-tilte">'.$row->job_category_name.'</a>
+                <p class="m-a0">Open Positions</p>
               </div>
             </div>        
           </div>

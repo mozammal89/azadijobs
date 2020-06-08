@@ -39,6 +39,7 @@
                                         <th data-field="application_deadline" >Application Deadline</th>
                                         <th data-field="action">Action</th>
                                         <th data-field="status">Status</th>
+                                        <th data-field="applicants">Applicants</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,6 +55,9 @@
                                         </td>
                                         <td>
                                              <input data-id="{{$all_JobPost->id}}" id="status_id_{{$all_JobPost->id}}" class="toggle-class" onchange="fnstatuschange({{$all_JobPost->id}});" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $all_JobPost->status ? 'checked' : '' }}>
+                                        </td>
+                                        <td>
+                                            <a href="{{route('provider.applicants',$all_JobPost->id)}}" class="btn btn-warning" role="button">View</a>
                                         </td>     
                                     </tr>
                         <!--Delete Mode Start here -->

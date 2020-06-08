@@ -19,7 +19,7 @@
 							<div class="row">
 								<div class="col-lg-4 col-md-6">
 									<div class="form-group">
-										<label>Job Title, Keywords, or Phrase</label>
+										<label>Job Title</label>
 										<div class="input-group">
 											<input type="text" class="form-control" placeholder="">
 											<div class="input-group-append">
@@ -30,31 +30,22 @@
 								</div>
 								<div class="col-lg-3 col-md-6">
 									<div class="form-group">
-										<label>City, State or ZIP</label>
-										<div class="input-group">
-											<input type="text" class="form-control" placeholder="">
-											<div class="input-group-append">
-											  <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
-											</div>
-										</div>
+										<select class="form-control custom-select-value" name="division_name">
+                                            <option value="">Select Division</option>
+                                        @foreach($search_division as $all_divisions)
+                                            <option value="{{$all_divisions->id}}">{{$all_divisions->division_name}}</option>
+                                        @endforeach            
+                                        </select>
 									</div>
 								</div>
 								<div class="col-lg-3 col-md-6">
 									<div class="form-group">
-										<select>
-											<option>Select Sector</option>
-											<option>Construction</option>
-											<option>Corodinator</option>
-											<option>Employer</option>
-											<option>Financial Career</option>
-											<option>Information Technology</option>
-											<option>Marketing</option>
-											<option>Quality check</option>
-											<option>Real Estate</option>
-											<option>Sales</option>
-											<option>Supporting</option>
-											<option>Teaching</option> 
-										</select>
+										<select class="form-control custom-select-value" name="job_category_name">
+                                            <option value="">Select Category</option>
+                                        @foreach($search_job_category as $all_cats)
+                                            <option value="{{$all_cats->id}}">{{$all_cats->job_category_name}}</option>
+                                        @endforeach            
+                                        </select>
 									</div>
 								</div>
 								<div class="col-lg-2 col-md-6">

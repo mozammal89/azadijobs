@@ -33,13 +33,16 @@ class HomeController extends Controller
     public function index()
     {
         $jobCategory = JobCategory::take(8)->get();
-        $jobPost = JobPost::take(6)->get();
+        $jobPost = JobPost::latest()->take(6)->get();
         $AllJobPost = JobPost::get();
         $countJobPost = count($AllJobPost);
         $adsManagement = AdsManagement::take(2)->get();
         $jobProvider = JobProvider::take(8)->get();
         $coverImage = CoverImage::take(1)->get();
 
-        return view('FrontEnd.home', compact('jobCategory', 'jobPost', 'adsManagement', 'jobProvider', 'coverImage', 'countJobPost'));
+        $search_job_category = JobCategory::get();
+        $search_division = Division::get();
+
+        return view('FrontEnd.home', compact('jobCategory', 'jobPost', 'adsManagement', 'jobProvider', 'coverImage', 'countJobPost', 'search_job_category', 'search_division'));
     }
 }

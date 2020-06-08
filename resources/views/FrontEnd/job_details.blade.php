@@ -83,7 +83,7 @@
 								<br>
 
 
-								<a href="#" class="site-button">Apply This Job</a>
+								<a href="{{route('seeker.applyjobs',$latestJob->id)}}" class="site-button">Apply This Job</a>
 							</div>
 						</div>
 					</div>

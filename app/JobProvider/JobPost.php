@@ -4,6 +4,7 @@ namespace App\JobProvider;
 use App\JobCategory;
 use App\SubCategory;
 use App\Division;
+use App\User;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -27,6 +28,10 @@ class JobPost extends Model
     	return $this->belongsTo(Division::class,'job_location','id');
     }
 
+    public function providers()
+    {
+        return $this->belongsTo(User::class,'provider_id','id');
+    }
     
 
 }
