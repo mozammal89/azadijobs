@@ -17,7 +17,7 @@
 					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
-							<li><a href="#">Home</a></li>
+							<li><a href="{{route('index')}}">Home</a></li>
 							<li>Job Detail</li>
 						</ul>
 					</div>

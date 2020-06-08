@@ -51,6 +51,9 @@ Route::post('loadmore/load_data', 'FrontEndController@load_data')->name('loadmor
 Route::get('browseAllCat','FrontEndController@browseAllCat')->name('browseAllCat');
 Route::post('loadMoreCat/load_cat', 'FrontEndController@load_cat')->name('loadMoreCat.load_cat');
 
+Route::post('searchResult','SearchJobController@index')->name('searchResult');
+Route::get('searchResult/details/{id}','SearchJobController@searchResultDetails')->name('searchResultDetails');
+
 // FrontEnd Routes Ends Here
 
 

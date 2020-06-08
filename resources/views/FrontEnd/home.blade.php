@@ -15,13 +15,14 @@
 					<div class="find-job-bx">
 						<!-- <p class="site-button button-sm">Find Jobs, Employment & Career Opportunities</p> -->
 						<h2 style="color: springgreen !important">Search Between More Then <br/> <span class="text-primary">{{$countJobPost}}</span> Open Jobs.</h2>
-						<form class="dezPlaceAni">
+						<form class="dezPlaceAni" method="post" action="{{route('searchResult')}}">
+							@csrf
 							<div class="row">
 								<div class="col-lg-4 col-md-6">
 									<div class="form-group">
-										<label>Job Title</label>
+										<!-- <label></label> -->
 										<div class="input-group">
-											<input type="text" class="form-control" placeholder="">
+											<input type="text" class="form-control" name="job_title" placeholder="Job Title">
 											<div class="input-group-append">
 											  <span class="input-group-text"><i class="fa fa-search"></i></span>
 											</div>
