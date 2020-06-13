@@ -29,7 +29,8 @@ class TrainingController extends Controller
         	'training_name' => 'required',
         	'training_address' => 'required',
         	'training_place' => 'required',
-        	'training_hour' => 'required',
+            'training_hour' => 'required',
+        	'training_cost' => 'required',
         ]);
     	
     	$training = new Training;
@@ -41,7 +42,8 @@ class TrainingController extends Controller
     	$training->training_number = $request->training_number;
     	$training->training_address = $request->training_address;
     	$training->training_place = $request->training_place;
-    	$training->training_hour = $request->training_hour;
+        $training->training_hour = $request->training_hour;
+    	$training->training_cost = $request->training_cost;
     	$training->save();
 
     	Toastr::success('Training successfully created','Created');   
@@ -73,7 +75,8 @@ class TrainingController extends Controller
     	$edit_training->training_number = $request->training_number;
     	$edit_training->training_address = $request->training_address;
     	$edit_training->training_place = $request->training_place;
-    	$edit_training->training_hour = $request->training_hour;
+        $edit_training->training_hour = $request->training_hour;
+    	$edit_training->training_cost = $request->training_cost;
     	$edit_training->save();
     
 
@@ -94,5 +97,15 @@ class TrainingController extends Controller
 
     	 return redirect()->route('admin.training')
                          ->with('success','Training deleted successfully.'); 
+    }
+
+    public function changeStatus(Request $request)
+    {
+     //dd('test');
+        $training = Training::find($request->id);
+        $training->status = $request->status;
+        $training->save();
+  
+        return response()->json(['success'=>'Status change successfully.']);
     }
 }

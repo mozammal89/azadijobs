@@ -13,12 +13,12 @@
         <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(/FrontEnd/images/banner/bnr1.jpg);">
             <div class="container">
                 <div class="dez-bnr-inr-entry">
-                    <h1 class="text-white">Job Detail</h1>
+                    <h1 class="text-white">Job Details</h1>
 					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
 							<li><a href="{{route('index')}}">Home</a></li>
-							<li>Job Detail</li>
+							<li>Job Details</li>
 						</ul>
 					</div>
 					<!-- Breadcrumb row END -->
@@ -29,8 +29,7 @@
         <!-- contact area -->
         <div class="content-block">
             <!-- Job Detail -->
-            <form action="{{route('provider.jpPostDetails',$all_JobPost->id)}}" method="post">
-            @csrf
+            <form action="{{route('searchResultDetails',$all_JobPost->id)}}" method="post">
 			<div class="section-full content-inner-1">
 				<div class="container">
 					<div class="row">
@@ -84,7 +83,7 @@
 								<br>
 
 
-								<a href="{{route('seeker.applyjobs',$all_JobPost->id)}}" class="site-button">Apply This Job</a>
+								<a href="{{route('seeker.applyjobs',$all_JobPost->id)}}" class="site-button" style="margin-bottom: 50px; margin-top: 11px;">Apply This Job</a>
 							</div>
 						</div>
 					</div>
@@ -92,6 +91,7 @@
 			</div>
 			</form>
             <!-- Job Detail -->
+			
 		</div>
     </div>
     <!-- Content END-->

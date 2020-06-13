@@ -54,6 +54,10 @@ Route::post('loadMoreCat/load_cat', 'FrontEndController@load_cat')->name('loadMo
 Route::post('searchResult','SearchJobController@index')->name('searchResult');
 Route::get('searchResult/details/{id}','SearchJobController@searchResultDetails')->name('searchResultDetails');
 
+Route::get('training','FrontEndController@trainingIndex')->name('training');
+Route::get('trainingDetails/{id}','FrontEndController@trainingDetails')->name('trainingDetails');
+Route::get('trainingCourseOutlineDetails/{id}','FrontEndController@trainingCourseOutlineDetails')->name('trainingCourseOutlineDetails');
+
 // FrontEnd Routes Ends Here
 
 
@@ -154,6 +158,7 @@ Route::get('/changeAdsStatus', 'Admin\adsManagementController@changeStatus')->na
 Route::get('/changeGovtJobStatus', 'Admin\GovtJobsController@changeStatus')->name('changeJobStatus');
 Route::get('/changeNoticeStatus', 'Admin\NoticeController@changeStatus')->name('changeNoticeStatus');
 Route::get('/changeCoverImageStatus', 'Admin\CoverImageController@changeStatus')->name('changeCoverImageStatus');
+Route::get('/changeTrainingStatus', 'Admin\trainingController@changeStatus')->name('changeTrainingStatus');
 /*Admin Route End Here*/
 
 

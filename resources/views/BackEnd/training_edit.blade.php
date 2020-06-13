@@ -60,6 +60,10 @@
                         <label>Training Hour</label>
                         <input name="training_hour" type="text" class="form-control" value="{{$trainingDetails->training_hour}}" style="background-color: #ececec;width: 75%;">
                     </div>
+                    <div class="chosen-select-single mg-b-20">
+                        <label>Training Cost</label>
+                        <input name="training_cost" type="text" class="form-control" value="{{$trainingDetails->training_cost}}" style="background-color: #ececec;width: 75%;">
+                    </div>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary btn-lg" style="padding: 8px;margin:14px;margin-left: 455px;">Update</button>           

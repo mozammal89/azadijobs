@@ -7,6 +7,8 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\JobProvider\JobPost;
 use App\Division;
 use App\User;
+use App\Training;
+use App\TrainingCourseOutline;
 use DB;
 
 class FrontEndController extends Controller
@@ -185,6 +187,27 @@ class FrontEndController extends Controller
       }
       echo $output;
      }
+    }
+
+    public function trainingIndex ()
+    {
+      $training_list = Training::get();
+
+      return view ('FrontEnd.training_list',compact('training_list'));
+    }
+
+    public function trainingDetails ($id)
+    {
+      $TrainingDetails = Training::find($id);
+
+      return view ('FrontEnd.training_details', compact('TrainingDetails'));
+    }
+
+    public function trainingCourseOutlineDetails ($id)
+    {
+      $tco_details = TrainingCourseOutline::find($id);
+
+      return view ('FrontEnd.training_course_outline_details', compact('tco_details'));
     }
 
 }

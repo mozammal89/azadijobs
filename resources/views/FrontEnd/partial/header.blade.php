@@ -55,8 +55,8 @@
 							<li>
 								<a href="#">For Candidates <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="#" class="dez-page">Browse Job</a></li>
-									<li><a href="#" class="dez-page">companies</a></li>
+									<li><a href="{{route('browseAllJobs')}}" class="dez-page">Browse Jobs</a></li>
+									<li><a href="{{route('training')}}" class="dez-page">Training</a></li>
 									
 								</ul>
 							</li>

@@ -2,13 +2,9 @@
 
 @push('css')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  />
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"  />
-<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.bootstrap.min.css"  />
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap.min.css"  />
 
-@endpush()
+
+@endpush
 
 @section('content')
 
@@ -18,12 +14,12 @@
     <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(../FrontEnd/images/banner/bnr1.jpg);">
         <div class="container">
             <div class="dez-bnr-inr-entry">
-                <h1 class="text-white">Jobs List</h1>
+                <h1 class="text-white">Search Result</h1>
 				<!-- Breadcrumb row -->
 				<div class="breadcrumb-row">
 					<ul class="list-inline">
 						<li><a href="{{route('index')}}">Home</a></li>
-						<li>Jobs List</li>
+						<li>Job List</li>
 					</ul>
 				</div>
 				<!-- Breadcrumb row END -->
@@ -38,29 +34,119 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-9 col-lg-8">
-						<div class="row">
-							<div class="col-md-12">
-								<table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
-						            <thead>
-						                <tr>
-	                                        <th data-field="id">ID</th>
-	                                        <th data-field="job_title">Job Title</th>
-	                                        <th data-field="application_deadline" >Application Deadline</th>
-	                                        <th data-field="action">Action</th>
-	                                    </tr>
-						            </thead>
-						            <tbody>
-						                @foreach($job_post as $all_JobPost)
-	                                    <tr>         
-	                                        <td>{{$loop->iteration}}</td>
-	                                        <td>{{$all_JobPost->job_title}}</td>
-	                                        <td>{{$all_JobPost->application_deadline}}</td>
-	                                        <td>
-	                                        	<a href="{{route('searchResultDetails',$all_JobPost->id)}}" class="btn btn-info" role="button">Details</a>  
-	                                    </tr>
-	                                    @endforeach
-						            </tbody>
-						        </table>
+						<h5 class="widget-title font-weight-700 text-uppercase">Job List</h5>
+						@foreach($job_post as $all_job_post)
+						<ul class="post-job-bx">
+							<li>
+								<a href="{{route('searchResultDetails',$all_job_post->id)}}">
+									<div class="d-flex m-b30">
+										<div class="job-post-company">
+											<span><img src="{{asset('FrontEnd/images/logo/icon1.png')}}"/></span>
+										</div>
+										<div class="job-post-info">
+											<h4>{{$all_job_post->job_title}}</h4>
+											<ul>
+												<li><i class="fa fa-map-marker"></i>{{$all_job_post->divisions->division_name}}</li>
+												<li><i class="fa fa-bookmark-o"></i>{{$all_job_post->employment_status}}</li>
+												<li><i class="fa fa-clock-o"></i>{{$all_job_post->application_deadline}}</li>
+											</ul>
+										</div>
+									</div>
+									<div class="d-flex">
+										<div class="job-time mr-auto">
+											<span>{{$all_job_post->employment_status}}</span>
+										</div>
+										<!-- <div class="salary-bx">
+											<span>{{$all_job_post->salary}}</span>
+										</div> -->
+									</div>
+									<!-- <span class="post-like fa fa-heart-o"></span> -->
+								</a>							
+							</li>
+						</ul>
+						@endforeach
+					</div>
+					<div class="col-xl-3 col-lg-4">
+						<div class="sticky-top">
+							<div class="clearfix m-b30">
+								<h5 class="widget-title font-weight-700 text-uppercase">Keywords</h5>
+								<div class="">
+									<input type="text" class="form-control" placeholder="Search">
+								</div>
+							</div>
+							<div class="clearfix m-b10">
+								<h5 class="widget-title font-weight-700 m-t0 text-uppercase">Location</h5>
+								<input type="text" class="form-control m-b30" placeholder="Location">
+								<div class="input-group m-b20">
+									<input type="text" class="form-control" placeholder="120">
+									<select>
+										<option>Km</option>
+										<option>miles</option>
+									</select>
+								</div>
+							</div>
+							<div class="clearfix m-b30">
+								<h5 class="widget-title font-weight-700 text-uppercase">Job type</h5>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-6">
+										<div class="product-brand">
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check1" name="example1">
+												<label class="custom-control-label" for="check1">Freelance</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check2" name="example1">
+												<label class="custom-control-label" for="check2">Full Time</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check3" name="example1">
+												<label class="custom-control-label" for="check3">Internship</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check4" name="example1">
+												<label class="custom-control-label" for="check4">Part Time</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check5" name="example1">
+												<label class="custom-control-label" for="check5">Temporary</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-6">
+										<div class="product-brand">
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check8" name="example1">
+												<label class="custom-control-label" for="check8">Internship</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check9" name="example1">
+												<label class="custom-control-label" for="check9">Part Time</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check10" name="example1">
+												<label class="custom-control-label" for="check10">Temporary</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check6" name="example1">
+												<label class="custom-control-label" for="check6">Freelance</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="check7" name="example1">
+												<label class="custom-control-label" for="check7">Full Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix">
+								<h5 class="widget-title font-weight-700 text-uppercase">Category</h5>
+								<select>
+									<option>Any Category</option>
+									<option>Automotive Jobs</option>
+									<option>Construction Facilities</option>
+									<option>Design, Art & Multimedia</option>
+									<option>Food Services</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -73,18 +159,9 @@
 <!-- Content END-->
 
 
-@endsection()
+@endsection
 
 @push('js')
 
-<script>
-	$(document).ready(function() {
-    var table = $('#example').DataTable( {
-        responsive: true
-    } );
- 
-    new $.fn.dataTable.FixedHeader( table );
-} );
-</script>
 
-@endpush()
+@endpush
