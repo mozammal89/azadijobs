@@ -1,4 +1,4 @@
-@extends('FrontEnd.layout')
+ style="width: 25%;"@extends('FrontEnd.layout')
 
 @push('css')
 
@@ -33,37 +33,40 @@
 		        <form action="{{route('trainingCourseOutlineDetails',$tco_details->id)}}" method="post" style="margin-top: -30px;">
 		            @csrf
 		            <div class="row">
-		                <div class="col-md-6">
-		                    
-		                    <div class="form-group">
-		                        <label>Training Title</label>
-		                        <input name="training_id" type="text" class="form-control" value="{{$tco_details->courseOutline->training_title}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="form-group">
-		                        <label>Date</label>
-		                        <input name="date" type="text" class="form-control" value="{{$tco_details->date}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-
-		                    <div class="form-group">
-		                        <label>Training Type</label>
-		                        <input name="type" id="finish2" type="text" class="form-control" value="{{$tco_details->type}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="form-group">
-		                        <label>Training Topic</label>
-		                        <input name="topic" id="finish3" type="text" class="form-control" value="{{$tco_details->topic}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="form-group">
-		                        <label>Duration</label>
-		                        <input name="duration" type="text" class="form-control" value="{{$tco_details->duration}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>                   
-		                </div>
-		                
-		                <div class="col-md-6">
-		                    <div class="form-group">
-		                        <label>Topic Describtion</label>
-		                        <textarea name="topic_describtion" class="form-control" style="background-color: #ececec;width: 75%;" readonly="">{{$tco_details->topic_describtion}}</textarea>
-		                    </div>
-		                </div>
+		            	<div class="col-md-1"></div>
+		            	<div class="col-md-10">
+		            		<table id="example" class="table table-striped table-bordered">
+			            		<tbody>
+			            			<tr>
+			            				<th style="width: 25%;">Training Title</th>
+			            				<td>{{$tco_details->courseOutline->training_title}}</td>
+			            			</tr>
+			            			<tr>
+			            				<th style="width: 25%;">Training Date</th>
+			            				<td>{{$tco_details->date}}</td>
+			            			</tr>
+			            			<tr>
+			            				<th style="width: 25%;">Training Type</th>
+			            				<td>{{$tco_details->type}}</td>
+			            			</tr>
+			            			<tr>
+			            				<th style="width: 25%;">Training Topic</th>
+			            				<td>{{$tco_details->topic}}</td>
+			            			</tr>
+			            			<tr>
+			            				<th style="width: 25%;">Training Duration</th>
+			            				<td>{{$tco_details->duration}}</td>
+			            			</tr>
+			            			<tr>
+			            				<th style="width: 25%;">Topic Describtion</th>
+			            				<td>
+			            					<textarea name="topic_describtion" class="form-control" style="background-color: white;" readonly="">{{$tco_details->topic_describtion}}</textarea>
+			            				</td>
+			            			</tr>
+			            		</tbody>
+			            	</table>
+		            	</div>
+		            	<div class="col-md-1"></div>
 		            </div>           
 		        </form>
 		    </div>

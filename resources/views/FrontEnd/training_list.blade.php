@@ -1,7 +1,7 @@
 @extends('FrontEnd.layout')
 
 @push('css')
-
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 @endpush
 
@@ -18,17 +18,21 @@
 		
 		<div class="row sp20">
 			@foreach($training_list as $all_training)
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="icon-bx-wraper">
-					<div class="icon-content">
-						<div class="icon-md text-primary m-b20"><i class="fas fa-palette"></i></div>
-						<a href="#" class="dez-tilte">{{$all_training->training_title}}</a>
-						<a href="{{route('trainingDetails',$all_training->id)}}">Click Here for Details</a>
-						<div class="rotate-icon"><i class="ti-location-pin"></i></div> 
-					</div>
-				</div>				
-			</div>
-			@endforeach
+			<div class="col-md-3" style="margin-bottom: 40px;">
+		        <a href="{{route('trainingDetails',$all_training->id)}}" target="_blank">
+		        	<div class="row">
+	        			<div class="col-md-12">
+	        				<div class="row">
+			        			<div class="icon-md text-primary"><i class="fas fa-award"></i></div>
+			        			<h5 style="color: #7d4319;">{{$all_training->training_title}}</h5>
+
+		        			</div>
+		        			<span class="training-cost" style="margin-left: 40px;"><i class="ti-money"></i> {{$all_training->training_cost}}</span>
+	        			</div>
+	        		</div>
+		          </a>
+		    </div>
+		    @endforeach
 		</div>
 	</div>
 </div>

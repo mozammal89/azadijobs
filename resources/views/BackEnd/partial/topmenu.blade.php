@@ -15,14 +15,14 @@
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n">
                                             <ul class="nav navbar-nav mai-top-nav">
-                                                <li class="nav-item"><a href="#" class="nav-link">Home</a>
+                                                <li class="nav-item"><a href="" class="nav-link">Home</a>
                                                 </li>
                                                 <li class="nav-item"><a href="#" class="nav-link">About</a>
                                                 </li>
                                                 <li class="nav-item"><a href="#" class="nav-link">Services</a>
                                                 </li>
                                                 <li class="nav-item dropdown res-dis-nn">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Project <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Setting <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
                                                     <div role="menu" class="dropdown-menu animated zoomIn">
                                                         <a href="#" class="dropdown-item">Documentation</a>
                                                         <a href="#" class="dropdown-item">Expert Backend</a>
@@ -78,7 +78,7 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                             <img src="img/product/pro4.jpg" alt="" />
-                                                            <span class="admin-name">Prof.Anderson</span>
+                                                            <span class="admin-name">Log Out</span>
                                                             <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                         </a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
@@ -88,8 +88,8 @@
                                                         </li>
                                                         <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>
                                                         </li> -->
-                                                        <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
-                                                        </li>
+                                                        <!-- <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
+                                                        </li> -->
                                                         <li><a href="{{ route('logout') }}"
                                                              onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
@@ -120,33 +120,24 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="mobile-menu">
                                 <nav id="dropdown">
-                                    <ul class="mobile-menu-nav">
-                                   
-                                        <li><a href="events.html">Event</a></li>
-                                        <li><a data-toggle="collapse" data-target="#demoevent" href="#">Professors <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="demoevent" class="collapse dropdown-header-top">
-                                                <li><a href="all-professors.html">All Professors</a>
-                                                </li>
-                                                <li><a href="add-professor.html">Add Professor</a>
-                                                </li>                           
-                                            </ul>
+                                   <ul class="mobile-menu-nav">
+                                        <li class="nav-item"><a href="" class="nav-link">Home</a>
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#demopro" href="#">Students <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="demopro" class="collapse dropdown-header-top">
-                                                <li><a href="all-students.html">All Students</a>
-                                                </li>
-                                                <li><a href="add-student.html">Add Student</a>
-                                                </li>                                          
-                                            </ul>
+                                        <li class="nav-item"><a href="#" class="nav-link">About</a>
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#democrou" href="#">Courses <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="democrou" class="collapse dropdown-header-top">
-                                                <li><a href="all-courses.html">All Courses</a>
-                                                </li>
-                                                <li><a href="add-course.html">Add Course</a>
-                                                </li>                                            
-                                            </ul>
-                                        </li>                               
+                                        <li class="nav-item"><a href="#" class="nav-link">Services</a>
+                                        </li>
+                                        <li class="nav-item dropdown res-dis-nn">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Setting <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                            <div role="menu" class="dropdown-menu animated zoomIn">
+                                                <a href="#" class="dropdown-item">Documentation</a>
+                                                <a href="#" class="dropdown-item">Expert Backend</a>
+                                                <a href="#" class="dropdown-item">Expert FrontEnd</a>
+                                                <a href="#" class="dropdown-item">Contact Support</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item"><a href="#" class="nav-link">Support</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

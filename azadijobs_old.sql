@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 15, 2020 at 08:23 PM
+-- Generation Time: May 05, 2020 at 10:52 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.20
 
@@ -49,31 +49,6 @@ CREATE TABLE `ads_managements` (
 INSERT INTO `ads_managements` (`id`, `ads_cat_name`, `ads_cat_title`, `ads_ref_url`, `image`, `ads_position`, `start_date`, `end_date`, `status`, `created_at`, `updated_at`) VALUES
 (3, 'Juice', 'Pran Juice', 'https://www.pranfoods.net/brands/beverages', 'image1588447389.png', 'Position 2', '2020-04-12', '2020-04-30', '1', '2020-04-12 00:27:06', '2020-05-02 13:23:09'),
 (4, 'Game Play', 'Marketing', 'www.gameplay.com', 'image1588524986.jpg', 'Position 2', '2020-05-04', '2020-05-31', '1', '2020-05-03 10:56:27', '2020-05-03 10:56:27');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `apply_jobs`
---
-
-CREATE TABLE `apply_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `seeker_id` bigint(20) UNSIGNED NOT NULL,
-  `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `job_post_id` bigint(20) UNSIGNED NOT NULL,
-  `expected_salary` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `apply_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `apply_jobs`
---
-
-INSERT INTO `apply_jobs` (`id`, `seeker_id`, `provider_id`, `job_post_id`, `expected_salary`, `apply_date`, `created_at`, `updated_at`) VALUES
-(9, 59, 'AKTL', 21, '1000000000', '2020-06-07 11:25:51', '2020-06-06 23:25:51', '2020-06-06 23:25:51'),
-(10, 2, 'Provider Reshad', 30, '500', '2020-06-07 13:33:07', '2020-06-07 01:33:07', '2020-06-07 01:33:07');
 
 -- --------------------------------------------------------
 
@@ -183,9 +158,7 @@ INSERT INTO `divisions` (`id`, `division_name`, `created_at`, `updated_at`) VALU
 (8, 'Rajshahi', '2020-04-02 00:40:38', '2020-04-02 00:40:38'),
 (9, 'Syhllet', '2020-04-02 00:41:04', '2020-04-02 00:41:04'),
 (10, 'Chottogram', '2020-04-02 00:41:24', '2020-04-02 00:41:24'),
-(11, 'Khulna', '2020-04-02 00:41:48', '2020-04-02 00:41:48'),
-(12, 'Test', '2020-06-03 15:33:05', '2020-06-03 15:33:05'),
-(13, 'Test', '2020-06-03 15:33:05', '2020-06-03 15:33:05');
+(11, 'Khulna', '2020-04-02 00:41:48', '2020-04-02 00:41:48');
 
 -- --------------------------------------------------------
 
@@ -335,7 +308,6 @@ CREATE TABLE `job_provider_job_post` (
   `sub_category` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `job_post_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `application_deadline` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `experience` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `joining_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `vacancy` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `job_context` longtext COLLATE utf8mb4_unicode_ci,
@@ -355,17 +327,15 @@ CREATE TABLE `job_provider_job_post` (
 -- Dumping data for table `job_provider_job_post`
 --
 
-INSERT INTO `job_provider_job_post` (`id`, `provider_id`, `job_title`, `category`, `sub_category`, `job_post_date`, `application_deadline`, `experience`, `joining_date`, `vacancy`, `job_context`, `job_responsibilities`, `employment_status`, `educational_requirements`, `additional_requirements`, `job_location`, `salary`, `application_note`, `status`, `created_at`, `updated_at`) VALUES
-(21, '60', 'Software Engineering', '10', '3', '05.05.2020', '31.05.2020', '2 years', '01.06.2020', '2', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '10,000 - 20,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:33:01', '2020-05-05 04:33:01'),
-(22, '60', 'Architecture- XYZ Group', '10', '4', '05.05.2020', '30.05.2020', '3-4 years', '31.05.2020', '4', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '15,000 - 20,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:35:05', '2020-05-05 04:35:05'),
-(23, '60', 'ATM Night Guard (XYZ Bank)', '16', '15', '05.05.2020', '30.05.2020', '6 years', '31.05.2020', '1', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '9', '8,000 - 12,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:37:45', '2020-05-05 04:37:45'),
-(24, '60', 'Mechanical Engineering (Part Time)', '10', '4', '05.05.2020', '30.05.2020', '3 years', '31.05.2020', '4', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Part Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '7', 'Negotiable', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:39:44', '2020-05-05 04:39:44'),
-(25, '60', 'NGO (Opera Group)', '14', '8', '05.05.2020', '30.05.2020', '0-1 years', '31.05.2020', '12', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '16,000 - 22,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:41:18', '2020-05-05 04:41:18'),
-(26, '60', 'Farming Laborer', '11', '6', '05.05.2020', '16.07.2020', '2 years', '01.09.2020', '10', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '8', '6,000 - 10,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:43:06', '2020-05-05 04:43:06'),
-(27, '60', 'Govt Job (Office)', '12', '9', '07.05.2020', '18.05.2020', '1-2 years', '03.06.2020', '5', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '16,000 - 23,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:45:57', '2020-05-05 04:45:57'),
-(28, '60', 'Private Jobs', '13', '11', '04.05.2020', '18.05.2020', '2 years', '25.05.2020', '3', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', 'Negotiable', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:46:44', '2020-05-05 04:46:44'),
-(29, '60', 'Home Jobs', '13', '11', '10.05.2020', '30.05.2020', '5-6 years', '31.05.2020', '2', '1. Try new thing\r\n2. Is it working?\r\n3. Yes\r\n4.No', '1.\r\n2.\r\n3.', 'Part Time Job', '1.\r\n2.\r\n3.', '1.\r\n2.\r\n3.', '4', '5,000-8,000 BDT', '1.\r\n2.\r\n3.\r\n4.', 1, '2020-05-10 03:21:07', '2020-05-10 03:21:07'),
-(30, '69', 'Reshad Job', '10', '3', '07.06.2020', '30.06.2020', '5-6 years', '30.06.2020', '1', 'qqq', 'qq', 'Part Time Job', 'qq', 'qq', '8', '100', 'qq', 1, '2020-06-07 00:15:53', '2020-06-07 00:15:53');
+INSERT INTO `job_provider_job_post` (`id`, `provider_id`, `job_title`, `category`, `sub_category`, `job_post_date`, `application_deadline`, `joining_date`, `vacancy`, `job_context`, `job_responsibilities`, `employment_status`, `educational_requirements`, `additional_requirements`, `job_location`, `salary`, `application_note`, `status`, `created_at`, `updated_at`) VALUES
+(21, '60', 'Software Engineering', '10', '3', '05.05.2020', '31.05.2020', '01.06.2020', '2', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '10,000 - 20,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:33:01', '2020-05-05 04:33:01'),
+(22, '60', 'Architecture- XYZ Group', '10', '4', '05.05.2020', '30.05.2020', '31.05.2020', '4', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '15,000 - 20,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:35:05', '2020-05-05 04:35:05'),
+(23, '60', 'ATM Night Guard (XYZ Bank)', '16', '15', '05.05.2020', '30.05.2020', '31.05.2020', '1', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '9', '8,000 - 12,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:37:45', '2020-05-05 04:37:45'),
+(24, '60', 'Mechanical Engineering (Part Time)', '10', '4', '05.05.2020', '30.05.2020', '31.05.2020', '4', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Part Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '7', 'Negotiable', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:39:44', '2020-05-05 04:39:44'),
+(25, '60', 'NGO (Opera Group)', '14', '8', '05.05.2020', '30.05.2020', '31.05.2020', '12', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '16,000 - 22,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:41:18', '2020-05-05 04:41:18'),
+(26, '60', 'Farming Laborer', '11', '6', '05.05.2020', '16.07.2020', '01.09.2020', '10', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '8', '6,000 - 10,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:43:06', '2020-05-05 04:43:06'),
+(27, '60', 'Govt Job (Office)', '12', '9', '07.05.2020', '18.05.2020', '03.06.2020', '5', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', '16,000 - 23,000 BDT', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:45:57', '2020-05-05 04:45:57'),
+(28, '60', 'Private Jobs', '13', '11', '04.05.2020', '18.05.2020', '25.05.2020', '3', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', 'Full Time Job', '1. Some Text\r\n2. Some other text\r\n3. Done', '1. Some Text\r\n2. Some other text\r\n3. Done', '4', 'Negotiable', '1. Some Text\r\n2. Some other text\r\n3. Done', 1, '2020-05-05 04:46:44', '2020-05-05 04:46:44');
 
 -- --------------------------------------------------------
 
@@ -405,8 +375,7 @@ INSERT INTO `job_provider_registers` (`id`, `role_id`, `user_id`, `com_name`, `c
 (15, 3, 65, 'Test 6', 'Dhaka', 'sdfsdf', 12, 'image1588531375.jpg', '54', '4654', '1234', 'sadff@gmail.com', '2020-05-07', 1, '2020-05-03 12:42:55', '2020-05-03 12:42:55'),
 (16, 3, 66, 'Test 7', 'Dhaka', 'gbkg', 10, 'image1588531428.png', '4564', '646', '9874', 'jgkh@gmail.com', '2020-05-08', 1, '2020-05-03 12:43:49', '2020-05-03 12:43:49'),
 (17, 3, 67, 'Test 8', 'Dhaka', 'kjfgvbj', 11, 'image1588531481.png', '545', '2513', '3223', 'knj@gmail.com', '2020-05-13', 1, '2020-05-03 12:44:41', '2020-05-03 12:44:41'),
-(18, 3, 68, 'Test 9', 'Dhaka', 'iugf', 13, 'image1588531590.png', '5454', '5454', '7789', 'uhgu@gmail.com', '2020-05-12', 1, '2020-05-03 12:46:30', '2020-05-03 12:46:30'),
-(19, 3, 69, 'Provider Reshad', 'bogura', 'test@gmail.com', 10, 'image1591510189.jpg', '123', '456', '9248596', 'test@gmail.com', '2020-06-04', 1, '2020-06-07 00:09:50', '2020-06-07 00:09:50');
+(18, 3, 68, 'Test 9', 'Dhaka', 'iugf', 13, 'image1588531590.png', '5454', '5454', '7789', 'uhgu@gmail.com', '2020-05-12', 1, '2020-05-03 12:46:30', '2020-05-03 12:46:30');
 
 -- --------------------------------------------------------
 
@@ -572,7 +541,7 @@ CREATE TABLE `job_seeker_registers` (
 --
 
 INSERT INTO `job_seeker_registers` (`id`, `role_id`, `user_id`, `seeker_name`, `phn_number`, `seeker_address`, `seeker_email`, `seeker_image`, `interested_area`, `created_at`, `updated_at`) VALUES
-(28, 2, 59, 'Ruhin', '1234', 'Uttara', 'ruhin@gmail.com', 'image1584860545.jpg', '10', '2020-03-22 01:02:25', '2020-06-03 15:31:46');
+(28, 2, 59, 'Ruhin', '1234', 'Uttara', 'ruhin@gmail.com', 'image1584860545.jpg', '10', '2020-03-22 01:02:25', '2020-04-07 01:24:40');
 
 -- --------------------------------------------------------
 
@@ -616,8 +585,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (37, '2020_04_28_063516_create_institutes_table', 20),
 (38, '2020_04_28_071515_create_districts_table', 21),
 (39, '2020_04_29_045120_create_notices_table', 22),
-(40, '2020_04_30_093758_create_cover_images_table', 23),
-(42, '2020_06_02_142416_create_apply_jobs_table', 24);
+(40, '2020_04_30_093758_create_cover_images_table', 23);
 
 -- --------------------------------------------------------
 
@@ -706,8 +674,6 @@ CREATE TABLE `trainings` (
   `training_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `training_place` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `training_hour` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `training_cost` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -716,11 +682,9 @@ CREATE TABLE `trainings` (
 -- Dumping data for table `trainings`
 --
 
-INSERT INTO `trainings` (`id`, `training_title`, `training_subject`, `training_describtion`, `training_name`, `training_number`, `training_address`, `training_place`, `training_hour`, `training_cost`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Learn PHP', 'PHP', 'This is a PHP training course. Hope you will like it.', 'Learn PHP', '1', 'Uttara', 'Home', '40 Hour', 'BDT 3000', '1', '2020-04-15 09:17:39', '2020-06-12 01:51:50'),
-(3, 'Learn Java', 'Java', 'This a second training name as Java', 'JaaVaa', '2', 'Shahbag', 'Dhaka', '20 Hours', 'BDT 2000', '1', '2020-04-16 00:31:27', '2020-06-12 01:51:50'),
-(4, 'Learn HTML', 'HTML', '1.jnhfjk\r\n2.wsfv', 'Free HTML', '3', 'Dhaka', 'Home', '20 Hours', 'Free', '1', '2020-06-13 03:50:24', '2020-06-13 03:50:24'),
-(5, 'Learn JS', 'JS', 'IT IS A TESTING DESCRIBTION', 'JS Training', '4', 'Dhaka', 'Remote Training', '10 Hours', '1,000', '1', '2020-06-14 23:29:30', '2020-06-14 23:29:30');
+INSERT INTO `trainings` (`id`, `training_title`, `training_subject`, `training_describtion`, `training_name`, `training_number`, `training_address`, `training_place`, `training_hour`, `created_at`, `updated_at`) VALUES
+(2, 'Learn PHP', 'PHP', 'This is a PHP training course. Hope you will like it.', 'Learn PHP', '1', 'Uttara', 'Home', '40 Hour', '2020-04-15 09:17:39', '2020-04-15 09:17:39'),
+(3, 'Learn Java', 'Java', 'This a second training name as Java', 'JaaVaa', '2', 'Shahbag', 'Dhaka', '20 Hours', '2020-04-16 00:31:27', '2020-04-16 00:31:27');
 
 -- --------------------------------------------------------
 
@@ -779,7 +743,7 @@ INSERT INTO `users` (`id`, `name`, `role_id`, `email`, `mobile`, `email_verified
 (2, 'seeker', 2, 'seeker@gmail.com', '017388511101', NULL, NULL, NULL, '$2y$10$1mrMzBIpi44pf1ZiAaQqq.yDEw16a1OSY4XfhuKY7u5scW.Nr/Yq2', 1, NULL, NULL, NULL),
 (3, 'provider', 3, 'provider@gmail.com', '017388511102', NULL, NULL, NULL, '$2y$10$1mrMzBIpi44pf1ZiAaQqq.yDEw16a1OSY4XfhuKY7u5scW.Nr/Yq2', 1, NULL, NULL, NULL),
 (42, 'seek', 2, 'seekprofile@gmail.com', '1234', NULL, NULL, NULL, '$2y$10$ttzdlZghmw5yGAqZlsRTG.dt2vRMeb6Xy1gYa2DAmWn0T7LX2yEuS', 1, NULL, '2020-03-08 03:57:48', '2020-03-08 03:57:48'),
-(59, 'Ruhin', 2, 'ruhin@gmail.com', '1234', NULL, NULL, NULL, '$2y$10$xBs0qDmC0DqjH1mZrWWbXeDs7tR64euNTxHfBt5mh9Ks/on58ilzq', 1, NULL, '2020-03-22 01:02:25', '2020-06-03 15:31:46'),
+(59, 'Ruhin', 2, 'ruhin@gmail.com', '1234', NULL, NULL, NULL, '$2y$10$xBs0qDmC0DqjH1mZrWWbXeDs7tR64euNTxHfBt5mh9Ks/on58ilzq', 1, NULL, '2020-03-22 01:02:25', '2020-04-07 01:24:40'),
 (60, 'AKTL', 3, 'aktl@gmail.com', '12321', NULL, NULL, NULL, '$2y$10$8ms0BaK.p1UIemq3QxwH9OOJ66dTbMRaLxK6uhtQhsjroiSC0pESe', 1, NULL, '2020-03-30 00:51:24', '2020-03-30 00:51:24'),
 (61, 'Gramenn Phone', 3, 'grameenphone@gmail.com', '4444', NULL, NULL, NULL, '$2y$10$IlO6UIxzw4DbJybchdGH1.t3TeOpdufl6bJuwdlFUcJQhZO9pZLv.', 1, NULL, '2020-05-03 12:32:08', '2020-05-03 12:32:08'),
 (62, 'Bangla Link', 3, 'www.banglalink@gmail.com', '2222', NULL, NULL, NULL, '$2y$10$vMmYCc668tz2FGdWOcCX5e8KQHGlLs9pvVozZ.PVODxKlfqxWs9ve', 1, NULL, '2020-05-03 12:33:46', '2020-05-03 12:33:46'),
@@ -788,8 +752,7 @@ INSERT INTO `users` (`id`, `name`, `role_id`, `email`, `mobile`, `email_verified
 (65, 'Test 6', 3, 'sadff@gmail.com', '1234', NULL, NULL, NULL, '$2y$10$1R.C6ezAb8iOK2yH2/IvF.Me8t22O0cyjMf3NhFQjqL1NJv.HMQNi', 1, NULL, '2020-05-03 12:42:55', '2020-05-03 12:42:55'),
 (66, 'Test 7', 3, 'jgkh@gmail.com', '9874', NULL, NULL, NULL, '$2y$10$l81CPXCwqyJAog7ySDRh6umu3a1GoPUQd8edlKBguflZA/lZmvV32', 1, NULL, '2020-05-03 12:43:49', '2020-05-03 12:43:49'),
 (67, 'Test 8', 3, 'knj@gmail.com', '3223', NULL, NULL, NULL, '$2y$10$0GJj9Rux.ITfVFvRLA6obeAazQej/r4dqOEYaXOqbEPNdBRVII6qq', 1, NULL, '2020-05-03 12:44:41', '2020-05-03 12:44:41'),
-(68, 'Test 9', 3, 'uhgu@gmail.com', '7789', NULL, NULL, NULL, '$2y$10$.VcSnrqFdM75RPZv15cEou/Jtf18sEbzRZG8ew5z/odDGoXvvXi62', 1, NULL, '2020-05-03 12:46:30', '2020-05-03 12:46:30'),
-(69, 'Provider Reshad', 3, 'test@gmail.com', '9248596', NULL, NULL, NULL, '$2y$10$xp./AwZpMctrTVOSdxgYpeacmV0eJISRiry8q086/4RQGGhOvRguu', 1, NULL, '2020-06-07 00:09:50', '2020-06-07 00:09:50');
+(68, 'Test 9', 3, 'uhgu@gmail.com', '7789', NULL, NULL, NULL, '$2y$10$.VcSnrqFdM75RPZv15cEou/Jtf18sEbzRZG8ew5z/odDGoXvvXi62', 1, NULL, '2020-05-03 12:46:30', '2020-05-03 12:46:30');
 
 --
 -- Indexes for dumped tables
@@ -800,14 +763,6 @@ INSERT INTO `users` (`id`, `name`, `role_id`, `email`, `mobile`, `email_verified
 --
 ALTER TABLE `ads_managements`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `apply_jobs`
---
-ALTER TABLE `apply_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `apply_jobs_seeker_id_foreign` (`seeker_id`),
-  ADD KEY `apply_jobs_job_post_id_foreign` (`job_post_id`);
 
 --
 -- Indexes for table `cover_images`
@@ -977,12 +932,6 @@ ALTER TABLE `ads_managements`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `apply_jobs`
---
-ALTER TABLE `apply_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT for table `cover_images`
 --
 ALTER TABLE `cover_images`
@@ -1010,7 +959,7 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `divisions`
 --
 ALTER TABLE `divisions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -1046,13 +995,13 @@ ALTER TABLE `job_categories`
 -- AUTO_INCREMENT for table `job_provider_job_post`
 --
 ALTER TABLE `job_provider_job_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `job_provider_registers`
 --
 ALTER TABLE `job_provider_registers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `job_seeker_address`
@@ -1094,7 +1043,7 @@ ALTER TABLE `job_seeker_registers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `notices`
@@ -1112,7 +1061,7 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT for table `trainings`
 --
 ALTER TABLE `trainings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `training_course_outlines`
@@ -1124,18 +1073,11 @@ ALTER TABLE `training_course_outlines`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `apply_jobs`
---
-ALTER TABLE `apply_jobs`
-  ADD CONSTRAINT `apply_jobs_job_post_id_foreign` FOREIGN KEY (`job_post_id`) REFERENCES `job_provider_job_post` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `apply_jobs_seeker_id_foreign` FOREIGN KEY (`seeker_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `employees`

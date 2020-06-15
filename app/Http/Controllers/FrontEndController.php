@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\JobProvider\JobPost;
+use App\JobProvider\JobProvider;
 use App\Division;
 use App\User;
 use App\Training;
@@ -189,9 +190,16 @@ class FrontEndController extends Controller
      }
     }
 
+    public function browseAllClients ()
+    {
+      $jobProvider = JobProvider::get();
+
+      return view ('FrontEnd.browse_all_clients', compact('jobProvider'));
+    }
+
     public function trainingIndex ()
     {
-      $training_list = Training::get();
+      $training_list = Training::where('status','1')->get();
 
       return view ('FrontEnd.training_list',compact('training_list'));
     }

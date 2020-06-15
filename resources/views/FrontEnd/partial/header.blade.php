@@ -45,42 +45,45 @@
                     <!-- main nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
                         <ul class="nav navbar-nav">
-							<li class="active">
-								<a href="#">Home <i class="fa fa-chevron-down"></i></a>
+							<li class="sub-menu">
+								<a href="#">Categories <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="#" class="dez-page">Home 1</a></li>
-									<li><a href="#" class="dez-page">Home 2</a></li>
+									<li><a href="{{route('browseAllCat')}}" class="dez-page">Browes Categories</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu">
+								<a href="#">Jobs <i class="fa fa-chevron-down"></i></a>
+								<ul class="sub-menu">
+									<li><a href="{{route('browseAllJobs')}}" class="dez-page">Browse Jobs</a></li>
 								</ul>
 							</li>
 							<li>
-								<a href="#">For Candidates <i class="fa fa-chevron-down"></i></a>
+								<a href="#">Trainings <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="{{route('browseAllJobs')}}" class="dez-page">Browse Jobs</a></li>
-									<li><a href="{{route('training')}}" class="dez-page">Training</a></li>
+									<li><a href="{{route('training')}}" class="dez-page">Training Lists</a></li>
 									
 								</ul>
 							</li>
-							<li>
-								<a href="#">For Employers <i class="fa fa-chevron-down"></i></a>
+							<li class="sub-menu">
+								<a href="#">Clients <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="#" class="dez-page">Browse Candidates</a></li>
-									<li><a href="#" class="dez-page">Submit Resume</a></li>
+									<li><a href="{{route('browseAllClients')}}" class="dez-page">Browse Clients</a></li>
 								</ul>
 							</li>
 							<li>
 								<a href="#">Pages <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="#" class="dez-page">About Us</a></li>
-									<li><a href="#" class="dez-page">Coming Soon</a></li>
-									<li><a href="#" class="dez-page">Error 404</a></li>
-									<li><a href="#" class="dez-page">Portfolio</a>
+									<li><a href="{{route('browseAllCat')}}" class="dez-page">Categories</a></li>
+									<li><a href="{{route('browseAllJobs')}}" class="dez-page">Jobs</a></li>
+									<li><a href="{{route('training')}}" class="dez-page">Trainings</a></li>
+									<!-- <li><a href="#" class="dez-page">Portfolio</a>
 										<ul class="sub-menu">
 											<li><a href="#" class="dez-page">Portfolio Grid 2 </a></li>
 											<li><a href="#" class="dez-page">Portfolio Grid 3 </a></li>
 											<li><a href="#" class="dez-page">Portfolio Grid 4 </a></li>
 										</ul>
-									</li>
-									<li><a href="#" class="dez-page">Login</a></li>
+									</li> -->
+									<li><a href="{{route('browseAllClients')}}" class="dez-page">Clients</a></li>
 									<li><a href="#" class="dez-page">Register</a></li>
 									<li><a href="#" class="dez-page">Contact Us</a></li>
 

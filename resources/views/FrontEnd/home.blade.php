@@ -187,7 +187,7 @@
 						<h6 class="fw4 m-b0">20+ New Clients Addes</h5>
 					</div>
 					<div class="align-self-end">
-						<a href="#" class="site-button button-sm">Browse All Clients <i class="fa fa-long-arrow-right"></i></a>
+						<a href="{{route('browseAllClients')}}" class="site-button button-sm">Browse All Clients <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<div class="row blog">

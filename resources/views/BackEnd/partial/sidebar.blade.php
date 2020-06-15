@@ -30,23 +30,19 @@
 
                         @if(Auth::user()->role_id==1)
                         <li>
-                            <a href="{{route('admin.adsManagement')}}" ><span class="fas fa-ad"></span> <span class="mini-click-non">Ads Management</span></a>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Setting</span></a>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-briefcase"></span> <span class="mini-click-non">Govt Jobs</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.jobcategory')}}"><span class="mini-sub-pro">Job Category</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.designation')}}"><span class="mini-sub-pro">Designation</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.department')}}"><span class="mini-sub-pro">Department</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.institute')}}"><span class="mini-sub-pro">Institute</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.district')}}"><span class="mini-sub-pro">District</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.notice')}}"><span class="mini-sub-pro">Notice</span></a></li>
-                                <li><a title="Add Courses" href="{{route('admin.coverImage')}}"><span class="mini-sub-pro">Cover Image</span></a></li>
+                                <li><a title="All Courses" href="{{route('admin.govtJobsCreate')}}"><span class="mini-sub-pro">Add Govt Jobs</span></a></li>
+                                <li><a title="All Courses" href="{{route('admin.govtJobs')}}"><span class="mini-sub-pro">Govt Jobs List</span></a></li>                                
                             </ul>
                         </li>
-                        
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-diagnoses"></span> <span class="mini-click-non">Employees</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="{{route('admin.employeeCreate')}}"><span class="mini-sub-pro">Add Employee</span></a></li>
+                                <li><a title="All Courses" href="{{route('admin.employee')}}"><span class="mini-sub-pro">Employee List</span></a></li>                                
+                            </ul>
+                        </li>
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-chalkboard-teacher"></span> <span class="mini-click-non">Training</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -62,17 +58,20 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-briefcase"></span> <span class="mini-click-non">Govt Jobs</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="{{route('admin.govtJobsCreate')}}"><span class="mini-sub-pro">Add Govt Jobs</span></a></li>
-                                <li><a title="All Courses" href="{{route('admin.govtJobs')}}"><span class="mini-sub-pro">Govt Jobs List</span></a></li>                                
-                            </ul>
+                            <a href="{{route('admin.adsManagement')}}" ><span class="fas fa-ad"></span> <span class="mini-click-non">Ads Management</span></a>
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-diagnoses"></span> <span class="mini-click-non">Employees</span></a>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Setting</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="{{route('admin.employeeCreate')}}"><span class="mini-sub-pro">Add Employee</span></a></li>
-                                <li><a title="All Courses" href="{{route('admin.employee')}}"><span class="mini-sub-pro">Employee List</span></a></li>                                
+                                <li><a title="All Courses" href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.jobcategory')}}"><span class="mini-sub-pro">Job Category</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.designation')}}"><span class="mini-sub-pro">Designation</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.department')}}"><span class="mini-sub-pro">Department</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.institute')}}"><span class="mini-sub-pro">Institute</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.district')}}"><span class="mini-sub-pro">District</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.notice')}}"><span class="mini-sub-pro">Notice</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.coverImage')}}"><span class="mini-sub-pro">Cover Image</span></a></li>
                             </ul>
                         </li>
 

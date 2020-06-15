@@ -33,49 +33,44 @@
 		        <form action="{{route('trainingDetails',$TrainingDetails->id)}}" method="post">
 		            @csrf
 		            <div class="row" style="margin-top: 40px;">
-		                <div class="col-md-6">
-		                    <div class="form-group">
-		                        <label>Training Title</label>
-		                        <input name="training_title" type="text" class="form-control" value="{{$TrainingDetails->training_title}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="form-group">
-		                        <label>Training Subject</label>
-		                        <input name="training_subject" type="text" class="form-control" value="{{$TrainingDetails->training_subject}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>	                                      
-
-		                    <div class="form-group">
-		                        <label>Training Name</label>
-		                        <input name="training_name" id="finish" type="text" class="form-control" value="{{$TrainingDetails->training_name}}"  style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="form-group">
-		                        <label>Training Number</label>
-		                        <input name="training_number" id="finish2" type="text" class="form-control" value="{{$TrainingDetails->training_number}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="form-group">
-		                        <label>Training Address</label>
-		                        <input name="training_address" id="finish3" type="text" class="form-control" value="{{$TrainingDetails->training_address}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="form-group">
-		                        <label>Training Place</label>
-		                        <input name="training_place" type="text" class="form-control" value="{{$TrainingDetails->training_place}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>                   
-		                </div>
-		                
-		                <div class="col-md-6">
-		                    <div class="form-group">
-		                        <label>Training Describtion</label>
-		                        <textarea name="training_describtion" rows="6" class="form-control" style="background-color: #ececec;width: 75%;" readonly="">{{$TrainingDetails->training_describtion}}</textarea>
-		                    </div>
-
-		                    <div class="chosen-select-single mg-b-20">
-		                        <label>Training Hour</label>
-		                        <input name="training_hour" type="text" class="form-control" value="{{$TrainingDetails->training_hour}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                    <div class="chosen-select-single mg-b-20">
-		                        <label>Training Cost</label>
-		                        <input name="training_cost" type="text" class="form-control" value="{{$TrainingDetails->training_cost}}" style="background-color: #ececec;width: 75%;" readonly="">
-		                    </div>
-		                </div>
+		            	<table id="example" class="table table-striped table-bordered">
+		            		<tbody>
+		            			<tr>
+		            				<th style="width: 25%;">Training Title</th>
+		            				<td>{{$TrainingDetails->training_title}}</td>
+		            			</tr>
+		            			<tr>
+		            				<th style="width: 25%;">Training Subject</th>
+		            				<td>{{$TrainingDetails->training_subject}}</td>
+		            			</tr>
+		            			<tr>
+		            				<th style="width: 25%;">Training Name</th>
+		            				<td>{{$TrainingDetails->training_name}}</td>
+		            			</tr>
+		            			<tr>
+		            				<th style="width: 25%;">Training Number</th>
+		            				<td>{{$TrainingDetails->training_number}}</td>
+		            			</tr>
+		            			<tr>
+		            				<th style="width: 25%;">Training Address</th>
+		            				<td>{{$TrainingDetails->training_address}}</td>
+		            			</tr>
+		            			<tr>
+		            				<th style="width: 25%;">Training Place</th>
+		            				<td>{{$TrainingDetails->training_place}}</td>
+		            			</tr>
+		            			<tr>
+		            				<th style="width: 25%;">Training Cost</th>
+		            				<td>{{$TrainingDetails->training_cost}}</td>
+		            			</tr>
+		            			<tr>
+		            				<th style="width: 25%;">Training Describtion</th>
+		            				<td>
+		            					<textarea name="training_discribtion" rows="3" class="form-control" style="background-color: white;" readonly="">{{$TrainingDetails->training_describtion}}</textarea>
+		            				</td>
+		            			</tr>
+		            		</tbody>
+		            	</table>
 		            </div>           
 			        <div class="form-group">
 		                <a href="{{route('trainingCourseOutlineDetails',$TrainingDetails->id)}}" class="btn btn-success" role="button">Training Course Outline</a>
