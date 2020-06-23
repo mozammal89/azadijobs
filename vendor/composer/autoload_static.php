@@ -457,6 +457,8 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
     );
 
     public static $classMap = array (
+        'App\\Admin\\FooterAboutUsFeedbacks' => __DIR__ . '/../..' . '/app/Admin/FooterAboutUsFeedbacks.php',
+        'App\\Admin\\FooterAboutUsTermsAndCondition' => __DIR__ . '/../..' . '/app/Admin/FooterAboutUsTermsAndCondition.php',
         'App\\AdsManagement' => __DIR__ . '/../..' . '/app/AdsManagement.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\CoverImage' => __DIR__ . '/../..' . '/app/CoverImage.php',
@@ -474,6 +476,7 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
         'App\\Http\\Controllers\\Admin\\DistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DistrictController.php',
         'App\\Http\\Controllers\\Admin\\DivisionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DivisionController.php',
         'App\\Http\\Controllers\\Admin\\EmployeeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/EmployeeController.php',
+        'App\\Http\\Controllers\\Admin\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FooterController.php',
         'App\\Http\\Controllers\\Admin\\GovtJobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GovtJobsController.php',
         'App\\Http\\Controllers\\Admin\\InstituteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/InstituteController.php',
         'App\\Http\\Controllers\\Admin\\NoticeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NoticeController.php',
@@ -497,11 +500,13 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
         'App\\Http\\Controllers\\JobProvider\\JobPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobProvider/JobPostController.php',
         'App\\Http\\Controllers\\JobProvider\\JobProviderController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobProvider/JobProviderController.php',
         'App\\Http\\Controllers\\JobProvider\\JobProviderProfileTab' => __DIR__ . '/../..' . '/app/Http/Controllers/JobProvider/JobProviderProfileTab.php',
+        'App\\Http\\Controllers\\JobSeeker\\ApplyJobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobSeeker/ApplyJobsController.php',
         'App\\Http\\Controllers\\JobSeeker\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobSeeker/DashboardController.php',
         'App\\Http\\Controllers\\JobSeeker\\JobSeekerController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobSeeker/JobSeekerController.php',
         'App\\Http\\Controllers\\JobSeeker\\JobSeekerCvController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobSeeker/JobSeekerCvController.php',
         'App\\Http\\Controllers\\JobSeeker\\JobSeekerProfileTab' => __DIR__ . '/../..' . '/app/Http/Controllers/JobSeeker/JobSeekerProfileTab.php',
         'App\\Http\\Controllers\\LoadMoreController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoadMoreController.php',
+        'App\\Http\\Controllers\\SearchJobController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchJobController.php',
         'App\\Http\\Controllers\\UserLoginCheck' => __DIR__ . '/../..' . '/app/Http/Controllers/UserLoginCheck.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',

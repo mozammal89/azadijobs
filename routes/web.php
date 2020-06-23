@@ -60,6 +60,16 @@ Route::get('training','FrontEndController@trainingIndex')->name('training');
 Route::get('trainingDetails/{id}','FrontEndController@trainingDetails')->name('trainingDetails');
 Route::get('trainingCourseOutlineDetails/{id}','FrontEndController@trainingCourseOutlineDetails')->name('trainingCourseOutlineDetails');
 
+// FrontEnd Footer Start
+Route::get('footerAboutUsTandC','FrontEndController@footerAboutUsTandC')->name('footerAboutUsTandC');
+
+Route::get('footerAboutUsFeedback','FrontEndController@footerAboutUsFeedback')->name('footerAboutUsFeedback');
+Route::post('footerAboutUsFeedback/store','FrontEndController@footerAboutUsFeedbackStore')->name('footerAboutUsFeedbackStore');
+
+Route::get('footerAboutUsAboutUs','FrontEndController@footerAboutUsAboutUs')->name('footerAboutUsAboutUs');
+// FrontEnd Footer End
+
+
 // FrontEnd Routes Ends Here
 
 
@@ -153,6 +163,26 @@ Route::get('coverImage','CoverImageController@index')->name('coverImage');
 Route::post('coverImage/store','CoverImageController@store')->name('coverImage.store');
 Route::put('coverImage/update/{id}','CoverImageController@update')->name('coverImage.update');
 Route::delete('coverImage/delete/{id}','CoverImageController@delete')->name('coverImage.delete');
+
+Route::get('aboutUsTandC','FooterController@index')->name('aboutUsTandC');
+Route::get('aboutUsTandC/create','FooterController@create')->name('aboutUsTandC.create');
+Route::post('aboutUsTandC/store','FooterController@store')->name('aboutUsTandC.store');
+Route::get('aboutUsTandC/details/{id}','FooterController@details')->name('aboutUsTandC.details');
+Route::get('aboutUsTandC/edit/{id}','FooterController@aboutUsTandCGetEdit')->name('aboutUsTandCGetEdit');
+Route::put('aboutUsTandC/update/{id}','FooterController@update')->name('aboutUsTandC.update');
+Route::delete('aboutUsTandC/delete/{id}','FooterController@delete')->name('aboutUsTandC.delete');
+
+Route::get('aboutUsFeedback','FooterController@aboutUsFeedbackIndex')->name('aboutUsFeedback');
+Route::get('aboutUsFeedback/details/{id}','FooterController@aboutUsFeedbackDetails')->name('aboutUsFeedbackDetails');
+Route::delete('aboutUsFeedback/delete/{id}','FooterController@feedbackDelete')->name('aboutUsFeedback.delete');
+
+Route::get('aboutUs/aboutUs','FooterController@aboutUsIndex')->name('aboutUsAboutUs');
+Route::get('aboutUsAboutUs/create','FooterController@aboutUsCreate')->name('aboutUsAboutUs.create');
+Route::post('aboutUsAboutUs/store','FooterController@aboutUsStore')->name('aboutUsAboutUs.store');
+Route::get('aboutUsAboutUs/details/{id}','FooterController@aboutUsDetails')->name('aboutUsAboutUs.details');
+Route::get('aboutUsAboutUs/edit/{id}','FooterController@aboutUsGetEdit')->name('aboutUsGetEdit');
+Route::put('aboutUsAboutUs/update/{id}','FooterController@aboutUsUpdate')->name('aboutUsAboutUs.update');
+Route::delete('aboutUsAboutUs/delete/{id}','FooterController@aboutUsDelete')->name('aboutUsAboutUs.delete');
 
 });
 
@@ -254,6 +284,7 @@ Route::put('jobprovider/update/{id}','JobProvider\JobProviderProfileTab@update')
 
 /*Custome Login Route Start here*/
 Route::post('custom/login','UserLoginCheck@authenticate')->name('user.login');
+Route::post('login','UserLoginCheck@authenticate')->name('login');
 /*Custome Login Route End here*/
 
 // PDF Route Start Here

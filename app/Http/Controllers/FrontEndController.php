@@ -11,6 +11,9 @@ use App\User;
 use App\Training;
 use App\TrainingCourseOutline;
 use DB;
+use App\Admin\FooterAboutUsTermsAndCondition;
+use App\Admin\FooterAboutUsFeedbacks;
+use App\Admin\FooterAboutUsAboutUs;
 
 class FrontEndController extends Controller
 {
@@ -216,6 +219,49 @@ class FrontEndController extends Controller
       $tco_details = TrainingCourseOutline::find($id);
 
       return view ('FrontEnd.training_course_outline_details', compact('tco_details'));
+    }
+
+    public function footerAboutUsTandC ()
+    {
+      $about_us_t_and_c = FooterAboutUsTermsAndCondition::latest()->take(1)->get();
+      return view ('FrontEnd.Footer.about_us_terms_and_conditions',compact('about_us_t_and_c'));
+    }
+
+    public function footerAboutUsFeedback ()
+    {
+      return view ('FrontEnd.Footer.about_us_feedback');
+    }
+
+    public function footerAboutUsFeedbackStore (Request $request)
+    {
+
+      $request->validate([
+            'name' => 'required',
+            'age' => 'required',
+            'email' => 'required',
+            'employment_status' => 'required',
+            'feedback' => 'required',
+         
+        ]);
+
+      $feedback = new footerAboutUsFeedbacks;
+      $feedback->name = $request->name;
+      $feedback->age = $request->age;
+      $feedback->email = $request->email;
+      $feedback->employment_status = $request->employment_status;
+      $feedback->feedback = $request->feedback;
+      // dd($feedback);
+      $feedback->save();
+
+      Toastr::success('Feedback successfully submitted','Submitted');   
+      return redirect()->route('footerAboutUsFeedback')
+                         ->with('success','Feedback updated successfully.');
+
+    }
+
+    public function footerAboutUsAboutUs()
+    {
+      return view ('FrontEnd.Footer.about_us_about_us');
     }
 
 }

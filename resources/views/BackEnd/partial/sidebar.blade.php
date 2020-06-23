@@ -74,6 +74,43 @@
                                 <li><a title="Add Courses" href="{{route('admin.coverImage')}}"><span class="mini-sub-pro">Cover Image</span></a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Footer</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li>
+                                    <a class="has-arrow" title="All Courses" href="all-courses.html"><span class="mini-sub-pro">About Us</span></a>
+                                    <ul>
+                                        <a href="{{route('admin.aboutUsTandC')}}">Terms & Conditions</a>
+                                        <a href="{{route('admin.aboutUsFeedback')}}">Feedback</a>
+                                        <a href="{{route('admin.aboutUsAboutUs')}}">About us</a>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="has-arrow" title="Add Courses" href="all-courses.html"><span class="mini-sub-pro">Job Seeker</span></a>
+                                    <ul>
+                                        <a href="">Create Account</a>
+                                        <a href="">FAQ</a>
+                                        <a href="">Terms & Conditions</a>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="has-arrow" title="Add Courses" href="all-courses.html"><span class="mini-sub-pro">Employeers</span></a>
+                                    <ul>
+                                        <a href="">Login</a>
+                                        <a href="">Corporate Products/Services</a>
+                                        <a href="">Contact</a>
+                                    </ul>
+                                </li>
+                                <!-- <li>
+                                    <a class="has-arrow" title="Add Courses" href="all-courses.html"><span class="mini-sub-pro">Tools & Social Media</span></a>
+                                    <ul>
+                                        <a href="">Facebook</a>
+                                        <a href="">Twitter</a>
+                                        <a href="">Google +</a>
+                                    </ul>
+                                </li> -->
+                            </ul>
+                        </li>
 
                             @else
                             <li>

@@ -144,6 +144,7 @@ $(document).ready(function(){
 
  function load_data(id="", _token)
  {
+	 $id=5;
   $.ajax({
    url:"{{ route('loadmore.load_data') }}",
    method:"POST",

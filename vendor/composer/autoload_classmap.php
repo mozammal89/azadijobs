@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Admin\\FooterAboutUsFeedbacks' => $baseDir . '/app/Admin/FooterAboutUsFeedbacks.php',
+    'App\\Admin\\FooterAboutUsTermsAndCondition' => $baseDir . '/app/Admin/FooterAboutUsTermsAndCondition.php',
     'App\\AdsManagement' => $baseDir . '/app/AdsManagement.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\CoverImage' => $baseDir . '/app/CoverImage.php',
@@ -23,6 +25,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\DistrictController' => $baseDir . '/app/Http/Controllers/Admin/DistrictController.php',
     'App\\Http\\Controllers\\Admin\\DivisionController' => $baseDir . '/app/Http/Controllers/Admin/DivisionController.php',
     'App\\Http\\Controllers\\Admin\\EmployeeController' => $baseDir . '/app/Http/Controllers/Admin/EmployeeController.php',
+    'App\\Http\\Controllers\\Admin\\FooterController' => $baseDir . '/app/Http/Controllers/Admin/FooterController.php',
     'App\\Http\\Controllers\\Admin\\GovtJobsController' => $baseDir . '/app/Http/Controllers/Admin/GovtJobsController.php',
     'App\\Http\\Controllers\\Admin\\InstituteController' => $baseDir . '/app/Http/Controllers/Admin/InstituteController.php',
     'App\\Http\\Controllers\\Admin\\NoticeController' => $baseDir . '/app/Http/Controllers/Admin/NoticeController.php',
@@ -46,11 +49,13 @@ return array(
     'App\\Http\\Controllers\\JobProvider\\JobPostController' => $baseDir . '/app/Http/Controllers/JobProvider/JobPostController.php',
     'App\\Http\\Controllers\\JobProvider\\JobProviderController' => $baseDir . '/app/Http/Controllers/JobProvider/JobProviderController.php',
     'App\\Http\\Controllers\\JobProvider\\JobProviderProfileTab' => $baseDir . '/app/Http/Controllers/JobProvider/JobProviderProfileTab.php',
+    'App\\Http\\Controllers\\JobSeeker\\ApplyJobsController' => $baseDir . '/app/Http/Controllers/JobSeeker/ApplyJobsController.php',
     'App\\Http\\Controllers\\JobSeeker\\DashboardController' => $baseDir . '/app/Http/Controllers/JobSeeker/DashboardController.php',
     'App\\Http\\Controllers\\JobSeeker\\JobSeekerController' => $baseDir . '/app/Http/Controllers/JobSeeker/JobSeekerController.php',
     'App\\Http\\Controllers\\JobSeeker\\JobSeekerCvController' => $baseDir . '/app/Http/Controllers/JobSeeker/JobSeekerCvController.php',
     'App\\Http\\Controllers\\JobSeeker\\JobSeekerProfileTab' => $baseDir . '/app/Http/Controllers/JobSeeker/JobSeekerProfileTab.php',
     'App\\Http\\Controllers\\LoadMoreController' => $baseDir . '/app/Http/Controllers/LoadMoreController.php',
+    'App\\Http\\Controllers\\SearchJobController' => $baseDir . '/app/Http/Controllers/SearchJobController.php',
     'App\\Http\\Controllers\\UserLoginCheck' => $baseDir . '/app/Http/Controllers/UserLoginCheck.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AdminMiddleware' => $baseDir . '/app/Http/Middleware/AdminMiddleware.php',
