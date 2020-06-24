@@ -13,13 +13,13 @@
         <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(/FrontEnd/images/banner/bnr2.jpg);">
             <div class="container">
                 <div class="dez-bnr-inr-entry">
-                    <h1 class="text-white">About Us</h1>
+                    <h1 class="text-white">Contact</h1>
 					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
 							<li><a href="{{route('index')}}">Home</a></li>
-							<li><a href="#">About Us</a></li>
-							<li>About Us</li>
+							<li><a href="#">Employeers</a></li>
+							<li>Contact</li>
 						</ul>
 					</div>
 					<!-- Breadcrumb row END -->
@@ -30,13 +30,6 @@
         <!-- contact area -->
         <div class="content-block">
             @foreach($about_us as $all_infos)
-        	<div class="row">
-                <div class="col-md-1"></div>   
-                    <div class="col-md-10">
-                    {!! $all_infos->describtion !!}
-                    </div>   
-                <div class="col-md-1"></div>   
-            </div>
             <div class="row">
                 <div class="col-md-1"></div>
                     <div class="col-md-10">

@@ -11,13 +11,13 @@
         <div class="sparkline13-list" style="margin-top: -60px;">
             <div class="sparkline13-hd">
                 <div class="main-sparkline13-hd">
-                    <h1>About Us</h1>
+                    <h1>Contact</h1>
                 </div>
             </div>
             <div class="sparkline13-graph">
                 <div class="datatable-dashv1-list custom-datatable-overright">
                     <div id="toolbar">
-                       <a href="{{route('admin.aboutUsAboutUs.create')}}" class="btn btn-info" role="button">Create</a>
+                       <a href="{{route('admin.employersContact.create')}}" class="btn btn-info" role="button">Create</a>
                     </div>
                     <table  id="table" data-toggle="table" data-key-events="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-click-to-select="true" data-toolbar="#toolbar">
                         <thead>
@@ -35,8 +35,8 @@
                                 <td>{{$all_info->email}}</td>
                                 <td>{{$all_info->mobile}}</td>
                                 <td>
-                                    <a href="{{route('admin.aboutUsAboutUs.details',$all_info->id)}}" class="btn btn-warning" role="button">Details</a>
-                                    <a href="{{route('admin.aboutUsGetEdit',$all_info->id)}}" class="btn btn-primary" role="button">Edit</a>
+                                    <a href="{{route('admin.employersContact.details',$all_info->id)}}" class="btn btn-warning" role="button">Details</a>
+                                    <a href="{{route('admin.employersContactGetEdit',$all_info->id)}}" class="btn btn-primary" role="button">Edit</a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_{{$all_info->id}}">Delete</button>
                                 </td>     
                             </tr>
@@ -50,7 +50,7 @@
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                       </div>
-                                      <form action="{{route('admin.aboutUsAboutUs.delete', $all_info->id)}}" method="post"> 
+                                      <form action="{{route('admin.employersContact.delete', $all_info->id)}}" method="post"> 
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-body">

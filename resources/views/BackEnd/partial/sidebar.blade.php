@@ -88,17 +88,15 @@
                                 <li>
                                     <a class="has-arrow" title="Add Courses" href="all-courses.html"><span class="mini-sub-pro">Job Seeker</span></a>
                                     <ul>
-                                        <a href="">Create Account</a>
-                                        <a href="">FAQ</a>
-                                        <a href="">Terms & Conditions</a>
+                                        <a href="#">FAQ</a>
+                                        <a href="{{route('admin.jobSeekersTandC')}}">Terms & Conditions</a>
                                     </ul>
                                 </li>
                                 <li>
                                     <a class="has-arrow" title="Add Courses" href="all-courses.html"><span class="mini-sub-pro">Employeers</span></a>
                                     <ul>
-                                        <a href="">Login</a>
-                                        <a href="">Corporate Products/Services</a>
-                                        <a href="">Contact</a>
+                                        <a href="#">Corporate Products/Services</a>
+                                        <a href="{{route('admin.employersContact')}}">Contact</a>
                                     </ul>
                                 </li>
                                 <!-- <li>

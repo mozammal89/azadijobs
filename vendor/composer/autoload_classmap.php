@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Admin\\FooterAboutUsAboutUs' => $baseDir . '/app/Admin/FooterAboutUsAboutUs.php',
     'App\\Admin\\FooterAboutUsFeedbacks' => $baseDir . '/app/Admin/FooterAboutUsFeedbacks.php',
     'App\\Admin\\FooterAboutUsTermsAndCondition' => $baseDir . '/app/Admin/FooterAboutUsTermsAndCondition.php',
+    'App\\Admin\\FooterJobSeekersTermsAndCondition' => $baseDir . '/app/Admin/FooterJobSeekersTermsAndCondition.php',
     'App\\AdsManagement' => $baseDir . '/app/AdsManagement.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\CoverImage' => $baseDir . '/app/CoverImage.php',

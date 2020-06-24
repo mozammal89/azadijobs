@@ -6,9 +6,9 @@
                         <div class="widget border-0">
                             <h5 class="m-b30 text-white">About Us</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="{{route('footerAboutUsTandC')}}">Terms & Condition</a></li>
-                                <li><a href="{{route('footerAboutUsFeedback')}}">Feedback</a></li>
-                                <li><a href="{{route('footerAboutUsAboutUs')}}">About Us</a></li>
+                                <li><a href="{{route('footerAboutUsTandC')}}" target="_blank">Terms & Condition</a></li>
+                                <li><a href="{{route('footerAboutUsFeedback')}}" target="_blank">Feedback</a></li>
+                                <li><a href="{{route('footerAboutUsAboutUs')}}" target="_blank">About Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -16,9 +16,9 @@
                         <div class="widget border-0">
                             <h5 class="m-b30 text-white">Job Seekers</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="{{route('registration.jobseeker')}}">Create Account</a></li>
+                                <li><a href="{{route('registration.jobseeker')}}" target="_blank">Create Account</a></li>
                                 <!-- <li><a href="#">FAQ</a></li> -->
-                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="{{route('footerJobSeekerTandC')}}" target="_blank">Terms & Condition</a></li>
                             </ul>
                         </div>
                     </div>
@@ -26,9 +26,9 @@
                         <div class="widget border-0">
                             <h5 class="m-b30 text-white">Employers</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="{{route('login')}}">Login</a></li>
+                                <li><a href="{{route('login')}}" target="_blank">Login</a></li>
                                 <li><a href="#">Corporate Products/Services</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="{{route('footerEmployeersContact')}}" target="_blank">Contact</a></li>
                             </ul>
                         </div>
                     </div>

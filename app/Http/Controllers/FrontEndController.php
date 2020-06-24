@@ -14,6 +14,8 @@ use DB;
 use App\Admin\FooterAboutUsTermsAndCondition;
 use App\Admin\FooterAboutUsFeedbacks;
 use App\Admin\FooterAboutUsAboutUs;
+use App\Admin\FooterJobSeekersTermsAndCondition;
+use App\Admin\FooterEmployersContacts;
 
 class FrontEndController extends Controller
 {
@@ -261,7 +263,22 @@ class FrontEndController extends Controller
 
     public function footerAboutUsAboutUs()
     {
-      return view ('FrontEnd.Footer.about_us_about_us');
+      $about_us = footerAboutUsAboutUs::latest()->take(1)->get();
+
+      return view ('FrontEnd.Footer.about_us_about_us', compact('about_us'));
+    }
+
+    public function footerJobSeekerTandC()
+    {
+      $about_us_t_and_c = FooterJobSeekersTermsAndCondition::latest()->take(1)->get();
+      return view ('FrontEnd.Footer.job_seeker_t_c', compact('about_us_t_and_c'));
+    }
+
+    public function footerEmployeersContact()
+    {
+      $about_us = FooterEmployersContacts::latest()->take(1)->get();
+
+      return view ('FrontEnd.Footer.employers_contact', compact('about_us'));
     }
 
 }

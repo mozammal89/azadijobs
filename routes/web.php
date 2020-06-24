@@ -67,6 +67,10 @@ Route::get('footerAboutUsFeedback','FrontEndController@footerAboutUsFeedback')->
 Route::post('footerAboutUsFeedback/store','FrontEndController@footerAboutUsFeedbackStore')->name('footerAboutUsFeedbackStore');
 
 Route::get('footerAboutUsAboutUs','FrontEndController@footerAboutUsAboutUs')->name('footerAboutUsAboutUs');
+
+Route::get('footerJobSeekerTandC','FrontEndController@footerJobSeekerTandC')->name('footerJobSeekerTandC');
+
+Route::get('footerEmployersContact','FrontEndController@footerEmployeersContact')->name('footerEmployeersContact');
 // FrontEnd Footer End
 
 
@@ -183,6 +187,22 @@ Route::get('aboutUsAboutUs/details/{id}','FooterController@aboutUsDetails')->nam
 Route::get('aboutUsAboutUs/edit/{id}','FooterController@aboutUsGetEdit')->name('aboutUsGetEdit');
 Route::put('aboutUsAboutUs/update/{id}','FooterController@aboutUsUpdate')->name('aboutUsAboutUs.update');
 Route::delete('aboutUsAboutUs/delete/{id}','FooterController@aboutUsDelete')->name('aboutUsAboutUs.delete');
+
+Route::get('jobSeekersTandC','FooterController@jobSeekersTandCIndex')->name('jobSeekersTandC');
+Route::get('jobSeekersTandC/create','FooterController@jobSeekersTandCCreate')->name('jobSeekersTandC.create');
+Route::post('jobSeekersTandC/store','FooterController@jobSeekersTandCStore')->name('jobSeekersTandC.store');
+Route::get('jobSeekersTandC/details/{id}','FooterController@jobSeekersTandCDetails')->name('jobSeekersTandC.details');
+Route::get('jobSeekersTandC/edit/{id}','FooterController@jobSeekersTandCGetEdit')->name('jobSeekersTandCGetEdit');
+Route::put('jobSeekersTandC/update/{id}','FooterController@jobSeekersTandCUpdate')->name('jobSeekersTandC.update');
+Route::delete('jobSeekersTandC/delete/{id}','FooterController@jobSeekersTandCDelete')->name('jobSeekersTandC.delete');
+
+Route::get('employers/contact','FooterController@contactIndex')->name('employersContact');
+Route::get('employersContact/create','FooterController@contactCreate')->name('employersContact.create');
+Route::post('employersContact/store','FooterController@contactStore')->name('employersContact.store');
+Route::get('employersContact/details/{id}','FooterController@contactDetails')->name('employersContact.details');
+Route::get('employersContact/edit/{id}','FooterController@employersContactGetEdit')->name('employersContactGetEdit');
+Route::put('employersContact/update/{id}','FooterController@contactUpdate')->name('employersContact.update');
+Route::delete('employersContact/delete/{id}','FooterController@contactDelete')->name('employersContact.delete');
 
 });
 

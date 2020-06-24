@@ -457,8 +457,10 @@ class ComposerStaticInitdfe75bf33d286d9c31b3204c27a2c9da
     );
 
     public static $classMap = array (
+        'App\\Admin\\FooterAboutUsAboutUs' => __DIR__ . '/../..' . '/app/Admin/FooterAboutUsAboutUs.php',
         'App\\Admin\\FooterAboutUsFeedbacks' => __DIR__ . '/../..' . '/app/Admin/FooterAboutUsFeedbacks.php',
         'App\\Admin\\FooterAboutUsTermsAndCondition' => __DIR__ . '/../..' . '/app/Admin/FooterAboutUsTermsAndCondition.php',
+        'App\\Admin\\FooterJobSeekersTermsAndCondition' => __DIR__ . '/../..' . '/app/Admin/FooterJobSeekersTermsAndCondition.php',
         'App\\AdsManagement' => __DIR__ . '/../..' . '/app/AdsManagement.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\CoverImage' => __DIR__ . '/../..' . '/app/CoverImage.php',
