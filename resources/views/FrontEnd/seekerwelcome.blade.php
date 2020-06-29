@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="page-content">
 		<!-- Section Banner -->
 		@foreach($coverImage as $all_cover_iamge)
@@ -14,13 +15,14 @@
 					<div class="find-job-bx">
 						<!-- <p class="site-button button-sm">Find Jobs, Employment & Career Opportunities</p> -->
 						<h2 style="color: springgreen !important">Search Between More Then <br/> <span class="text-primary">{{$countJobPost}}</span> Open Jobs.</h2>
-						<form class="dezPlaceAni">
+						<form class="dezPlaceAni" method="post" action="{{route('searchResult')}}">
+							@csrf
 							<div class="row">
 								<div class="col-lg-4 col-md-6">
 									<div class="form-group">
-										<label>Job Title</label>
+										<!-- <label></label> -->
 										<div class="input-group">
-											<input type="text" class="form-control" placeholder="">
+											<input type="text" class="form-control" name="job_title" placeholder="Job Title">
 											<div class="input-group-append">
 											  <span class="input-group-text"><i class="fa fa-search"></i></span>
 											</div>
@@ -85,7 +87,7 @@
 					<div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="icon-bx-wraper">
 							<div class="icon-content">
-								<div class="icon-md text-primary m-b20"><i class="fas fa-palette"></i></div>
+								<div class="icon-md text-primary m-b20"><i class="fas fa-code-branch"></i></div>
 								<a href="#" class="dez-tilte">{{$all_job_category->job_category_name}}</a>
 								<p class="m-a0">Open Positions</p>
 								<div class="rotate-icon"><i class="ti-location-pin"></i></div> 
@@ -120,7 +122,7 @@
 				<div class="row">
 					<div class="col-lg-9">
 						@foreach($jobPost as $all_job_post)
-						<ul class="post-job-bx">
+						<ul class="post-job-bx" style="margin-bottom: 10px;">
 							<li>
 								<a href="{{route('post.jobdetails',$all_job_post->id)}}">
 									<div class="d-flex m-b30">
@@ -185,96 +187,50 @@
 						<h6 class="fw4 m-b0">20+ New Clients Addes</h5>
 					</div>
 					<div class="align-self-end">
-						<a href="#" class="site-button button-sm">Browse All Clients <i class="fa fa-long-arrow-right"></i></a>
+						<a href="{{route('browseAllClients')}}" class="site-button button-sm">Browse All Clients <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
-				<div class="row blog">
-            <div class="col-md-12">
-              <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#blogCarousel" data-slide-to="1"></li>
-                </ol>
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="row">
-                    	@foreach($jobProvider as $all_job_provider)
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="/images/{{$all_job_provider->provider_image}}" height="30%" width="30%"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>{{$all_job_provider->com_name}}</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <h5>{{$all_job_provider->com_address}}</h5>
-                            </div>
-                            <div class="mt"> <a href="{{$all_job_provider->com_web_link}}" target="_blank" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--.row-->
-                  </div>
-                  <!--.item-->
-                  <div class="carousel-item ">
-                    <div class="row">
-                      <div class="col-md-3" >
-                        <div class="item-box-blog">
-                          <div class="item-box-blog-image">
-                            <!--Date-->
-                           
-                            <!--Image-->
-                            <figure> <img alt="" src="/images/{{$all_job_provider->provider_image}}" height="30%" width="30%"> </figure>
-                          </div>
-                          <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
-                                <h5>{{$all_job_provider->com_name}}</h5>
-                              </a>
-                            </div>
-                            <!--Data-->
-                            
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                              <h5>{{$all_job_provider->com_address}}</h5>
-                            </div>
-                            <div class="mt"> <a href="{{$all_job_provider->com_web_link}}" target="_blank" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                          </div>
-                        </div>
-                      </div>
-                      @endforeach
-                    </div>
-                    <!--.row-->
-                  </div>
-                  <!--.item-->
-                </div>
-                <!--.carousel-inner-->
-              </div>
-              <!--.Carousel-->
-            </div>
-          </div>
+				<div class="row">
+			@foreach($jobProvider as $all_job_provider)
+			<div class="col-md-3" >
+			<div class="item-box-blog" style="padding:0px;padding: 0px;margin-bottom: 15px;">
+			  <div class="item-box-blog-image" style="padding:20px">
+			    <!--Date-->
+			   
+			    <!--Image-->
+			    <figure> <img alt="" src="/images/{{$all_job_provider->provider_image}}"  style="width:100%; height:150px;"> </figure>
+			  </div>
+			  <div class="item-box-blog-body" style="text-align:left; background-color: #f9faff;">
+			    <!--Heading-->
+			    <div class="item-box-blog-text" style="margin-left:10px;">
+					<p style="margin-bottom:0px;"><span><i class="fa fa-phone-square" aria-hidden="true"></i>
+
+					</span> {{$all_job_provider->phn_number}}</p>
+
+						<p style="margin-bottom:0px;"><span><i class="fa fa-envelope" aria-hidden="true"></i>
+
+					</span> {{$all_job_provider->email}}</p>
+
+					<p style="margin-bottom:0px;"><span><i class="fa fa-map-marker" aria-hidden="true"></i>
+					</span> {{$all_job_provider->com_address}}</p>
+				</div>
+			    <!--Data-->
+			    
+			    <!--Text-->
+			    <div class="item-box-blog-text">
+			      <p>{{$all_job_provider->com_address}}</p>
+			    </div>
+			    <!--Read More Button-->
+			  </div>
+			</div>
+			</div>
+			@endforeach
+		</div>
 			</div>
 		</div>
 		<!-- Our Job END -->	
 		<!-- Our Latest Blog -->
 	</div>
-
 
 
 

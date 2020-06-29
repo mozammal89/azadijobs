@@ -96,8 +96,8 @@
                                                         <div class="col-md-1">
                                                             :
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <select class="col-md-4" name="interested_area" style="border: white;">
+                                                        <div class="col-md-8">
+                                                            <select class="col-md-6" name="interested_area" style="border: white;">
                                                             <!-- <option value="">Select Business Type</option> -->
                                                             @foreach($all_categories as $category)
                                                

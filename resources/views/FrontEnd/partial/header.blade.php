@@ -111,6 +111,7 @@
 										<li><a href="{{route('seeker.jobseekerProfile')}}" class="dez-page">Profile</a></li>
 										<li><a href="{{route('seeker.jobseekerCv')}}" class="dez-page">View Resume</a></li>
 										<li><a href="{{route('seeker.jobseekerCvUpload')}}" class="dez-page">Upload Resume</a></li>	
+										<li><a href="{{route('seeker.jsChangePassword')}}" class="dez-page">Change Password</a></li>
 
 										@endif
 

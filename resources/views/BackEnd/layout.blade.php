@@ -91,7 +91,7 @@
        <!-- End Body -->
 
         <!-- Start Footer -->
-        @include('Backend.partial.footer')
+        @include('BackEnd.partial.footer')
         <!-- End Footer -->
     </div>
      <!-- End Welcome area -->

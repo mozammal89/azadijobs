@@ -106,13 +106,13 @@ Route::put('adsManagement/update/{id}','adsManagementController@update')->name('
 Route::delete('adsManagement/delete/{id}','adsManagementController@delete')->name('adsManagement.delete');
 Route::get('adsManagement/details/{id}','adsManagementController@details')->name('adsManagement.details');
 
-Route::get('training','trainingController@index')->name('training');
-Route::get('training/Create','trainingController@trainingCreate')->name('trainingCreate');
-Route::post('training/store','trainingController@trainingStore')->name('trainingStore');
-Route::get('training/details/{id}','trainingController@trainingDetails')->name('trainingDetails');
-Route::get('training/edit/{id}','trainingController@traininggetEdit')->name('trainingEditget');
-Route::put('training/edit/{id}','trainingController@trainingEdit')->name('trainingEdit');
-Route::delete('training/delete/{id}','trainingController@delete')->name('trainingDelete');
+Route::get('training','TrainingController@index')->name('training');
+Route::get('training/Create','TrainingController@trainingCreate')->name('trainingCreate');
+Route::post('training/store','TrainingController@trainingStore')->name('trainingStore');
+Route::get('training/details/{id}','TrainingController@trainingDetails')->name('trainingDetails');
+Route::get('training/edit/{id}','TrainingController@traininggetEdit')->name('trainingEditget');
+Route::put('training/edit/{id}','TrainingController@trainingEdit')->name('trainingEdit');
+Route::delete('training/delete/{id}','TrainingController@delete')->name('trainingDelete');
 
 Route::get('trainingCourseOutline','TrainingCourseOutlineController@index')->name('trainingCourseOutline');
 Route::get('trainingCourseOutline/Create','TrainingCourseOutlineController@trainingCourseOutlineCreate')->name('trainingCourseOutlineCreate');
@@ -204,6 +204,16 @@ Route::get('employersContact/edit/{id}','FooterController@employersContactGetEdi
 Route::put('employersContact/update/{id}','FooterController@contactUpdate')->name('employersContact.update');
 Route::delete('employersContact/delete/{id}','FooterController@contactDelete')->name('employersContact.delete');
 
+Route::get('providers','ProviderListController@index')->name('providerList');
+Route::get('providers/details/{id}','ProviderListController@providersDetails')->name('providersDetails');
+Route::get('providers/edit/{id}','ProviderListController@providersgetEdit')->name('providersgetEdit');
+Route::put('providers/edit/{id}','ProviderListController@providersEdit')->name('providersEdit');
+Route::delete('providers/delete/{id}','ProviderListController@delete')->name('providersDelete');
+
+// Route::get('AllProviders','ChangePasswordController@jpChangePass')->name('AllProviders');
+// Route::get('AllProviders/changePassword/{id}','ChangePasswordController@AllProvidersChangePassword')->name('AllProvidersChangePassword');
+// Route::put('AllProviders/edit/{id}','ChangePasswordController@AllProvidersEdit')->name('AllProvidersEdit');
+
 });
 
 Route::get('/changeAdsStatus', 'Admin\adsManagementController@changeStatus')->name('changeAdsStatus');
@@ -211,6 +221,7 @@ Route::get('/changeGovtJobStatus', 'Admin\GovtJobsController@changeStatus')->nam
 Route::get('/changeNoticeStatus', 'Admin\NoticeController@changeStatus')->name('changeNoticeStatus');
 Route::get('/changeCoverImageStatus', 'Admin\CoverImageController@changeStatus')->name('changeCoverImageStatus');
 Route::get('/changeTrainingStatus', 'Admin\trainingController@changeStatus')->name('changeTrainingStatus');
+Route::get('/changeProviderStatus', 'Admin\ProviderListController@changeStatus')->name('changeProviderStatus');
 /*Admin Route End Here*/
 
 
@@ -231,6 +242,9 @@ Route::get('jpPost/edit/{id}','JobPostController@jobPostgetEdit')->name('jpPostE
 Route::put('jpPost/edit/{id}','JobPostController@jobPostEdit')->name('jpPostEdit');
 Route::delete('jpPost/delete/{id}','JobPostController@delete')->name('jpPostDelete');
 Route::get('jpPost/applicants/{id}','JobPostController@applicants')->name('applicants');
+
+Route::get('jpChangePassword','JpChangePasswordController@jpChangePassword')->name('jpChangePassword');
+Route::post('jpChangePasswordUpdate', 'JpChangePasswordController@store')->name('jpChangePasswordUpdate');
 // Job Post Routes End
 });
 Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'JobProvider\JobPostController@myformAjax'));
@@ -264,6 +278,9 @@ Route::get('applyjobs/{id}','ApplyJobsController@index')->name('applyjobs');
 Route::post('applyjobs/store/{id}','ApplyJobsController@store')->name('applyjobsStore');
 
 // Apply Jobs Route End Here
+
+Route::get('jsChangePassword','JsChangePasswordController@jsChangePassword')->name('jsChangePassword');
+Route::post('jsChangePasswordUpdate', 'JsChangePasswordController@store')->name('jsChangePasswordUpdate');
 
 });
 /*Job Seeker Route End Here*/
