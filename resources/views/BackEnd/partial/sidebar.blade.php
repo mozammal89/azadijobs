@@ -78,6 +78,7 @@
                                 <li><a title="Add Courses" href="{{route('admin.district')}}"><span class="mini-sub-pro">District</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.notice')}}"><span class="mini-sub-pro">Notice</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.coverImage')}}"><span class="mini-sub-pro">Cover Image</span></a></li>
+                                <li><a title="Add Courses" href="{{route('admin.adminChangePassword')}}"><span class="mini-sub-pro">Change Password</span></a></li>
                             </ul>
                         </li>
                         <li>

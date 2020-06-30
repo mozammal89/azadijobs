@@ -69,6 +69,7 @@ class FrontEndController extends Controller
        $data = DB::table('job_provider_job_post')
           ->leftjoin('divisions', 'divisions.id', '=', 'job_provider_job_post.job_location')
           ->select('job_provider_job_post.id','job_provider_job_post.job_title','job_provider_job_post.employment_status','job_provider_job_post.application_deadline','job_provider_job_post.job_location','divisions.division_name')
+          ->where('status', 1)
           ->orderBy('job_provider_job_post.id', 'DESC')
           ->limit(5)
           ->get();
@@ -197,7 +198,7 @@ class FrontEndController extends Controller
 
     public function browseAllClients ()
     {
-      $jobProvider = JobProvider::get();
+      $jobProvider = JobProvider::where('status','1')->get();
 
       return view ('FrontEnd.browse_all_clients', compact('jobProvider'));
     }

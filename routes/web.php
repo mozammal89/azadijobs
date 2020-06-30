@@ -210,6 +210,9 @@ Route::get('providers/edit/{id}','ProviderListController@providersgetEdit')->nam
 Route::put('providers/edit/{id}','ProviderListController@providersEdit')->name('providersEdit');
 Route::delete('providers/delete/{id}','ProviderListController@delete')->name('providersDelete');
 
+Route::get('adminChangePassword','AdminChangePasswordController@adminChangePassword')->name('adminChangePassword');
+Route::post('adminChangePasswordUpdate', 'AdminChangePasswordController@store')->name('adminChangePasswordUpdate');
+
 
 });
 
