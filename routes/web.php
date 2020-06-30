@@ -210,9 +210,6 @@ Route::get('providers/edit/{id}','ProviderListController@providersgetEdit')->nam
 Route::put('providers/edit/{id}','ProviderListController@providersEdit')->name('providersEdit');
 Route::delete('providers/delete/{id}','ProviderListController@delete')->name('providersDelete');
 
-// Route::get('AllProviders','ChangePasswordController@jpChangePass')->name('AllProviders');
-// Route::get('AllProviders/changePassword/{id}','ChangePasswordController@AllProvidersChangePassword')->name('AllProvidersChangePassword');
-// Route::put('AllProviders/edit/{id}','ChangePasswordController@AllProvidersEdit')->name('AllProvidersEdit');
 
 });
 

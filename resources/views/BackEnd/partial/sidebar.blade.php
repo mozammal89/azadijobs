@@ -115,25 +115,17 @@
                                 </li> -->
                             </ul>
                         </li>
+                        @else
                         <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fas fa-key"></span> <span class="mini-click-non">Change Pasword</span></a>
+                            <a class="has-arrow" href="#" aria-expanded="false"><span class="fas fa-briefcase"></span> <span class="mini-click-non">Jobs</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="{{route('admin.AllProviders')}}"><span class="mini-sub-pro">Provider List</span></a></li>
-                                <li><a title="All Courses" href=""><span class="mini-sub-pro">Seeker List</span></a></li>                                
+                                <li><a title="" href="{{route('provider.jpPostCreate')}}"><span class="mini-sub-pro">Add Jobs</span></a></li>
+                                <li><a title="" href="{{route('provider.jpPost')}}"><span class="mini-sub-pro">Jobs Lists</span></a></li> 
                             </ul>
                         </li>
-
-                            @else
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false"><span class="fas fa-briefcase"></span> <span class="mini-click-non">Jobs</span></a>
-                                <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="" href="{{route('provider.jpPostCreate')}}"><span class="mini-sub-pro">Add Jobs</span></a></li>
-                                    <li><a title="" href="{{route('provider.jpPost')}}"><span class="mini-sub-pro">Jobs Lists</span></a></li> 
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="{{route('provider.jpChangePassword')}}" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Change Password</span></a>
-                            </li>
+                        <li>
+                            <a href="{{route('provider.jpChangePassword')}}" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Change Password</span></a>
+                        </li>
 
                         @endif
                     </ul>

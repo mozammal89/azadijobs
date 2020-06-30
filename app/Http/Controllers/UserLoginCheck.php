@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Brian2694\Toastr\Facades\Toastr;
+
 class UserLoginCheck extends Controller
 {
 
@@ -14,9 +16,8 @@ class UserLoginCheck extends Controller
 
     		$request->validate([
     		    				'name'=>'required',
-    		    				'password'=>'required'],[
+    		    				'password'=>'required', 
 
-    		    					'name.required'=>'Enter Valid Email or Phone Number'    		    					
     		    				]);
 
     		$checkByEmail=User::where('email',$request->name)->first();
@@ -52,6 +53,10 @@ class UserLoginCheck extends Controller
 				        }
 
 			   }  
+			}else{
+				Toastr::error('Invalid Email or Password','Error');   
+
+         		return redirect()->route('login');
 			}	
 
 			   if($checkByPhone){
@@ -84,7 +89,11 @@ class UserLoginCheck extends Controller
 
 			   }
 
-		}
+		}else{
+				Toastr::error('Invalid Email or Password','Error');   
+
+         		return redirect()->route('login');
+			}	
 
     }
 }
