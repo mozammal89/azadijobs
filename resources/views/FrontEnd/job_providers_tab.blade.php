@@ -105,7 +105,7 @@
 
                                     </div>
 
-                                    <div id="menu1" class="tab-pane fade">
+                                    <!-- <div id="menu1" class="tab-pane fade">
                                       <h3>Menu 1</h3>
                                       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                     </div>
@@ -116,7 +116,7 @@
                                     <div id="menu3" class="tab-pane fade">
                                       <h3>Menu 3</h3>
                                       <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    </div>
+                                    </div> -->
                                   </div>
 
                                 </div>

@@ -16,11 +16,11 @@ class DashboardController extends Controller
      public function index(){
 
      	$jobCategory = JobCategory::take(8)->get();
-        $jobPost = JobPost::take(6)->get();
+        $jobPost = JobPost::where('status','1')->latest()->take(6)->get();
         $AllJobPost = JobPost::get();
         $countJobPost = count($AllJobPost);
         $adsManagement = AdsManagement::take(2)->get();
-        $jobProvider = JobProvider::take(8)->get();
+        $jobProvider = JobProvider::where('status','1')->take(8)->get();
         $coverImage = CoverImage::take(1)->get();
 
         $search_job_category = JobCategory::get();
