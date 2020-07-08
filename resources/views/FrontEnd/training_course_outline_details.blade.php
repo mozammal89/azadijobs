@@ -30,12 +30,11 @@
         <div class="row" style="margin-top: 60px;">
 		    <div class="col-md-1"></div>
 		    <div class="col-md-10">
-		        
-		            
-		            <div class="row">
-		            	<div class="col-md-1"></div>
-		            	<div class="col-md-10">
-		            		<table id="example" class="table table-striped table-bordered">
+	            <div class="row">
+	            	<div class="col-md-1"></div>
+	            	<div class="col-md-10">
+	            		<table id="example" class="table table-striped table-bordered">
+	            			@if(count($tco_details)>0)
 			            		<tbody>
 			            			<tr>
 			            				<th style="width: 25%;">Training Title</th>
@@ -64,11 +63,14 @@
 			            				</td>
 			            			</tr>
 			            		</tbody>
-			            	</table>
-		            	</div>
-		            	<div class="col-md-1"></div>
-		            </div>           
-		        
+			            		@else
+
+			            		<tbody> <h3>Course outline is not available</h3> </tbody>
+		            		@endif
+		            	</table>
+	            	</div>
+	            	<div class="col-md-1"></div>
+	            </div>
 		    </div>
 		    <div class="col-md-1"></div>
 		</div>
