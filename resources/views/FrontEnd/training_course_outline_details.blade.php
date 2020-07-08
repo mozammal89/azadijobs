@@ -1,4 +1,4 @@
- style="width: 25%;"@extends('FrontEnd.layout')
+@extends('FrontEnd.layout')
 
 @push('css')
 
@@ -30,8 +30,8 @@
         <div class="row" style="margin-top: 60px;">
 		    <div class="col-md-1"></div>
 		    <div class="col-md-10">
-		        <form action="{{route('trainingCourseOutlineDetails',$tco_details->id)}}" method="post" style="margin-top: -30px;">
-		            @csrf
+		        
+		            
 		            <div class="row">
 		            	<div class="col-md-1"></div>
 		            	<div class="col-md-10">
@@ -39,28 +39,28 @@
 			            		<tbody>
 			            			<tr>
 			            				<th style="width: 25%;">Training Title</th>
-			            				<td>{{$tco_details->courseOutline->training_title}}</td>
+			            				<td>{{$tco_details[0]->courseOutline->training_title}}</td>
 			            			</tr>
 			            			<tr>
 			            				<th style="width: 25%;">Training Date</th>
-			            				<td>{{$tco_details->date}}</td>
+			            				<td>{{$tco_details[0]->date}}</td>
 			            			</tr>
 			            			<tr>
 			            				<th style="width: 25%;">Training Type</th>
-			            				<td>{{$tco_details->type}}</td>
+			            				<td>{{$tco_details[0]->type}}</td>
 			            			</tr>
 			            			<tr>
 			            				<th style="width: 25%;">Training Topic</th>
-			            				<td>{{$tco_details->topic}}</td>
+			            				<td>{{$tco_details[0]->topic}}</td>
 			            			</tr>
 			            			<tr>
 			            				<th style="width: 25%;">Training Duration</th>
-			            				<td>{{$tco_details->duration}}</td>
+			            				<td>{{$tco_details[0]->duration}}</td>
 			            			</tr>
 			            			<tr>
 			            				<th style="width: 25%;">Topic Describtion</th>
 			            				<td>
-			            					<textarea name="topic_describtion" class="form-control" style="background-color: white;" readonly="">{{$tco_details->topic_describtion}}</textarea>
+			            					<textarea name="topic_describtion" class="form-control" style="background-color: white;" readonly="">{{$tco_details[0]->topic_describtion}}</textarea>
 			            				</td>
 			            			</tr>
 			            		</tbody>
@@ -68,7 +68,7 @@
 		            	</div>
 		            	<div class="col-md-1"></div>
 		            </div>           
-		        </form>
+		        
 		    </div>
 		    <div class="col-md-1"></div>
 		</div>

@@ -219,7 +219,7 @@ class FrontEndController extends Controller
 
     public function trainingCourseOutlineDetails ($id)
     {
-      $tco_details = TrainingCourseOutline::find($id);
+      $tco_details = TrainingCourseOutline::where('training_id', $id)->get();
 
       return view ('FrontEnd.training_course_outline_details', compact('tco_details'));
     }
