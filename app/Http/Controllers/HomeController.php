@@ -9,6 +9,8 @@ use App\Division;
 use App\AdsManagement;
 use App\JobProvider\JobProvider;
 use App\CoverImage;
+use App\User;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -44,5 +46,28 @@ class HomeController extends Controller
         $search_division = Division::get();
 
         return view('FrontEnd.home', compact('jobCategory', 'jobPost', 'adsManagement', 'jobProvider', 'coverImage', 'countJobPost', 'search_job_category', 'search_division'));
+    }
+
+    public function mailChangePage ()
+    {
+        return view('auth.passwords.email');
+    }
+
+    public function mail(Request $request)
+    {
+        // dd($request->all());
+
+        $user = User::where('email',$request->email)->first();
+        if($user){
+            Mail::to($request->email)->send(new \App\Mail\Userpasswordreset($user));
+
+        // Mail::send('emails.mailEvent', $user, function($message) use ($user) {
+        //     $message->to($user->email);
+        //     $message->subject('Sendgrid Testing');
+        // });
+    }else{
+        return 'Data not found';
+        dd('Mail Send Successfully');
+    }
     }
 }

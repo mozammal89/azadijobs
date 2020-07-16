@@ -327,3 +327,8 @@ Route::post('login','UserLoginCheck@authenticate')->name('login');
 // PDF Route Start Here
 Route::get('jobseekerCv',array('as'=>'jobseekerCv','uses'=>'ItemController@jobseekerCv'));
 // PDF Route Ends Here
+
+//Reset Password Route Start
+Route::get('mailChangePage', 'HomeController@mailChangePage')->name('mailChangePage');
+Route::post('mail', 'HomeController@mail')->name('mail');
+//Reset Password Route End
