@@ -21,6 +21,8 @@ class DistrictController extends Controller
 
     	$request->validate([
             'district_name' => 'required',
+            'district_name' => 'required|unique:districts,district_name',
+
          
         ]);
 

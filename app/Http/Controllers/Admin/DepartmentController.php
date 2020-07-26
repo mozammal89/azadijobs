@@ -21,6 +21,7 @@ class DepartmentController extends Controller
 
     	$request->validate([
             'department_name' => 'required',
+            'department_name' => 'required|unique:departments,department_name',
          
         ]);
 

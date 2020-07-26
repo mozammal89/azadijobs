@@ -66,9 +66,9 @@
 				<div class="section-head d-flex head-counter clearfix">
 					<div class="mr-auto">
 						<h2 class="m-b5">Popular Categories</h2>
-						<h6 class="fw3">20+ Catetories work wating for you</h6>
+						<h6 class="fw3">{{$countAllCat}}+ Catetories are waiting for you</h6>
 					</div>
-					<div class="head-counter-bx">
+					<!-- <div class="head-counter-bx">
 						<h2 class="m-b5 counter">1800</h2>
 						<h6 class="fw3">Jobs Posted</h6>
 					</div>
@@ -79,7 +79,7 @@
 					<div class="head-counter-bx">
 						<h2 class="m-b5 counter">1500</h2>
 						<h6 class="fw3">Freelancers</h6>
-					</div>
+					</div> -->
 				</div>
 				
 				<div class="row sp20">

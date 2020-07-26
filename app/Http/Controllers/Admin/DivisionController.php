@@ -21,6 +21,7 @@ class DivisionController extends Controller
 
     	$request->validate([
             'division_name' => 'required',
+            'division_name' => 'required|unique:divisions,division_name',
          
         ]);
 

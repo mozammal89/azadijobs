@@ -52,12 +52,6 @@ class JobSeekerCvController extends Controller
         // dd($checkUserData);
 
         if ($checkUserData){
-//             $deleteFileName_query = DB::select('SELECT job_seeker_cvs.file FROM `job_seeker_cvs`
-// WHERE job_seeker_cvs.seeker_id = "'.$UserId.'"');
-//             $id_q = DB::select('SELECT job_seeker_cvs.id FROM `job_seeker_cvs`
-// WHERE job_seeker_cvs.seeker_id = "'.$UserId.'"');
-//             $id = $id_q[0]->id;
-            // dd($id);
             $deleteFileName=$checkUserData->file;
             // dd($deleteFileName);
 

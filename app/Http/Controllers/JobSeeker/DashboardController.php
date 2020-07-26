@@ -22,12 +22,12 @@ class DashboardController extends Controller
         $adsManagement = AdsManagement::take(2)->get();
         $jobProvider = JobProvider::where('status','1')->take(8)->get();
         $coverImage = CoverImage::take(1)->get();
+        $allcat = JobCategory::get();
+        $countAllCat = count($allcat);
 
         $search_job_category = JobCategory::get();
         $search_division = Division::get();
-        
-    	return view('FrontEnd.seekerwelcome', compact('jobCategory', 'jobPost', 'adsManagement', 'jobProvider', 'coverImage', 'countJobPost', 'search_job_category', 'search_division'));
 
-    	// dd('hi');
+        return view('FrontEnd.home', compact('jobCategory', 'jobPost', 'adsManagement', 'jobProvider', 'coverImage', 'countJobPost', 'search_job_category', 'search_division', 'countAllCat'));
     }
 }

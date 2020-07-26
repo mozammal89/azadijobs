@@ -20,6 +20,11 @@ class JobProviderController extends Controller
     {
     	// dd($request);
 
+        $this->validate($request,[
+            'phn_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11|max:11',
+            ]);
+
+
         if($request->has('provider_image'))
                 {
                     $file=$request->file('provider_image');

@@ -27,6 +27,12 @@ class JobSeekerController extends Controller
     {
     	// dd($request);
 
+        $this->validate($request,[
+
+            'phn_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11|max:11',
+            'seeker_email' => 'required|email|max:255|unique:users,email',
+            ]);
+
         if($request->has('image'))
                 {
                     $file=$request->file('image');
@@ -88,4 +94,7 @@ class JobSeekerController extends Controller
     	return redirect()->route('seeker.dashboard');
 
     }
+
+
 }
+

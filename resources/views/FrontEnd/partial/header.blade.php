@@ -84,14 +84,23 @@
 										</ul>
 									</li> -->
 									<li><a href="{{route('browseAllClients')}}" class="dez-page">Clients</a></li>
-									<li><a href="#" class="dez-page">Register</a></li>
-									<li><a href="#" class="dez-page">Contact Us</a></li>
 
 									@if(Auth::check())
+                        				<li><a href="{{route('logout')}}" class="dez-page">Logout</a></li>
 
-									<li><a href="{{route('logout')}}" class="dez-page">Logout</a></li>
+                        				@else
+                        				<li><a id="regNew" href="#" class="dez-page"> Sign Up</a></li>
 
-									@endif
+				                            @if (Route::has('register'))
+				                            <li><a id="jpNew" class="dez-page" style="display: none;" href="{{ route('register.jobprovider') }}">Job Provider</a></li>
+				                            <li><a id="jsNew" class="dez-page" style="display: none;" href="{{ route('registration.jobseeker') }}">Job Seeker</a></li>
+				                        	@endif
+
+			                        	<li><a href="{{ route('login') }}" class="dez-page">Login</a></li>
+
+		                            @endif
+
+									<!-- <li><a href="#" class="dez-page">Register</a></li> -->
 
 									
 								</ul>
@@ -131,6 +140,15 @@
 		        $("#js").css("display","");
 		        $("#jp").css("display","");
 		        $("#reg").css("display","none");
+		      })
+		    });
+		</script>
+		<script>
+		    $(document).ready(function(){
+		      $("#regNew").click(function(){
+		        $("#jsNew").css("display","");
+		        $("#jpNew").css("display","");
+		        $("#regNew").css("display","none");
 		      })
 		    });
 		</script>

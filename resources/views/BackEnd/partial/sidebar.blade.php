@@ -67,9 +67,9 @@
                             <a href="{{route('admin.adsManagement')}}" ><span class="fas fa-ad"></span> <span class="mini-click-non">Ads Management</span></a>
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Setting</span></a>
+                            <a class="has-arrow"  aria-expanded="false"><span class="fa fa-cog"></span> <span class="mini-click-non">Setting</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
+                                <li><a  href="{{route('admin.division')}}"><span class="mini-sub-pro">Division</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.jobcategory')}}"><span class="mini-sub-pro">Job Category</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.subcategory')}}"><span class="mini-sub-pro">Sub Category</span></a></li>
                                 <li><a title="Add Courses" href="{{route('admin.designation')}}"><span class="mini-sub-pro">Designation</span></a></li>

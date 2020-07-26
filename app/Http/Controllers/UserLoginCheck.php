@@ -53,11 +53,7 @@ class UserLoginCheck extends Controller
 				        }
 
 			   }  
-			}else{
-				Toastr::error('Invalid Email or Password','Error');   
-
-         		return redirect()->route('login');
-			}	
+			}
 
 			   if($checkByPhone){
 
@@ -90,7 +86,7 @@ class UserLoginCheck extends Controller
 			   }
 
 		}else{
-				Toastr::error('Invalid Email or Password','Error');   
+				Toastr::error('Credentials does not match','Error');   
 
          		return redirect()->route('login');
 			}	

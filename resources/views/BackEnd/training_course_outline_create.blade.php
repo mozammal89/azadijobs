@@ -49,7 +49,7 @@
 					<input id="topic" type="text" class="form-control" placeholder=" " style="background-color: #ececec;width: 75%;">
 				
 		
-					<label>Topic Describtion</label>
+					<label>Topic Description</label>
 					<textarea id="topic_describtion" class="form-control" style="background-color: #ececec;width: 75%;"></textarea>
 				</div>      
 			</div> 
@@ -73,7 +73,7 @@
 			            <th data-field="topic">Topic</th>
 			            <th data-field="type">Type</th>
 			            <th data-field="duration">Duration</th>
-						<th data-field="topic_describtion">Describtion</th>
+						<th data-field="topic_describtion">Description</th>
 						<th data-field="remove">Remove</th>
 			        </tr>
 			    </thead>
